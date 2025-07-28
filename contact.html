@@ -1,53 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <audio id="hoverSound" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_384ea46939.mp3?filename=click-button-app-147358.mp3" preload="auto"></audio>
-
   <meta charset="UTF-8">
   <title>Contact | Shayan's Gaming Hub</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="https://emoji.gg/assets/emoji/5672-gaming.png" type="image/png">
   <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <audio id="hoverSound" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_384ea46939.mp3?filename=click-button-app-147358.mp3" preload="auto"></audio>
 </head>
 <body>
-  <script>
-  const hoverSound = document.getElementById("hoverSound");
-
-  document.querySelectorAll("a").forEach(link => {
-    link.addEventListener("mouseenter", () => {
-      hoverSound.currentTime = 0;
-      hoverSound.play();
-    });
-  });
-</script>
-
   <header>
-    <button id="toggleMode" style="float:right; background:#00ffe5; color:#000; border:none; padding:10px; border-radius:5px; cursor:pointer;">🌙 Toggle Mode</button>
-
     <h1>📬 Contact Me</h1>
+    <button id="toggleMode">🌙 Toggle Mode</button>
     <nav>
-      <a href="/index.html">Home</a>
-      <a href="/games.html">Games</a>
-      <a href="/news.html">News</a>
-      <a href="/contact.html">Contact</a>
+      <a href="index.html">Home</a>
+      <a href="games.html">Games</a>
+      <a href="news.html">News</a>
+      <a href="contact.html">Contact</a>
     </nav>
   </header>
 
-<section>
-  <form>
-    <input type="text" placeholder="Your Name" required><br>
-    <input type="email" placeholder="Your Email" required><br>
-    <textarea placeholder="Your Message" rows="5" required></textarea><br>
-    <input type="submit" value="Send">
-  </form>
-
-  <br>
-  <p>📧 Or email me directly at:</p>
-  <a href="mailto:shayanhaiderswips@gmail.com" style="color: #00ffe5; font-weight: bold;">shayanhaiderswips@gmail.com</a>
-</section>
-
+  <section>
+    <form action="mailto:shayanhaiderswips@gmail.com" method="post" enctype="text/plain">
+      <input type="text" placeholder="Your Name" name="name" required><br>
+      <input type="email" placeholder="Your Email" name="email" required><br>
+      <textarea placeholder="Your Message" name="message" rows="5" required></textarea><br>
+      <input type="submit" value="Send">
+    </form>
+  </section>
 
   <footer>
     <p>© 2025 Shayan's Gaming Hub</p>
   </footer>
+
+  <script>
+    const hoverSound = document.getElementById("hoverSound");
+    document.querySelectorAll("a").forEach(link => {
+      link.addEventListener("mouseenter", () => {
+        hoverSound.currentTime = 0;
+        hoverSound.play();
+      });
+    });
+
+    const toggleBtn = document.getElementById("toggleMode");
+    toggleBtn.addEventListener("click", () => {
+      document.body.classList.toggle("light-mode");
+      if (document.body.classList.contains("light-mode")) {
+        localStorage.setItem("theme", "light");
+      } else {
+        localStorage.setItem("theme", "dark");
+      }
+    });
+
+    window.addEventListener("DOMContentLoaded", () => {
+      if (localStorage.getItem("theme") === "light") {
+        document.body.classList.add("light-mode");
+      }
+    });
+  </script>
 </body>
 </html>

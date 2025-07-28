@@ -1,66 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <audio id="hoverSound" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_384ea46939.mp3?filename=click-button-app-147358.mp3" preload="auto"></audio>
-
   <meta charset="UTF-8">
   <title>Games | Shayan's Gaming Hub</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="https://emoji.gg/assets/emoji/5672-gaming.png" type="image/png">
   <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <audio id="hoverSound" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_384ea46939.mp3?filename=click-button-app-147358.mp3" preload="auto"></audio>
 </head>
 <body>
-  <script>
-  const hoverSound = document.getElementById("hoverSound");
-
-  document.querySelectorAll("a").forEach(link => {
-    link.addEventListener("mouseenter", () => {
-      hoverSound.currentTime = 0;
-      hoverSound.play();
-    });
-  });
-</script>
-
   <header>
-    <button id="toggleMode" style="float:right; background:#00ffe5; color:#000; border:none; padding:10px; border-radius:5px; cursor:pointer;">🌙 Toggle Mode</button>
-
     <h1>🎮 Game List</h1>
+    <button id="toggleMode">🌙 Toggle Mode</button>
     <nav>
-  <a href="/index.html">Home</a>
-  <a href="/games.html">Games</a>
-  <a href="/news.html">News</a>
-  <a href="/contact.html">Contact</a>
-</nav>
+      <a href="index.html">Home</a>
+      <a href="games.html">Games</a>
+      <a href="news.html">News</a>
+      <a href="contact.html">Contact</a>
+    </nav>
   </header>
 
- <section>
-  <a href="https://store.steampowered.com/app/730/CounterStrike_2/" target="_blank" class="game-card">
-    <h3>CS:GO</h3>
-    <p>Global Offensive shooter action.</p>
-  </a>
-
-  <a href="https://www.rockstargames.com/V" target="_blank" class="game-card">
-    <h3>GTA V</h3>
-    <p>Explore Los Santos in this open-world game.</p>
-  </a>
-
-  <a href="https://www.pubg.com/" target="_blank" class="game-card">
-    <h3>PUBG</h3>
-    <p>Battle Royale madness.</p>
-  </a>
-
-  <a href="https://playvalorant.com/" target="_blank" class="game-card">
-    <h3>Valorant</h3>
-    <p>5v5 tactical shooter by Riot Games.</p>
-  </a>
-
-  <a href="https://www.fortnite.com/" target="_blank" class="game-card">
-    <h3>Fortnite</h3>
-    <p>Build, shoot, survive.</p>
-  </a>
-</section>
+  <section>
+    <a href="https://store.steampowered.com/app/730/CounterStrike_2/" target="_blank" class="game-card">
+      <h3>CS:GO</h3>
+      <p>Global Offensive shooter action.</p>
+    </a>
+    <a href="https://store.steampowered.com/app/271590/Grand_Theft_Auto_V/" target="_blank" class="game-card">
+      <h3>GTA V</h3>
+      <p>Explore Los Santos in this open-world game.</p>
+    </a>
+    <a href="https://pubg.com/" target="_blank" class="game-card">
+      <h3>PUBG</h3>
+      <p>Battle Royale madness.</p>
+    </a>
+  </section>
 
   <footer>
     <p>© 2025 Shayan's Gaming Hub</p>
   </footer>
+
+  <script>
+    const hoverSound = document.getElementById("hoverSound");
+    document.querySelectorAll("a").forEach(link => {
+      link.addEventListener("mouseenter", () => {
+        hoverSound.currentTime = 0;
+        hoverSound.play();
+      });
+    });
+
+    const toggleBtn = document.getElementById("toggleMode");
+    toggleBtn.addEventListener("click", () => {
+      document.body.classList.toggle("light-mode");
+      if (document.body.classList.contains("light-mode")) {
+        localStorage.setItem("theme", "light");
+      } else {
+        localStorage.setItem("theme", "dark");
+      }
+    });
+
+    window.addEventListener("DOMContentLoaded", () => {
+      if (localStorage.getItem("theme") === "light") {
+        document.body.classList.add("light-mode");
+      }
+    });
+  </script>
 </body>
 </html>
