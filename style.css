@@ -119,3 +119,21 @@ footer {
   margin-top: 40px;
   font-size: 0.9rem;
 }
+a.game-card {
+  display: block;
+  text-decoration: none;
+  color: white;
+  background: #222;
+  border: 2px solid #00ffe5;
+  padding: 20px;
+  margin: 20px auto;
+  border-radius: 10px;
+  width: 80%;
+  transition: 0.3s ease;
+}
+
+a.game-card:hover {
+  background-color: #00ffe510;
+  border-color: #ff0055;
+  transform: scale(1.02);
+}
