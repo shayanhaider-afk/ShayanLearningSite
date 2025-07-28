@@ -1,16 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <audio id="hoverSound" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_384ea46939.mp3?filename=click-button-app-147358.mp3" preload="auto"></audio>
+
   <meta charset="UTF-8">
   <title>Shayan's Gaming Hub</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" href="https://emoji.gg/assets/emoji/5672-gaming.png" type="image/png">
   <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <audio id="hoverSound" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_384ea46939.mp3?filename=click-button-app-147358.mp3" preload="auto"></audio>
 </head>
 <body>
+<script>
+  const hoverSound = document.getElementById("hoverSound");
+
+  document.querySelectorAll("a").forEach(link => {
+    link.addEventListener("mouseenter", () => {
+      hoverSound.currentTime = 0;
+      hoverSound.play();
+    });
+  });
+</script>
+
+
   <header>
+    <button id="toggleMode" style="float:right; background:#00ffe5; color:#000; border:none; padding:10px; border-radius:5px; cursor:pointer;">🌙 Toggle Mode</button>
+
     <h1>🎮 Shayan's Gaming Hub</h1>
+    <button id="toggleMode">🌙 Toggle Mode</button>
     <nav>
       <a href="index.html">Home</a>
       <a href="games.html">Games</a>
@@ -28,5 +46,34 @@
   <footer>
     <p>© 2025 Shayan's Gaming Hub</p>
   </footer>
+
+  <!-- Sound + Toggle Script -->
+  <script>
+    const hoverSound = document.getElementById("hoverSound");
+
+    document.querySelectorAll("a").forEach(link => {
+      link.addEventListener("mouseenter", () => {
+        hoverSound.currentTime = 0;
+        hoverSound.play();
+      });
+    });
+
+    const toggleBtn = document.getElementById("toggleMode");
+
+    toggleBtn.addEventListener("click", () => {
+      document.body.classList.toggle("light-mode");
+      if (document.body.classList.contains("light-mode")) {
+        localStorage.setItem("theme", "light");
+      } else {
+        localStorage.setItem("theme", "dark");
+      }
+    });
+
+    window.addEventListener("DOMContentLoaded", () => {
+      if (localStorage.getItem("theme") === "light") {
+        document.body.classList.add("light-mode");
+      }
+    });
+  </script>
 </body>
 </html>
