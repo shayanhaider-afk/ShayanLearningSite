@@ -1,161 +1,217 @@
-/* ========= Global Styles ========= */
+/* === General Page Settings === */
 body {
   margin: 0;
   font-family: 'Orbitron', sans-serif;
-  background: linear-gradient(to bottom right, #0f0c29, #302b63, #24243e);
-  color: #fff;
-  text-align: center;
-  animation: fadeIn 1.2s ease-in;
-  transition: background 0.5s ease, color 0.5s ease;
+  background-color: #121212;
+  color: white;
+  transition: background-color 0.3s, color 0.3s;
 }
 
-/* ========== Header ========== */
+.light-mode {
+  background-color: #f0f0f0;
+  color: #121212;
+}
+
+/* === Header and Navigation === */
 header {
-  background: rgba(0, 0, 0, 0.85);
+  background-color: #1f1f1f;
   padding: 20px;
-  border-bottom: 4px solid #00ffe5;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 999;
 }
 
 header h1 {
-  font-size: 2.5rem;
+  margin: 0;
+  font-size: 2rem;
+}
+
+nav {
+  margin-top: 15px;
 }
 
 nav a {
-  color: #00ffe5;
-  margin: 0 12px;
+  color: #00e1ff;
   text-decoration: none;
-  font-weight: bold;
+  margin: 0 12px;
+  font-size: 1rem;
   transition: color 0.3s;
 }
 
 nav a:hover {
-  color: #ff0055;
+  color: #ffaa00;
 }
 
-/* ========== Toggle Button ========== */
+/* === Toggle Button === */
 #toggleMode {
-  float: right;
-  background: #00ffe5;
-  color: black;
+  background-color: #444;
+  color: white;
   border: none;
-  padding: 10px 15px;
-  border-radius: 5px;
-  font-weight: bold;
+  padding: 10px 16px;
+  font-size: 14px;
+  border-radius: 6px;
   cursor: pointer;
-  margin-top: 10px;
+  transition: background 0.3s;
 }
 
-/* ========== Sections ========== */
+#toggleMode:hover {
+  background-color: #666;
+}
+
+.light-mode #toggleMode {
+  background-color: #ccc;
+  color: #000;
+}
+
+.light-mode nav a {
+  color: #0077ff;
+}
+
+.light-mode nav a:hover {
+  color: #e91e63;
+}
+
+/* === Section Layout === */
 section {
-  padding: 30px;
-  max-width: 900px;
+  padding: 30px 20px;
+  max-width: 1000px;
   margin: auto;
 }
 
-/* ========== Cards (Games/News) ========== */
-a.game-card, .news-post {
+/* === Game Cards === */
+.game-card {
   display: block;
-  text-decoration: none;
-  background: #222;
-  border: 2px solid #00ffe5;
-  padding: 20px;
-  margin: 20px auto;
-  border-radius: 10px;
+  background-color: #1a1a1a;
   color: white;
-  width: 90%;
-  transition: transform 0.3s ease, background 0.3s ease, border-color 0.3s ease;
+  padding: 16px;
+  margin: 15px 0;
+  border-radius: 10px;
+  text-decoration: none;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
+  transition: background 0.3s, transform 0.2s;
 }
 
-a.game-card:hover, .news-post:hover {
-  background: #333;
+.game-card:hover {
+  background-color: #272727;
   transform: scale(1.02);
-  border-color: #ff0055;
 }
 
-/* ========== Contact Form ========== */
+.light-mode .game-card {
+  background-color: #fff;
+  color: #000;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.light-mode .game-card:hover {
+  background-color: #f2f2f2;
+}
+
+/* === News Posts === */
+.news-post {
+  background-color: #1a1a1a;
+  padding: 16px;
+  margin: 15px 0;
+  border-left: 5px solid #00e1ff;
+  border-radius: 10px;
+}
+
+.light-mode .news-post {
+  background-color: #fff;
+  border-left-color: #0077ff;
+}
+
+/* === Contact Form === */
+form {
+  background-color: #1a1a1a;
+  padding: 25px;
+  border-radius: 12px;
+  max-width: 600px;
+  margin: auto;
+  box-shadow: 0 0 15px rgba(0,0,0,0.4);
+}
+
 form input, form textarea {
-  margin-top: 15px;
+  width: 100%;
   padding: 10px;
-  border-radius: 8px;
-  width: 80%;
+  margin: 10px 0;
+  font-family: 'Orbitron', sans-serif;
   border: none;
-  font-size: 1rem;
+  border-radius: 8px;
+  background-color: #333;
+  color: white;
 }
 
-input[type="submit"] {
-  background: #00ffe5;
-  color: black;
+form input[type="submit"] {
+  background-color: #00e1ff;
+  color: #000;
   font-weight: bold;
   cursor: pointer;
-  margin-top: 20px;
-  padding: 12px 25px;
-  border-radius: 8px;
-  font-size: 1rem;
+  transition: background 0.3s;
 }
 
-/* ========== Footer ========== */
+form input[type="submit"]:hover {
+  background-color: #00c7e6;
+}
+
+.light-mode form {
+  background-color: #fff;
+}
+
+.light-mode form input,
+.light-mode form textarea {
+  background-color: #f1f1f1;
+  color: #000;
+}
+
+.light-mode form input[type="submit"] {
+  background-color: #0077ff;
+  color: #fff;
+}
+
+/* === About Page Box === */
+.about-box {
+  background-color: #1a1a1a;
+  padding: 30px;
+  border-radius: 12px;
+  max-width: 800px;
+  margin: auto;
+  box-shadow: 0 0 15px rgba(0,0,0,0.4);
+  font-size: 1.1em;
+  line-height: 1.6;
+}
+
+.light-mode .about-box {
+  background-color: #fff;
+  color: #000;
+}
+
+/* === Footer === */
 footer {
-  background: #000;
+  text-align: center;
   padding: 20px;
+  background-color: #1f1f1f;
+  color: #888;
   margin-top: 40px;
-  color: #777;
 }
 
-/* ========== Light Mode Support ========== */
-body.light-mode {
-  background: linear-gradient(to bottom right, #ffffff, #e0e0ff);
-  color: #000;
+.light-mode footer {
+  background-color: #e2e2e2;
+  color: #333;
 }
 
-body.light-mode header {
-  background: rgba(255, 255, 255, 0.9);
-  border-bottom: 4px solid #0000ff;
-}
-
-body.light-mode nav a {
-  color: #0000ff;
-}
-
-body.light-mode nav a:hover {
-  color: #ff00aa;
-}
-
-body.light-mode .game-card,
-body.light-mode .news-post {
-  background: #eee;
-  color: #000;
-  border-color: #0000ff;
-}
-
-body.light-mode input[type="submit"] {
-  background: #0000ff;
-  color: white;
-}
-
-/* ========== Animations ========== */
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-/* ========== Responsive Layout ========== */
+/* === Responsive Media Query === */
 @media (max-width: 768px) {
   nav a {
-    display: block;
-    margin: 10px 0;
+    display: inline-block;
+    margin: 8px 6px;
   }
 
-  a.game-card, .news-post {
-    width: 95%;
+  header h1 {
+    font-size: 1.6rem;
   }
 
-  input, textarea {
-    width: 95%;
-  }
-
-  #toggleMode {
-    float: none;
-    margin: 10px auto;
-    display: block;
+  .about-box, form {
+    padding: 20px;
   }
 }

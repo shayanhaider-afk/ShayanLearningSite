@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>About Me | Shayan's Gaming Hub</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="https://emoji.gg/assets/emoji/5672-gaming.png" type="image/png">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <audio id="hoverSound" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_384ea46939.mp3?filename=click-button-app-147358.mp3" preload="auto"></audio>
+</head>
+<body>
+  <header>
+    <h1>👤 About Me</h1>
+    <button id="toggleMode">🌙 Toggle Mode</button>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="games.html">Games</a>
+      <a href="news.html">News</a>
+      <a href="contact.html">Contact</a>
+      <a href="about.html">About Me</a>
+    </nav>
+  </header>
+
+  <section>
+    <div class="about-box">
+      <h2>Welcome, I'm Shayan Haider 🇵🇰</h2>
+      <p>
+        I'm a chill guy from Pakistan who’s always ready for an adventure — whether it's in the kitchen or a game lobby 🎮🍳<br><br>
+
+        I love cooking up tasty stuff (yes, even late-night snacks), exploring cool video games, and learning new skills that help me grow and do something awesome with my time. Whether it's racing in GTA, clutching in CS, or getting creative in Roblox — gaming is my zone 🕹️🔥
+      </p>
+
+      <p>
+        I'm also working on building my own gaming website (you’re on it right now 👀), where I share games, updates, and more cool stuff. My dream? To do something epic that makes people say: “Whoa, this kid’s got it.”
+      </p>
+
+      <p>
+        If you ever want to collab, give feedback, or just say hi — hit me up from the contact page. Thanks for visiting my world!
+      </p>
+
+      <p style="margin-top: 30px;">Stay awesome,<br><strong>Shayan</strong></p>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Shayan's Gaming Hub</p>
+  </footer>
+
+  <script>
+    const hoverSound = document.getElementById("hoverSound");
+    document.querySelectorAll("a").forEach(link => {
+      link.addEventListener("mouseenter", () => {
+        hoverSound.currentTime = 0;
+        hoverSound.play();
+      });
+    });
+
+    const toggleBtn = document.getElementById("toggleMode");
+    toggleBtn.addEventListener("click", () => {
+      document.body.classList.toggle("light-mode");
+      if (document.body.classList.contains("light-mode")) {
+        localStorage.setItem("theme", "light");
+      } else {
+        localStorage.setItem("theme", "dark");
+      }
+    });
+
+    window.addEventListener("DOMContentLoaded", () => {
+      if (localStorage.getItem("theme") === "light") {
+        document.body.classList.add("light-mode");
+      }
+    });
+  </script>
+</body>
+</html>
