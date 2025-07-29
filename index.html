@@ -21,7 +21,7 @@
 
     .hero.light-mode {
       background: #e2e2e2;
-      color: black;
+      color: #111;
     }
 
     .hero h1 {
@@ -35,7 +35,7 @@
     }
 
     .hero.light-mode p {
-      color: #333;
+      color: #222;
     }
 
     section {
@@ -48,8 +48,9 @@
       border-radius: 10px;
       padding: 1rem;
       margin: 1rem;
-      background-color: #f4f4f4;
-      transition: transform 0.3s ease;
+      background-color: #2a2a2a;
+      color: white;
+      transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
     }
 
     .card:hover {
@@ -63,6 +64,7 @@
 
     body.light-mode .card {
       background-color: #fff;
+      color: #000;
     }
 
     h2 {
@@ -71,6 +73,10 @@
     }
 
     h3 {
+      color: #00cfff;
+    }
+
+    body.light-mode h3 {
       color: #0056b3;
     }
 
@@ -116,7 +122,6 @@
       <a href="libraries.html">Explore Libraries</a>
     </div>
 
-    <
     <div class="card">
       <h3>📚 Life-Changing Books</h3>
       <p>Books that shape your thinking, personality, and power of learning.</p>

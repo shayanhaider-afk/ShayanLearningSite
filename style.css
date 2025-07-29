@@ -1,236 +1,93 @@
-/* === General Page Settings === */
+/* === style.css === */
 body {
   margin: 0;
-  font-family: 'Orbitron', sans-serif;
-  background-color: #121212;
+  padding: 0;
+  font-family: "Times New Roman", serif;
+  background-color: #111;
   color: white;
-  transition: background-color 0.3s, color 0.3s;
+  transition: background-color 0.4s, color 0.4s;
 }
 
-.light-mode {
-  background-color: #f0f0f0;
-  color: #121212;
+body.light-mode {
+  background-color: #f4f4f4;
+  color: #111;
 }
 
-/* === Header and Navigation === */
 header {
-  background-color: #1f1f1f;
-  padding: 20px;
   text-align: center;
-  position: sticky;
-  top: 0;
-  z-index: 999;
+  padding: 2rem;
+  background-color: #222;
 }
 
-header h1 {
-  margin: 0;
-  font-size: 2rem;
+body.light-mode header {
+  background-color: #ddd;
 }
 
 nav {
-  margin-top: 15px;
+  margin-top: 1rem;
 }
 
 nav a {
-  color: #00e1ff;
+  color: #00ffff;
   text-decoration: none;
-  margin: 0 12px;
-  font-size: 1rem;
+  margin: 0 1rem;
+  font-weight: bold;
   transition: color 0.3s;
 }
 
 nav a:hover {
-  color: #ffaa00;
+  color: gold;
 }
 
-/* === Toggle Button === */
-#toggleMode {
-  background-color: #444;
+h1, h2, h3 {
+  margin-bottom: 1rem;
+}
+
+button {
+  padding: 8px 12px;
+  background-color: #003366;
   color: white;
   border: none;
-  padding: 10px 16px;
-  font-size: 14px;
-  border-radius: 6px;
+  border-radius: 5px;
   cursor: pointer;
-  transition: background 0.3s;
+  margin: 0.5rem;
 }
 
-#toggleMode:hover {
-  background-color: #666;
+button:hover {
+  background-color: #0056b3;
 }
 
-.light-mode #toggleMode {
-  background-color: #ccc;
-  color: #000;
+.main-heading {
+  color: white;
+  font-size: 2.5rem;
+  transition: color 0.3s ease;
 }
 
-.light-mode nav a {
-  color: #0077ff;
+body.light-mode .main-heading {
+  color: #003366;
 }
 
-.light-mode nav a:hover {
-  color: #e91e63;
-}
-
-/* === Section Layout === */
 section {
-  padding: 30px 20px;
-  max-width: 1000px;
-  margin: auto;
+  padding: 2rem;
+  text-align: center;
 }
 
-/* === Game Cards === */
-.game-card {
-  display: block;
-  background-color: #1a1a1a;
-  color: white;
-  padding: 16px;
-  margin: 15px 0;
-  border-radius: 10px;
-  text-decoration: none;
-  box-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
-  transition: background 0.3s, transform 0.2s;
-}
-
-.game-card:hover {
-  background-color: #272727;
-  transform: scale(1.02);
-}
-
-.light-mode .game-card {
-  background-color: #fff;
-  color: #000;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.light-mode .game-card:hover {
-  background-color: #f2f2f2;
-}
-
-/* === News Posts === */
-.news-post {
-  background-color: #1a1a1a;
-  padding: 16px;
-  margin: 15px 0;
-  border-left: 5px solid #00e1ff;
-  border-radius: 10px;
-}
-
-.light-mode .news-post {
-  background-color: #fff;
-  border-left-color: #0077ff;
-}
-
-/* === Contact Form === */
-form {
-  background-color: #1a1a1a;
-  padding: 25px;
-  border-radius: 12px;
-  max-width: 600px;
-  margin: auto;
-  box-shadow: 0 0 15px rgba(0,0,0,0.4);
-}
-
-form input, form textarea {
-  width: 100%;
-  padding: 10px;
-  margin: 10px 0;
-  font-family: 'Orbitron', sans-serif;
-  border: none;
-  border-radius: 8px;
-  background-color: #333;
-  color: white;
-}
-
-form input[type="submit"] {
-  background-color: #00e1ff;
-  color: #000;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-
-form input[type="submit"]:hover {
-  background-color: #00c7e6;
-}
-
-.light-mode form {
-  background-color: #fff;
-}
-
-.light-mode form input,
-.light-mode form textarea {
-  background-color: #f1f1f1;
-  color: #000;
-}
-
-.light-mode form input[type="submit"] {
-  background-color: #0077ff;
-  color: #fff;
-}
-
-/* === About Page Box === */
-.about-box {
-  background-color: #1a1a1a;
-  padding: 30px;
-  border-radius: 12px;
-  max-width: 800px;
-  margin: auto;
-  box-shadow: 0 0 15px rgba(0,0,0,0.4);
-  font-size: 1.1em;
-  line-height: 1.6;
-}
-
-.light-mode .about-box {
-  background-color: #fff;
-  color: #000;
-}
-
-/* === Footer === */
 footer {
   text-align: center;
-  padding: 20px;
-  background-color: #1f1f1f;
-  color: #888;
-  margin-top: 40px;
+  padding: 1rem;
+  background-color: #222;
+  color: white;
 }
 
-.light-mode footer {
-  background-color: #e2e2e2;
-  color: #333;
+body.light-mode footer {
+  background-color: #ddd;
+  color: #111;
 }
 
-/* === Responsive Media Query === */
-@media (max-width: 768px) {
+/* Responsive */
+@media (max-width: 600px) {
   nav a {
-    display: inline-block;
-    margin: 8px 6px;
+    display: block;
+    margin: 0.5rem 0;
   }
-
-  header h1 {
-    font-size: 1.6rem;
-  }
-
-  .about-box, form {
-    padding: 20px;
-  }
-}
-.socials {
-  margin-top: 15px;
-}
-
-.socials img {
-  margin: 0 10px;
-  transition: transform 0.3s;
-}
-
-.socials img:hover {
-  transform: scale(1.2);
-}
-.intro {
-  background-color: #1a1a1a;
-  padding: 25px;
-  border-radius: 12px;
-  box-shadow: 0 0 15px rgba(0, 255, 255, 0.2);
-  margin-bottom: 30px;
 }
