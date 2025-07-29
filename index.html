@@ -1,60 +1,147 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="icon" href="https://emoji.gg/assets/emoji/5672-gaming.png" type="image/png">
+  <meta charset="UTF-8" />
+  <title>Shayan's Smart World | Learn & Play</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="https://emoji.gg/assets/emoji/8554-bookopen.png" type="image/png" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      font-family: "Times New Roman", serif;
+      transition: background 0.4s, color 0.4s;
+    }
 
-  <meta charset="UTF-8">
-  <meta name="description" content="Shayan's Gaming Hub - Play and discover awesome games, get latest gaming news, and contact the creator from Pakistan.">
-<meta name="keywords" content="gaming, free games, shayan haider, game news, pakistan, gamer site, roblox, gta, csgo">
-<meta name="author" content="Shayan Haider">
+    .hero {
+      text-align: center;
+      padding: 3rem 1rem;
+      background: linear-gradient(to right, #111, #1f1f1f);
+      color: white;
+    }
 
-  <title>Shayan's Gaming Hub</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" href="https://emoji.gg/assets/emoji/5672-gaming.png" type="image/png">
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+    .hero.light-mode {
+      background: #e2e2e2;
+      color: black;
+    }
 
-  <!-- Audio (only once, not twice) -->
+    .hero h1 {
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      font-size: 20px;
+      color: #ccc;
+    }
+
+    .hero.light-mode p {
+      color: #333;
+    }
+
+    section {
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .card {
+      border: 1px solid #aaa;
+      border-radius: 10px;
+      padding: 1rem;
+      margin: 1rem;
+      background-color: #f4f4f4;
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: scale(1.03);
+    }
+
+    body.light-mode {
+      background-color: #fff;
+      color: #111;
+    }
+
+    body.light-mode .card {
+      background-color: #fff;
+    }
+
+    h2 {
+      font-size: 28px;
+      margin-bottom: 1rem;
+    }
+
+    h3 {
+      color: #0056b3;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+    }
+  </style>
   <audio id="hoverSound" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_384ea46939.mp3?filename=click-button-app-147358.mp3" preload="auto"></audio>
 </head>
 <body>
-
   <header>
-    <h1>🎮 Shayan's Gaming Hub</h1>
+    <h1>📘 Shayan's Smart World</h1>
     <button id="toggleMode">🌙 Toggle Mode</button>
     <nav>
       <a href="index.html">Home</a>
-      <a href="games.html">Games</a>
-      <a href="news.html">News</a>
+      <a href="lessons.html">Lessons</a>
+      <a href="libraries.html">Libraries</a>
+      <a href="books.html">Books</a>
+      <a href="games.html">Smart Games</a>
+      <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
-      <a href="about.html">About Me</a>
     </nav>
   </header>
 
-  <section>
-    <div class="intro">
-    <h2>Welcome to Shayan's Gaming Hub!</h2>
-    <p>This is your one-stop portal for free games, news, and cool content made by a passionate gamer from Pakistan 🎮</p>
+  <div class="hero" id="heroSection">
+    <h1>Welcome to Shayan’s Smart World</h1>
+    <p>Learn deeply. Play wisely. Grow forever.</p>
   </div>
-    <h2>🔥 Welcome to the Ultimate Gaming World</h2>
-    <p>Explore games, news, and connect with me — Shayan from Pakistan! 🇵🇰</p>
-    <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/730/header.jpg" alt="CS:GO Banner" width="100%">
+
+  <section>
+    <h2>Explore the Platform</h2>
+
+    <div class="card">
+      <h3>🧠 Mental Lessons</h3>
+      <p>Build your mindset, focus, emotional strength, and purpose.</p>
+      <a href="lessons.html">Read Lessons</a>
+    </div>
+
+    <div class="card">
+      <h3>🏛️ Great Libraries</h3>
+      <p>Discover the most powerful knowledge centers on Earth.</p>
+      <a href="libraries.html">Explore Libraries</a>
+    </div>
+
+    <
+    <div class="card">
+      <h3>📚 Life-Changing Books</h3>
+      <p>Books that shape your thinking, personality, and power of learning.</p>
+      <a href="books.html">View Books</a>
+    </div>
+
+    <div class="card">
+      <h3>🎮 Smart Games</h3>
+      <p>Fun games that build skills like logic, strategy, memory, and creativity.</p>
+      <a href="games.html">Play & Learn</a>
+    </div>
+
+    <div class="card">
+      <h3>👦 About Me</h3>
+      <p>Who is Shayan Haider? Get to know my story and why I built this.</p>
+      <a href="about.html">Read About Me</a>
+    </div>
   </section>
 
   <footer>
-    <div class="socials">
-  <a href="https://discord.com/channels/@me/742269661579575386" target="_blank"><img src="https://img.icons8.com/ios-filled/30/00e1ff/discord-logo.png"/></a>
-  <a href="https://www.youtube.com/@Killer15252" target="_blank"><img src="https://img.icons8.com/ios-filled/30/00e1ff/youtube-play.png"/></a>
-</div>
-
-    <p>© 2025 Shayan's Gaming Hub</p>
+    <p>© 2025 Shayan’s Smart World | Built by a Dreamer ✨</p>
   </footer>
 
-  <!-- JS at bottom -->
   <script>
     const hoverSound = document.getElementById("hoverSound");
-
-    // Play sound when hovering links
     document.querySelectorAll("a").forEach(link => {
       link.addEventListener("mouseenter", () => {
         hoverSound.currentTime = 0;
@@ -62,11 +149,13 @@
       });
     });
 
-    // Toggle dark/light mode
     const toggleBtn = document.getElementById("toggleMode");
+    const heroSection = document.getElementById("heroSection");
 
     toggleBtn.addEventListener("click", () => {
       document.body.classList.toggle("light-mode");
+      heroSection.classList.toggle("light-mode");
+
       if (document.body.classList.contains("light-mode")) {
         localStorage.setItem("theme", "light");
       } else {
@@ -74,10 +163,10 @@
       }
     });
 
-    // Load saved theme
     window.addEventListener("DOMContentLoaded", () => {
       if (localStorage.getItem("theme") === "light") {
         document.body.classList.add("light-mode");
+        heroSection.classList.add("light-mode");
       }
     });
   </script>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Famous Libraries | Shayan’s Learning Library</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="https://emoji.gg/assets/emoji/6821-books-stack.png" type="image/png" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      font-family: "Times New Roman", serif;
+      transition: background 0.4s, color 0.4s;
+    }
+
+    section {
+      padding: 2rem;
+    }
+
+    .library {
+      border: 1px solid #aaa;
+      padding: 1rem;
+      margin-bottom: 1.5rem;
+      border-radius: 10px;
+      background-color: #f5f5f5;
+      transition: transform 0.3s ease;
+    }
+
+    .library:hover {
+      transform: scale(1.02);
+    }
+
+    .library img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      margin-top: 10px;
+    }
+
+    body.light-mode {
+      background-color: #fff;
+      color: #111;
+    }
+
+    body.light-mode .library {
+      background-color: #fff;
+      border: 1px solid #ccc;
+    }
+
+    h2 {
+      font-size: 26px;
+      margin-bottom: 1rem;
+    }
+
+    h3 {
+      margin-bottom: 0.4rem;
+      color: #0056b3;
+    }
+
+    blockquote {
+      font-style: italic;
+      margin: 10px 0;
+      padding-left: 15px;
+      border-left: 3px solid #888;
+    }
+  </style>
+  <audio id="hoverSound" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_384ea46939.mp3?filename=click-button-app-147358.mp3" preload="auto"></audio>
+</head>
+<body>
+  <header>
+    <h1>🏛️ Great Libraries of the World</h1>
+    <button id="toggleMode">🌙 Toggle Mode</button>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="lessons.html">Lessons</a>
+      <a href="libraries.html">Libraries</a>
+      <a href="books.html">Books</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <section>
+    <h2>Explore the Most Powerful Libraries in the World</h2>
+
+    <div class="library">
+      <h3>📚 Library of Alexandria (Ancient Egypt)</h3>
+      <p>One of the oldest and greatest libraries in history. It symbolized knowledge and learning in the ancient world.</p>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Bibliotheca_Alexandrina_2008.jpg/800px-Bibliotheca_Alexandrina_2008.jpg" alt="Library of Alexandria">
+      <blockquote>"The library is the temple of learning, and learning has liberated more people than all the wars in history." — Carl Rowan</blockquote>
+    </div>
+
+    <div class="library">
+      <h3>🇵🇰 Bait-ul-Hikmah (Pakistan)</h3>
+      <p>Located in Karachi, this is one of the biggest Islamic research libraries in the world. It holds rare manuscripts and books in many languages.</p>
+      <img src="https://i.ibb.co/XkCqJ8F/bait-ul-hikmah.jpg" alt="Bait-ul-Hikmah Library">
+      <blockquote>"Seek knowledge even if you have to go as far as China." — Prophet Muhammad ﷺ</blockquote>
+    </div>
+
+    <div class="library">
+      <h3>🇺🇸 Library of Congress (USA)</h3>
+      <p>The largest library in the world with over 170 million items. It’s like the brain of America — holding the country’s knowledge.</p>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Library_of_Congress_Building_DC.jpg/800px-Library_of_Congress_Building_DC.jpg" alt="Library of Congress">
+      <blockquote>"A room without books is like a body without a soul." — Marcus Tullius Cicero</blockquote>
+    </div>
+
+    <div class="library">
+      <h3>🇬🇧 The British Library (UK)</h3>
+      <p>This UK library has over 170 million items. It even holds Leonardo da Vinci’s notebook and the Magna Carta!</p>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/British_Library_London.jpg/800px-British_Library_London.jpg" alt="British Library">
+      <blockquote>"Libraries store the energy that fuels the imagination." — Sidney Sheldon</blockquote>
+    </div>
+
+    <div class="library">
+      <h3>🇫🇷 Bibliothèque Nationale de France (Paris)</h3>
+      <p>This national library of France has amazing architecture and some of the oldest books and documents in Europe.</p>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Bibliotheque_nationale_de_France_-_Paris.jpg/800px-Bibliotheque_nationale_de_France_-_Paris.jpg" alt="BNF Paris">
+      <blockquote>"Libraries are the great equalizer of knowledge." — Barack Obama</blockquote>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Shayan’s Learning Library</p>
+  </footer>
+
+  <script>
+    const hoverSound = document.getElementById("hoverSound");
+    document.querySelectorAll("a").forEach(link => {
+      link.addEventListener("mouseenter", () => {
+        hoverSound.currentTime = 0;
+        hoverSound.play();
+      });
+    });
+
+    const toggleBtn = document.getElementById("toggleMode");
+    toggleBtn.addEventListener("click", () => {
+      document.body.classList.toggle("light-mode");
+      if (document.body.classList.contains("light-mode")) {
+        localStorage.setItem("theme", "light");
+      } else {
+        localStorage.setItem("theme", "dark");
+      }
+    });
+
+    window.addEventListener("DOMContentLoaded", () => {
+      if (localStorage.getItem("theme") === "light") {
+        document.body.classList.add("light-mode");
+      }
+    });
+  </script>
+</body>
+</html>
