@@ -215,3 +215,22 @@ footer {
     padding: 20px;
   }
 }
+.socials {
+  margin-top: 15px;
+}
+
+.socials img {
+  margin: 0 10px;
+  transition: transform 0.3s;
+}
+
+.socials img:hover {
+  transform: scale(1.2);
+}
+.intro {
+  background-color: #1a1a1a;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.2);
+  margin-bottom: 30px;
+}
