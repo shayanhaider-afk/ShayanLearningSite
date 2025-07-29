@@ -1,25 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="icon" href="https://emoji.gg/assets/emoji/5672-gaming.png" type="image/png">
+  <meta charset="UTF-8" />
+  <title>Contact | Shayan’s Smart World</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="https://emoji.gg/assets/emoji/6526-email.png" type="image/png" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      font-family: "Times New Roman", serif;
+      transition: background 0.4s, color 0.4s;
+    }
 
-  <meta charset="UTF-8">
-  <meta name="description" content="Shayan's Gaming Hub - Play and discover awesome games, get latest gaming news, and contact the creator from Pakistan.">
-<meta name="keywords" content="gaming, free games, shayan haider, game news, pakistan, gamer site, roblox, gta, csgo">
-<meta name="author" content="Shayan Haider">
+    section {
+      padding: 2rem;
+      text-align: center;
+    }
 
-  <title>Contact | Shayan's Gaming Hub</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" href="https://emoji.gg/assets/emoji/5672-gaming.png" type="image/png">
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+    form input, form textarea {
+      padding: 10px;
+      margin: 8px;
+      width: 90%;
+      max-width: 400px;
+      font-family: "Times New Roman", serif;
+      font-size: 16px;
+    }
+
+    form input[type="submit"] {
+      background-color: #003366;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    form input[type="submit"]:hover {
+      background-color: #0056b3;
+    }
+
+    body.light-mode {
+      background-color: #fff;
+      color: #111;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+    }
+  </style>
   <audio id="hoverSound" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_384ea46939.mp3?filename=click-button-app-147358.mp3" preload="auto"></audio>
 </head>
 <body>
   <header>
     <h1>📬 Contact Me</h1>
     <button id="toggleMode">🌙 Toggle Mode</button>
-     <nav>
+    <nav>
       <a href="index.html">Home</a>
       <a href="lessons.html">Lessons</a>
       <a href="libraries.html">Libraries</a>
@@ -31,33 +66,17 @@
   </header>
 
   <section>
-    <div class="intro">
-    <h2>Welcome to Shayan's Gaming Hub!</h2>
-    <p>This is your one-stop portal for free games, news, and cool content made by a passionate gamer from Pakistan 🎮</p>
-  </div>
-  <form action="mailto:shayanhaiderswips@gmail.com" method="post" enctype="text/plain">
-    <label for="name">Your Name:</label>
-    <input type="text" id="name" name="name" required><br>
-
-    <label for="email">Your Email:</label>
-    <input type="email" id="email" name="email" required><br>
-
-    <label for="message">Your Message:</label>
-    <textarea id="message" name="message" rows="5" required></textarea><br>
-
-    <input type="submit" value="Send">
-  </form>
-
-  <p style="margin-top: 20px;">📧 You can also email me directly at:  
-  <strong><a href="mailto:shayanhaiderswips@gmail.com">shayanhaiderswips@gmail.com</a></strong></p>
-</section>
+    <form action="mailto:shayanhaiderswips@gmail.com" method="post" enctype="text/plain">
+      <input type="text" name="name" placeholder="Your Name" required /><br>
+      <input type="email" name="email" placeholder="Your Email" required /><br>
+      <textarea name="message" placeholder="Your Message" rows="5" required></textarea><br>
+      <input type="submit" value="Send Message" />
+    </form>
+    <p>You can also email me directly: <strong>shayanhaiderswips@gmail.com</strong></p>
+  </section>
 
   <footer>
-    <div class="socials">
-  <a href="https://discord.com/channels/@me/742269661579575386" target="_blank"><img src="https://img.icons8.com/ios-filled/30/00e1ff/discord-logo.png"/></a>
-  <a href="https://www.youtube.com/@Killer15252" target="_blank"><img src="https://img.icons8.com/ios-filled/30/00e1ff/youtube-play.png"/></a>
-</div>
-    <p>© 2025 Shayan's Gaming Hub</p>
+    <p>© 2025 Shayan’s Smart World | Reach out anytime 📩</p>
   </footer>
 
   <script>
