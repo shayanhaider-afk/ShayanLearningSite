@@ -2,68 +2,42 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Life-Changing Books | Shayan’s Smart World</title>
+  <title>Books | Shayan’s Smart World</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="icon" href="https://emoji.gg/assets/emoji/3789-book-love.png" type="image/png" />
   <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="https://emoji.gg/assets/emoji/3983-bookmark.png" type="image/png" />
   <style>
     body {
       font-family: "Times New Roman", serif;
-      transition: background 0.4s, color 0.4s;
     }
-
     section {
       padding: 2rem;
+      max-width: 800px;
+      margin: auto;
     }
-
     .book {
-      border: 1px solid #aaa;
+      border: 1px solid #ccc;
+      border-radius: 10px;
       padding: 1rem;
       margin-bottom: 1.5rem;
-      border-radius: 10px;
-      background-color: #f5f5f5;
-      transition: transform 0.3s ease;
+      background-color: #f9f9f9;
     }
-
-    .book:hover {
-      transform: scale(1.02);
-    }
-
     .book h3 {
-      color: #003366;
+      margin: 0.5rem 0;
+      color: #004080;
     }
-
     .book a {
-      text-decoration: none;
-      color: #0056b3;
+      text-decoration: underline;
     }
-
-    body.light-mode {
-      background-color: #fff;
-      color: #111;
-    }
-
-    body.light-mode .book {
-      background-color: #fff;
-      border: 1px solid #ccc;
-    }
-
-    h2 {
-      font-size: 28px;
-      margin-bottom: 1rem;
-      text-align: center;
-    }
-
     footer {
       text-align: center;
       padding: 1rem;
     }
   </style>
-  <audio id="hoverSound" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_384ea46939.mp3?filename=click-button-app-147358.mp3" preload="auto"></audio>
 </head>
 <body>
   <header>
-    <h1>📚 Life-Changing Books</h1>
+    <h1>📚 Must-Read Books</h1>
     <button id="toggleMode">🌙 Toggle Mode</button>
     <nav>
       <a href="index.html">Home</a>
@@ -77,73 +51,34 @@
   </header>
 
   <section>
-    <h2>Read These Books to Level Up Your Mind</h2>
-
     <div class="book">
-      <h3>📘 Atomic Habits by James Clear</h3>
-      <p>Learn how small daily habits create big success. This book teaches powerful routines and mental strength.</p>
-      <a href="https://drive.google.com/file/d/1X8YzMtL4Wq2mCI_xx1xMH4FY7IJYKoPB/view?usp=sharing" target="_blank">📖 Read PDF</a>
+      <h3>💡 The 7 Habits of Highly Effective People</h3>
+      <p>Learn how to build personal strength and success through principles. <a href="https://www.pdfdrive.com/the-7-habits-of-highly-effective-people-e158137.html" target="_blank">Read PDF</a></p>
     </div>
-
     <div class="book">
-      <h3>🧠 The Power of Now by Eckhart Tolle</h3>
-      <p>Become more present, peaceful, and mindful. A deep book about thinking clearly and controlling anxiety.</p>
-      <a href="https://archive.org/details/ThePowerOfNowEckhartTolle" target="_blank">📖 Read Online</a>
+      <h3>🧠 Think and Grow Rich</h3>
+      <p>A classic that shows the power of thought and belief. <a href="https://www.pdfdrive.com/think-and-grow-rich-e33457031.html" target="_blank">Read PDF</a></p>
     </div>
-
     <div class="book">
-      <h3>💼 Rich Dad Poor Dad by Robert Kiyosaki</h3>
-      <p>This book teaches about money, investing, and mindset. Learn what schools don’t teach about becoming rich in life.</p>
-      <a href="https://ia802802.us.archive.org/6/items/rich-dad-poor-dad_202104/Rich%20Dad%20Poor%20Dad.pdf" target="_blank">📖 Read PDF</a>
+      <h3>🧘 The Power of Now</h3>
+      <p>Teaches how to live in the present and find peace. <a href="https://www.pdfdrive.com/the-power-of-now-e34400396.html" target="_blank">Read PDF</a></p>
     </div>
-
     <div class="book">
-      <h3>🌙 Don't Be Sad by Aaidh ibn Abdullah al-Qarni</h3>
-      <p>A beautiful Islamic motivational book about staying strong during hard times. Brings peace and faith to the heart.</p>
-      <a href="https://ia803202.us.archive.org/22/items/DontBeSad_201712/Dont%20Be%20Sad.pdf" target="_blank">📖 Read PDF</a>
+      <h3>🕋 Reclaim Your Heart</h3>
+      <p>A Muslim’s guide to loving Allah and letting go of pain. <a href="https://www.pdfdrive.com/reclaim-your-heart-e18350572.html" target="_blank">Read PDF</a></p>
     </div>
-
     <div class="book">
-      <h3>🕋 Reclaim Your Heart by Yasmin Mogahed</h3>
-      <p>Learn how to love Allah, let go of attachment, and build emotional strength as a Muslim youth.</p>
-      <a href="https://archive.org/details/reclaim-your-heart/Mogahed%2C%20Yasmin%20-%20Reclaim%20Your%20Heart/mode/2up" target="_blank">📖 Read Online</a>
+      <h3>🌱 Atomic Habits</h3>
+      <p>Small changes lead to big results. Master habits step by step. <a href="https://www.pdfdrive.com/atomic-habits-e158731043.html" target="_blank">Read PDF</a></p>
     </div>
-
-    <div class="book">
-      <h3>🔥 The 7 Habits of Highly Effective People by Stephen Covey</h3>
-      <p>A powerful guide to being responsible, confident, and organized in your daily life.</p>
-      <a href="https://ia902909.us.archive.org/12/items/7-habits-of-highly-effective-people_202104/7%20Habits%20of%20Highly%20Effective%20People.pdf" target="_blank">📖 Read PDF</a>
-    </div>
-
-    <div class="book">
-      <h3>🌟 Man’s Search for Meaning by Viktor Frankl</h3>
-      <p>This book shows how people survive dark times with hope. A deep psychological story from WWII.</p>
-      <a href="https://archive.org/details/mans-search-for-meaning-viktor-e.-frankl_202107" target="_blank">📖 Read Online</a>
-    </div>
-
-    <div class="book">
-      <h3>💬 Quiet: The Power of Introverts by Susan Cain</h3>
-      <p>Are you quiet or deep? This book proves how introverts have a powerful mind and voice too.</p>
-      <a href="https://archive.org/details/quiet-the-power-of-introverts" target="_blank">📖 Read Online</a>
-    </div>
-
   </section>
 
   <footer>
-    <p>© 2025 Shayan’s Smart World | Powered by Books 📘</p>
+    <p>© 2025 Shayan’s Smart World | Powered by Wisdom 📘</p>
   </footer>
 
   <script>
-    const hoverSound = document.getElementById("hoverSound");
-    document.querySelectorAll("a").forEach(link => {
-      link.addEventListener("mouseenter", () => {
-        hoverSound.currentTime = 0;
-        hoverSound.play();
-      });
-    });
-
-    const toggleBtn = document.getElementById("toggleMode");
-    toggleBtn.addEventListener("click", () => {
+    document.getElementById("toggleMode").addEventListener("click", () => {
       document.body.classList.toggle("light-mode");
       if (document.body.classList.contains("light-mode")) {
         localStorage.setItem("theme", "light");
@@ -151,7 +86,6 @@
         localStorage.setItem("theme", "dark");
       }
     });
-
     window.addEventListener("DOMContentLoaded", () => {
       if (localStorage.getItem("theme") === "light") {
         document.body.classList.add("light-mode");

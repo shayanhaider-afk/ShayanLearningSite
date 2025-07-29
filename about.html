@@ -4,48 +4,29 @@
   <meta charset="UTF-8" />
   <title>About Me | Shayan’s Smart World</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="icon" href="https://emoji.gg/assets/emoji/8915-boy.png" type="image/png" />
   <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="https://emoji.gg/assets/emoji/7505-boy.png" type="image/png" />
   <style>
     body {
       font-family: "Times New Roman", serif;
-      transition: background 0.4s, color 0.4s;
     }
-
     section {
       padding: 2rem;
-      max-width: 800px;
+      max-width: 700px;
       margin: auto;
     }
-
-    .about-box {
-      background: #f5f5f5;
-      border-radius: 10px;
-      padding: 2rem;
-      text-align: center;
-    }
-
-    .about-box h2 {
-      color: #003366;
-      margin-bottom: 10px;
-    }
-
-    .about-box p {
-      font-size: 17px;
+    p {
+      font-size: 18px;
       line-height: 1.7;
     }
-
-    body.light-mode {
-      background-color: #fff;
-      color: #111;
+    h1, h2 {
+      text-align: center;
     }
-
     footer {
       text-align: center;
       padding: 1rem;
     }
   </style>
-  <audio id="hoverSound" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_384ea46939.mp3?filename=click-button-app-147358.mp3" preload="auto"></audio>
 </head>
 <body>
   <header>
@@ -63,35 +44,18 @@
   </header>
 
   <section>
-    <div class="about-box">
-      <h2>Hi, I'm Shayan Haider!</h2>
-      <p>
-        I'm a young mind from Pakistan who’s deeply passionate about learning, growing, and helping others become smarter every day.
-        I love to cook, play meaningful games, and explore books that change the way we think.
-        <br><br>
-        This platform is my way of sharing valuable lessons, powerful knowledge, and awesome learning tools — all in one place. 
-        Whether it’s games that make your brain sharper, or lessons that inspire you to grow — I built this for people who want to become their best selves.
-        <br><br>
-        Thanks for visiting. You’re part of the smart world now. Let’s grow together 🧠📘💪
-      </p>
-    </div>
+    <h2>Welcome!</h2>
+    <p>Hi, I’m <strong>Shayan Haider</strong> from Pakistan 🇵🇰. I’m just a passionate kid who loves to explore, learn, and share powerful knowledge that can change lives. I enjoy cooking 🍳, playing smart games 🎮, and reading books 📚 that make me wiser every day.</p>
+    <p>This platform is my small gift to the world — a place where fun and wisdom live together. Whether you're looking for deep lessons, world-famous libraries, books to transform your mindset, or games that build your brain — you're in the right place.</p>
+    <p>Keep growing. Stay curious. Believe in yourself!</p>
   </section>
 
   <footer>
-    <p>© 2025 Shayan’s Smart World | Be Curious. Be Better.</p>
+    <p>© 2025 Shayan’s Smart World | Built with Heart 💙</p>
   </footer>
 
   <script>
-    const hoverSound = document.getElementById("hoverSound");
-    document.querySelectorAll("a").forEach(link => {
-      link.addEventListener("mouseenter", () => {
-        hoverSound.currentTime = 0;
-        hoverSound.play();
-      });
-    });
-
-    const toggleBtn = document.getElementById("toggleMode");
-    toggleBtn.addEventListener("click", () => {
+    document.getElementById("toggleMode").addEventListener("click", () => {
       document.body.classList.toggle("light-mode");
       if (document.body.classList.contains("light-mode")) {
         localStorage.setItem("theme", "light");
@@ -99,7 +63,6 @@
         localStorage.setItem("theme", "dark");
       }
     });
-
     window.addEventListener("DOMContentLoaded", () => {
       if (localStorage.getItem("theme") === "light") {
         document.body.classList.add("light-mode");
