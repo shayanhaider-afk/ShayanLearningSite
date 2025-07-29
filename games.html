@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Smart Games | Shayan’s Smart World</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="https://emoji.gg/assets/emoji/8191-game-ghost.png" type="image/png" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      font-family: "Times New Roman", serif;
+      transition: background 0.4s, color 0.4s;
+    }
+
+    section {
+      padding: 2rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .game-card {
+      border: 1px solid #aaa;
+      border-radius: 10px;
+      background-color: #f5f5f5;
+      padding: 1rem;
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .game-card:hover {
+      transform: scale(1.03);
+    }
+
+    .game-card h3 {
+      color: #003366;
+    }
+
+    .game-card a {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 8px 16px;
+      background-color: #003366;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+
+    .game-card a:hover {
+      background-color: #0056b3;
+    }
+
+    body.light-mode {
+      background-color: #fff;
+      color: #111;
+    }
+
+    body.light-mode .game-card {
+      background-color: #fff;
+      border: 1px solid #ccc;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+    }
+
+    h1 {
+      text-align: center;
+    }
+  </style>
+  <audio id="hoverSound" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_384ea46939.mp3?filename=click-button-app-147358.mp3" preload="auto"></audio>
+</head>
+<body>
+  <header>
+    <h1>🎮 Smart Games for Smart Minds</h1>
+    <button id="toggleMode">🌙 Toggle Mode</button>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="lessons.html">Lessons</a>
+      <a href="libraries.html">Libraries</a>
+      <a href="books.html">Books</a>
+      <a href="games.html">Smart Games</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <section>
+    <div class="game-card">
+      <h3>🧠 Brain It On!</h3>
+      <p>Use physics & logic to solve puzzles. Great for thinking outside the box.</p>
+      <a href="https://play.google.com/store/apps/details?id=com.orbital.brainiton&hl=en" target="_blank">Play Now</a>
+    </div>
+
+    <div class="game-card">
+      <h3>🔤 Nitro Type</h3>
+      <p>Improve your typing speed while racing others online!</p>
+      <a href="https://www.nitrotype.com/" target="_blank">Play Now</a>
+    </div>
+
+    <div class="game-card">
+      <h3>💡 Lumosity</h3>
+      <p>Boost memory, attention, and flexibility through brain games.</p>
+      <a href="https://www.lumosity.com/" target="_blank">Play Now</a>
+    </div>
+
+    <div class="game-card">
+      <h3>🧩 2048</h3>
+      <p>A simple number puzzle that requires planning and logic.</p>
+      <a href="https://play2048.co/" target="_blank">Play Now</a>
+    </div>
+
+    <div class="game-card">
+      <h3>👾 CodeCombat</h3>
+      <p>Learn programming by playing a dungeon crawler game.</p>
+      <a href="https://codecombat.com/" target="_blank">Play Now</a>
+    </div>
+
+    <div class="game-card">
+      <h3>🧮 Math Playground</h3>
+      <p>Games that improve problem solving, logic, and math skills.</p>
+      <a href="https://www.mathplayground.com/" target="_blank">Play Now</a>
+    </div>
+
+    <div class="game-card">
+      <h3>🧠 Elevate</h3>
+      <p>Train your brain daily with games for memory, speed, and logic.</p>
+      <a href="https://www.elevateapp.com/" target="_blank">Play Now</a>
+    </div>
+
+    <div class="game-card">
+      <h3>🔍 Google Quick Draw</h3>
+      <p>Train your creativity and speed by drawing and letting AI guess!</p>
+      <a href="https://quickdraw.withgoogle.com/" target="_blank">Play Now</a>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Shayan’s Smart World | Learn + Play with Purpose 🎮</p>
+  </footer>
+
+  <script>
+    const hoverSound = document.getElementById("hoverSound");
+    document.querySelectorAll("a").forEach(link => {
+      link.addEventListener("mouseenter", () => {
+        hoverSound.currentTime = 0;
+        hoverSound.play();
+      });
+    });
+
+    const toggleBtn = document.getElementById("toggleMode");
+    toggleBtn.addEventListener("click", () => {
+      document.body.classList.toggle("light-mode");
+      if (document.body.classList.contains("light-mode")) {
+        localStorage.setItem("theme", "light");
+      } else {
+        localStorage.setItem("theme", "dark");
+      }
+    });
+
+    window.addEventListener("DOMContentLoaded", () => {
+      if (localStorage.getItem("theme") === "light") {
+        document.body.classList.add("light-mode");
+      }
+    });
+  </script>
+</body>
+</html>
