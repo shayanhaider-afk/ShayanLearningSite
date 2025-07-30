@@ -154,3 +154,36 @@ footer {
 #toggleMode:hover {
   opacity: 0.9;
 }
+/* Fix for Libraries Section Text in Dark Mode */
+.library {
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid #888;
+  color: #f1f1f1;
+  padding: 1.5rem;
+  border-radius: 10px;
+  margin-bottom: 1.5rem;
+}
+
+.light-mode .library {
+  background-color: #f9f9f9;
+  color: #111;
+  border: 1px solid #ccc;
+}
+
+.library h3 {
+  color: #ffcc00;
+  margin-bottom: 0.5rem;
+}
+
+.light-mode .library h3 {
+  color: #003366;
+}
+
+.library a {
+  color: #00bfff;
+  font-weight: bold;
+}
+
+.light-mode .library a {
+  color: #0077cc;
+}
