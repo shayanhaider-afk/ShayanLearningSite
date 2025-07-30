@@ -1,5 +1,6 @@
 /* style.css */
 
+/* General Body Settings */
 body {
   font-family: "Times New Roman", serif;
   font-size: 18px;
@@ -7,19 +8,21 @@ body {
   margin: 0;
   padding: 0;
   background-color: #121212;
-  color: #f0f0f0;
+  color: #f1f1f1;
   transition: background-color 0.4s, color 0.4s;
 }
 
+/* Light Mode */
 .light-mode {
   background-color: #ffffff;
-  color: #111111;
+  color: #1a1a1a;
 }
 
+/* Header */
 header {
   text-align: center;
   padding: 2rem 1rem;
-  background-color: #004080;
+  background-color: #003366;
   color: white;
 }
 
@@ -28,6 +31,7 @@ header h1 {
   margin-bottom: 0.5rem;
 }
 
+/* Navigation */
 nav {
   margin-top: 1rem;
 }
@@ -41,16 +45,22 @@ nav a {
 }
 
 nav a:hover {
-  color: #ffd700;
+  color: #ffcc00;
 }
 
+.light-mode nav a {
+  color: #003366;
+}
+
+/* Main Content Section */
 section {
   padding: 2rem;
   max-width: 900px;
   margin: auto;
 }
 
-.book {
+/* Reusable Content Box Style */
+.book, .library, .lesson, .game {
   background-color: rgba(255, 255, 255, 0.05);
   border: 1px solid #666;
   border-radius: 12px;
@@ -59,35 +69,57 @@ section {
   transition: background-color 0.3s, border 0.3s;
 }
 
-.light-mode .book {
+.light-mode .book,
+.light-mode .library,
+.light-mode .lesson,
+.light-mode .game {
   background-color: #f9f9f9;
   border: 1px solid #ccc;
 }
 
-.book h3 {
+/* Headings Inside Content Boxes */
+.book h3,
+.library h3,
+.lesson h3,
+.game h3 {
   font-size: 1.5rem;
   margin-bottom: 0.5rem;
   color: #ffcc00;
 }
 
-.light-mode .book h3 {
-  color: #004080;
+.light-mode .book h3,
+.light-mode .library h3,
+.light-mode .lesson h3,
+.light-mode .game h3 {
+  color: #003366;
 }
 
-.book p {
+/* Paragraphs */
+.book p,
+.library p,
+.lesson p,
+.game p {
   font-size: 1.1rem;
   margin-bottom: 0.5rem;
 }
 
-.book a {
+/* Links */
+.book a,
+.library a,
+.lesson a,
+.game a {
   color: #00bfff;
   font-weight: bold;
 }
 
-.light-mode .book a {
-  color: #0077cc;
+.light-mode .book a,
+.light-mode .library a,
+.light-mode .lesson a,
+.light-mode .game a {
+  color: #0066cc;
 }
 
+/* Footer */
 footer {
   text-align: center;
   padding: 1.5rem;
@@ -101,6 +133,7 @@ footer {
   color: #333;
 }
 
+/* Toggle Button */
 #toggleMode {
   margin-top: 1rem;
   padding: 0.4rem 1rem;
@@ -108,13 +141,13 @@ footer {
   border-radius: 6px;
   border: none;
   background-color: #ffffff;
-  color: #004080;
+  color: #003366;
   cursor: pointer;
   transition: background-color 0.3s;
 }
 
 .light-mode #toggleMode {
-  background-color: #004080;
+  background-color: #003366;
   color: white;
 }
 
