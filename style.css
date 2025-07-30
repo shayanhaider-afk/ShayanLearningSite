@@ -1,6 +1,6 @@
-/* style.css */
+/* UNIVERSAL Smart World Theme – Dark/Light Mode Compatible */
 
-/* General Body Settings */
+/* Body Base */
 body {
   font-family: "Times New Roman", serif;
   font-size: 18px;
@@ -8,14 +8,13 @@ body {
   margin: 0;
   padding: 0;
   background-color: #121212;
-  color: #f1f1f1;
+  color: #f0f0f0;
   transition: background-color 0.4s, color 0.4s;
 }
 
-/* Light Mode */
 .light-mode {
   background-color: #ffffff;
-  color: #1a1a1a;
+  color: #111111;
 }
 
 /* Header */
@@ -52,21 +51,22 @@ nav a:hover {
   color: #003366;
 }
 
-/* Main Content Section */
+/* Main Section */
 section {
   padding: 2rem;
   max-width: 900px;
   margin: auto;
 }
 
-/* Reusable Content Box Style */
+/* Shared Box for Books, Libraries, Lessons, Games */
 .book, .library, .lesson, .game {
-  background-color: rgba(255, 255, 255, 0.05);
-  border: 1px solid #666;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
   border-radius: 12px;
   padding: 1.5rem;
   margin-bottom: 2rem;
-  transition: background-color 0.3s, border 0.3s;
+  color: #111111;
+  transition: all 0.3s ease;
 }
 
 .light-mode .book,
@@ -74,17 +74,14 @@ section {
 .light-mode .lesson,
 .light-mode .game {
   background-color: #f9f9f9;
-  border: 1px solid #ccc;
+  color: #111111;
 }
 
-/* Headings Inside Content Boxes */
-.book h3,
-.library h3,
-.lesson h3,
-.game h3 {
+/* Headings */
+.book h3, .library h3, .lesson h3, .game h3 {
   font-size: 1.5rem;
   margin-bottom: 0.5rem;
-  color: #ffcc00;
+  color: #003366;
 }
 
 .light-mode .book h3,
@@ -95,28 +92,32 @@ section {
 }
 
 /* Paragraphs */
-.book p,
-.library p,
-.lesson p,
-.game p {
+.book p, .library p, .lesson p, .game p {
   font-size: 1.1rem;
+  line-height: 1.6;
+  color: #111111;
   margin-bottom: 0.5rem;
 }
 
+.light-mode .book p,
+.light-mode .library p,
+.light-mode .lesson p,
+.light-mode .game p {
+  color: #111111;
+}
+
 /* Links */
-.book a,
-.library a,
-.lesson a,
-.game a {
-  color: #00bfff;
+.book a, .library a, .lesson a, .game a {
+  color: #0066cc;
   font-weight: bold;
+  text-decoration: underline;
 }
 
 .light-mode .book a,
 .light-mode .library a,
 .light-mode .lesson a,
 .light-mode .game a {
-  color: #0066cc;
+  color: #0044aa;
 }
 
 /* Footer */
@@ -133,7 +134,7 @@ footer {
   color: #333;
 }
 
-/* Toggle Button */
+/* Toggle Mode Button */
 #toggleMode {
   margin-top: 1rem;
   padding: 0.4rem 1rem;
@@ -153,37 +154,4 @@ footer {
 
 #toggleMode:hover {
   opacity: 0.9;
-}
-/* Fix for Libraries Section Text in Dark Mode */
-.library {
-  background-color: rgba(255, 255, 255, 0.05);
-  border: 1px solid #888;
-  color: #f1f1f1;
-  padding: 1.5rem;
-  border-radius: 10px;
-  margin-bottom: 1.5rem;
-}
-
-.light-mode .library {
-  background-color: #f9f9f9;
-  color: #111;
-  border: 1px solid #ccc;
-}
-
-.library h3 {
-  color: #ffcc00;
-  margin-bottom: 0.5rem;
-}
-
-.light-mode .library h3 {
-  color: #003366;
-}
-
-.library a {
-  color: #00bfff;
-  font-weight: bold;
-}
-
-.light-mode .library a {
-  color: #0077cc;
 }
