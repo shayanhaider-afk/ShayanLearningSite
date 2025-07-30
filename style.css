@@ -1,23 +1,26 @@
-/* UNIVERSAL Smart World Theme – Dark/Light Mode Compatible */
+/* ✅ Reset + Font */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-/* Body Base */
 body {
   font-family: "Times New Roman", serif;
   font-size: 18px;
   line-height: 1.7;
-  margin: 0;
-  padding: 0;
   background-color: #121212;
-  color: #f0f0f0;
+  color: #f1f1f1;
   transition: background-color 0.4s, color 0.4s;
+  padding-bottom: 3rem;
 }
 
 .light-mode {
   background-color: #ffffff;
-  color: #111111;
+  color: #1a1a1a;
 }
 
-/* Header */
+/* ✅ Header */
 header {
   text-align: center;
   padding: 2rem 1rem;
@@ -26,11 +29,11 @@ header {
 }
 
 header h1 {
-  font-size: 2rem;
+  font-size: 2.2rem;
   margin-bottom: 0.5rem;
 }
 
-/* Navigation */
+/* ✅ Navigation */
 nav {
   margin-top: 1rem;
 }
@@ -40,6 +43,7 @@ nav a {
   margin: 0 1rem;
   text-decoration: none;
   font-weight: bold;
+  font-size: 1rem;
   transition: color 0.3s;
 }
 
@@ -51,22 +55,23 @@ nav a:hover {
   color: #003366;
 }
 
-/* Main Section */
+/* ✅ Section Layout */
 section {
   padding: 2rem;
-  max-width: 900px;
+  max-width: 960px;
   margin: auto;
 }
 
-/* Shared Box for Books, Libraries, Lessons, Games */
+/* ✅ Universal Card Style */
 .book, .library, .lesson, .game {
-  background-color: #f0f0f0;
+  background-color: #ffffff;
+  color: #111;
   border: 1px solid #ccc;
-  border-radius: 12px;
+  border-radius: 14px;
   padding: 1.5rem;
   margin-bottom: 2rem;
-  color: #111111;
-  transition: all 0.3s ease;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .light-mode .book,
@@ -74,12 +79,15 @@ section {
 .light-mode .lesson,
 .light-mode .game {
   background-color: #f9f9f9;
-  color: #111111;
+  color: #111;
 }
 
-/* Headings */
-.book h3, .library h3, .lesson h3, .game h3 {
-  font-size: 1.5rem;
+/* ✅ Headings */
+.book h3,
+.library h3,
+.lesson h3,
+.game h3 {
+  font-size: 1.6rem;
   margin-bottom: 0.5rem;
   color: #003366;
 }
@@ -91,24 +99,30 @@ section {
   color: #003366;
 }
 
-/* Paragraphs */
-.book p, .library p, .lesson p, .game p {
+/* ✅ Paragraph Text */
+.book p,
+.library p,
+.lesson p,
+.game p {
   font-size: 1.1rem;
   line-height: 1.6;
-  color: #111111;
-  margin-bottom: 0.5rem;
+  color: #111;
+  margin-top: 0.5rem;
 }
 
 .light-mode .book p,
 .light-mode .library p,
 .light-mode .lesson p,
 .light-mode .game p {
-  color: #111111;
+  color: #111;
 }
 
-/* Links */
-.book a, .library a, .lesson a, .game a {
-  color: #0066cc;
+/* ✅ Links */
+.book a,
+.library a,
+.lesson a,
+.game a {
+  color: #0077cc;
   font-weight: bold;
   text-decoration: underline;
 }
@@ -120,10 +134,55 @@ section {
   color: #0044aa;
 }
 
-/* Footer */
+/* ✅ Hover Effect */
+.book:hover,
+.library:hover,
+.lesson:hover,
+.game:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
+}
+
+/* ✅ Quote Style */
+.quote {
+  font-style: italic;
+  text-align: center;
+  margin: 2rem auto;
+  max-width: 800px;
+  opacity: 0.9;
+  color: #aaa;
+}
+
+.light-mode .quote {
+  color: #555;
+}
+
+/* ✅ Toggle Button */
+#toggleMode {
+  margin-top: 1rem;
+  padding: 0.5rem 1.2rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: none;
+  background-color: #ffcc00;
+  color: #003366;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.light-mode #toggleMode {
+  background-color: #003366;
+  color: #ffffff;
+}
+
+#toggleMode:hover {
+  opacity: 0.9;
+}
+
+/* ✅ Footer */
 footer {
   text-align: center;
-  padding: 1.5rem;
+  padding: 2rem 1rem;
   font-size: 0.9rem;
   background-color: #202020;
   color: #aaa;
@@ -134,24 +193,23 @@ footer {
   color: #333;
 }
 
-/* Toggle Mode Button */
-#toggleMode {
-  margin-top: 1rem;
-  padding: 0.4rem 1rem;
-  font-size: 1rem;
-  border-radius: 6px;
-  border: none;
-  background-color: #ffffff;
-  color: #003366;
-  cursor: pointer;
-  transition: background-color 0.3s;
+/* ✅ Responsive Design */
+@media (max-width: 768px) {
+  nav a {
+    display: block;
+    margin: 0.5rem 0;
+  }
+
+  header h1 {
+    font-size: 1.5rem;
+  }
+
+  section {
+    padding: 1rem;
+  }
+
+  .book, .library, .lesson, .game {
+    padding: 1rem;
+  }
 }
 
-.light-mode #toggleMode {
-  background-color: #003366;
-  color: white;
-}
-
-#toggleMode:hover {
-  opacity: 0.9;
-}
