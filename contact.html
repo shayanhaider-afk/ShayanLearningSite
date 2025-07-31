@@ -66,12 +66,20 @@
   </header>
 
   <section>
-    <form action="mailto:shayanhaiderswips@gmail.com" method="post" enctype="text/plain">
-      <input type="text" name="name" placeholder="Your Name" required /><br>
-      <input type="email" name="email" placeholder="Your Email" required /><br>
-      <textarea name="message" placeholder="Your Message" rows="5" required></textarea><br>
-      <input type="submit" value="Send Message" />
-    </form>
+<form action="https://formsubmit.co/shayanhaiderswips@gmail.com" method="POST">
+  <input type="text" name="name" required placeholder="Your Name">
+  <input type="email" name="email" required placeholder="Your Email">
+  <textarea name="message" required placeholder="Your Message"></textarea>
+
+  <!-- Optional: Redirect to a thank you page after submission -->
+  <input type="hidden" name="_next" value="https://shayanhaider.com/thanks.html">
+
+  <!-- Optional: Disable captcha for easier sending -->
+  <input type="hidden" name="_captcha" value="false">
+
+  <button type="submit">Send</button>
+</form>
+
     <p>You can also email me directly: <strong>shayanhaiderswips@gmail.com</strong></p>
   </section>
 
