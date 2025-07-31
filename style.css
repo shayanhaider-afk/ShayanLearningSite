@@ -52,7 +52,7 @@ nav a:hover {
 }
 
 .light-mode nav a {
-  color: #003366;
+  color: #ff6600; /* Bright orange - super visible on light blue */
 }
 
 /* ✅ Section Layout */
@@ -212,4 +212,10 @@ footer {
     padding: 1rem;
   }
 }
+footer img {
+  transition: transform 0.3s ease;
+}
 
+footer img:hover {
+  transform: scale(1.2);
+}
