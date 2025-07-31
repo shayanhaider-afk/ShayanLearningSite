@@ -24,17 +24,22 @@
       max-width: 400px;
       font-family: "Times New Roman", serif;
       font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
     }
 
-    form input[type="submit"] {
+    form button {
       background-color: #003366;
       color: white;
       border: none;
-      border-radius: 5px;
+      border-radius: 6px;
+      padding: 10px 20px;
       cursor: pointer;
+      margin-top: 10px;
+      font-weight: bold;
     }
 
-    form input[type="submit"]:hover {
+    form button:hover {
       background-color: #0056b3;
     }
 
@@ -45,7 +50,16 @@
 
     footer {
       text-align: center;
-      padding: 1rem;
+      padding: 1.5rem 1rem;
+    }
+
+    footer img {
+      margin: 0 10px;
+      transition: transform 0.3s ease;
+    }
+
+    footer img:hover {
+      transform: scale(1.1);
     }
   </style>
   <audio id="hoverSound" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_384ea46939.mp3?filename=click-button-app-147358.mp3" preload="auto"></audio>
@@ -66,24 +80,31 @@
   </header>
 
   <section>
-<form action="https://formsubmit.co/shayanhaiderswips@gmail.com" method="POST">
-     <input type="text" name="name" required>
-     <input type="email" name="email" required>
-     <button type="submit">Send</button>
-</form>
-    <p>You can also email me directly: <strong>shayanhaiderswips@gmail.com</strong></p>
+    <form action="https://formsubmit.co/shayanhaiderswips@gmail.com" method="POST">
+      <input type="text" name="name" required placeholder="Your Name"><br>
+      <input type="email" name="email" required placeholder="Your Email"><br>
+      <textarea name="message" required placeholder="Your Message" rows="5"></textarea><br>
+
+      <!-- Optional: Redirect after submission -->
+      <input type="hidden" name="_next" value="https://shayanhaider.com/thanks.html">
+      <input type="hidden" name="_captcha" value="false">
+
+      <button type="submit">Send Message</button>
+    </form>
+
+    <p style="margin-top: 1.2rem;">Or email directly: <strong>shayanhaiderswips@gmail.com</strong></p>
   </section>
 
   <footer>
     <p>© 2025 Shayan’s Smart World | Reach out anytime 📩</p>
-      <div style="margin-top: 1rem;">
-    <a href="https://www.youtube.com/@Killer15252" target="_blank" style="margin: 0 10px;">
-      <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube" width="40" height="40">
-    </a>
-    <a href="https://discord.com/channels/@me" target="_blank" style="margin: 0 10px;">
-      <img src="https://cdn-icons-png.flaticon.com/512/2111/2111370.png" alt="Discord" width="40" height="40">
-    </a>
-  </div>
+    <div style="margin-top: 1rem;">
+      <a href="https://www.youtube.com/@Killer15252" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube" width="40" height="40">
+      </a>
+      <a href="https://discord.com/channels/@me" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111370.png" alt="Discord" width="40" height="40">
+      </a>
+    </div>
   </footer>
 
   <script>
@@ -98,11 +119,7 @@
     const toggleBtn = document.getElementById("toggleMode");
     toggleBtn.addEventListener("click", () => {
       document.body.classList.toggle("light-mode");
-      if (document.body.classList.contains("light-mode")) {
-        localStorage.setItem("theme", "light");
-      } else {
-        localStorage.setItem("theme", "dark");
-      }
+      localStorage.setItem("theme", document.body.classList.contains("light-mode") ? "light" : "dark");
     });
 
     window.addEventListener("DOMContentLoaded", () => {
