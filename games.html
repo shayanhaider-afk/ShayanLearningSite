@@ -123,6 +123,41 @@
       background-color: #003366;
       color: white;
     }
+    .game-card {
+  cursor: pointer;
+  border-radius: 8px;
+  border: 2px solid transparent;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+body:not(.light-mode) .game-card {
+  background-color: #2b2b2b;
+  color: #fff;
+}
+
+body.light-mode .game-card {
+  background-color: #f8f8f8;
+  color: #222;
+}
+
+/* Active tab styling */
+body:not(.light-mode) .game-card.active {
+  background-color: #000;
+  border-color: #ffcc00;
+  color: white;
+}
+
+body.light-mode .game-card.active {
+  background-color: white;
+  border-color: #003366;
+  color: #003366;
+}
+
+/* Hover effect */
+.game-card:hover {
+  transform: scale(1.03);
+}
+
   </style>
   <audio id="hoverSound" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_384ea46939.mp3?filename=click-button-app-147358.mp3" preload="auto"></audio>
 </head>
@@ -142,6 +177,52 @@
   </header>
 
   <section>
+    <div class="game">
+  <h3>Wordle</h3>
+  <p>Guess the 5-letter word before you run out of tries.</p>
+  <a href="https://www.nytimes.com/games/wordle/index.html" target="_blank">Play Now</a>
+</div>
+    <div class="game">
+  <h3>Memory Match</h3>
+  <p>Test your short-term memory in this fun matching game.</p>
+  <a href="https://www.memozor.com/memory-games/for-adults/online-and-free" target="_blank">Play Now</a>
+</div>
+    <div class="game">
+  <h3>Chess</h3>
+  <p>Challenge your mind with the game of kings.</p>
+  <a href="https://www.chess.com/play/computer" target="_blank">Play Now</a>
+</div>
+    <div class="game">
+  <h3>Sudoku</h3>
+  <p>Fill the grid so every number from 1 to 9 appears once per row, column, and box.</p>
+  <a href="https://sudoku.com/" target="_blank">Play Now</a>
+</div>
+    <div class="game">
+  <h3>Cut the Rope</h3>
+  <p>Feed the little monster by cutting ropes in the right order.</p>
+  <a href="https://cuttherope.ie/" target="_blank">Play Now</a>
+</div>
+    <div class="game">
+  <h3>Little Alchemy 2</h3>
+  <p>Combine elements to create new objects in this creative puzzle game.</p>
+  <a href="https://littlealchemy2.com/" target="_blank">Play Now</a>
+</div>
+    <div class="game">
+  <h3>GeoGuessr</h3>
+  <p>Travel virtually and guess where you are in the world.</p>
+  <a href="https://geoguessr-free.com/" target="_blank">Play Now</a>
+</div>
+    <div class="game">
+  <h3>Slope</h3>
+  <p>Guide a ball down a never-ending slope without falling off.</p>
+  <a href="https://slope-game.github.io/" target="_blank">Play Now</a>
+</div>
+    <div class="game">
+  <h3>Line Rider</h3>
+  <p>Draw a path and watch the rider go for a wild ride.</p>
+  <a href="https://linerider.com/" target="_blank">Play Now</a>
+</div>
+    
     <div class="game-card">
       <h3>🧠 Brain It On!</h3>
       <p>Use physics & logic to solve puzzles. Great for thinking outside the box.</p>
@@ -229,4 +310,4 @@
     });
   </script>
 </body>
-</html>
+</html>   
