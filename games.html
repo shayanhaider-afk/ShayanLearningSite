@@ -13,34 +13,28 @@
       background-color: #121212;
       color: #f1f1f1;
     }
-
     body.light-mode {
       background-color: #fff;
       color: #222;
     }
-
     header {
       text-align: center;
       padding: 2rem 1rem;
       background-color: #003366;
       color: white;
     }
-
     nav {
       margin-top: 1rem;
     }
-
     nav a {
       color: white;
       margin: 0 1rem;
       text-decoration: none;
       font-weight: bold;
     }
-
     body.light-mode nav a {
       color: #003366;
     }
-
     section {
       padding: 2rem;
       display: grid;
@@ -48,28 +42,34 @@
       gap: 1.5rem;
     }
 
+    /* Game card styling */
     .game-card {
-      border: 1px solid #aaa;
+      cursor: pointer;
       border-radius: 10px;
-      background-color: #ffffff;
       padding: 1rem;
       text-align: center;
       transition: transform 0.3s ease, background 0.3s;
-      color: #111;
+      border: 1px solid #aaa;
     }
-
-    .game-card:hover {
-      transform: scale(1.03);
+    body:not(.light-mode) .game-card {
+      background-color: #1f1f1f;
+      color: #f1f1f1;
+      border: 1px solid #555;
     }
-
+    body.light-mode .game-card {
+      background-color: #f8f8f8;
+      color: #222;
+    }
     .game-card h3 {
+      margin-top: 0;
       color: #003366;
     }
-
+    body:not(.light-mode) .game-card h3 {
+      color: #ffcc00;
+    }
     .game-card p {
       margin: 10px 0;
     }
-
     .game-card a {
       display: inline-block;
       margin-top: 10px;
@@ -79,20 +79,11 @@
       text-decoration: none;
       border-radius: 5px;
     }
-
     .game-card a:hover {
       background-color: #0056b3;
     }
-
-    /* 🌙 Dark Mode Cards */
-    body:not(.light-mode) .game-card {
-      background-color: #1f1f1f;
-      color: #f1f1f1;
-      border: 1px solid #555;
-    }
-
-    body:not(.light-mode) .game-card h3 {
-      color: #ffcc00;
+    .game-card:hover {
+      transform: scale(1.03);
     }
 
     footer {
@@ -102,12 +93,10 @@
       background-color: #202020;
       color: #aaa;
     }
-
     body.light-mode footer {
       background-color: #e0e0e0;
       color: #333;
     }
-
     #toggleMode {
       margin-top: 1rem;
       padding: 0.4rem 1rem;
@@ -118,7 +107,6 @@
       color: #003366;
       cursor: pointer;
     }
-
     body.light-mode #toggleMode {
       background-color: #003366;
       color: white;
@@ -143,47 +131,86 @@
 
   <section>
     <div class="game-card">
+      <h3>Wordle</h3>
+      <p>Guess the 5-letter word before you run out of tries.</p>
+      <a href="https://www.nytimes.com/games/wordle/index.html" target="_blank">Play Now</a>
+    </div>
+    <div class="game-card">
+      <h3>Memory Match</h3>
+      <p>Test your short-term memory in this fun matching game.</p>
+      <a href="https://www.memozor.com/memory-games/for-adults/online-and-free" target="_blank">Play Now</a>
+    </div>
+    <div class="game-card">
+      <h3>Chess</h3>
+      <p>Challenge your mind with the game of kings.</p>
+      <a href="https://www.chess.com/play/computer" target="_blank">Play Now</a>
+    </div>
+    <div class="game-card">
+      <h3>Sudoku</h3>
+      <p>Fill the grid so every number from 1 to 9 appears once per row, column, and box.</p>
+      <a href="https://sudoku.com/" target="_blank">Play Now</a>
+    </div>
+    <div class="game-card">
+      <h3>Cut the Rope</h3>
+      <p>Feed the little monster by cutting ropes in the right order.</p>
+      <a href="https://cuttherope.ie/" target="_blank">Play Now</a>
+    </div>
+    <div class="game-card">
+      <h3>Little Alchemy 2</h3>
+      <p>Combine elements to create new objects in this creative puzzle game.</p>
+      <a href="https://littlealchemy2.com/" target="_blank">Play Now</a>
+    </div>
+    <div class="game-card">
+      <h3>GeoGuessr</h3>
+      <p>Travel virtually and guess where you are in the world.</p>
+      <a href="https://geoguessr-free.com/" target="_blank">Play Now</a>
+    </div>
+    <div class="game-card">
+      <h3>Slope</h3>
+      <p>Guide a ball down a never-ending slope without falling off.</p>
+      <a href="https://slope-game.github.io/" target="_blank">Play Now</a>
+    </div>
+    <div class="game-card">
+      <h3>Line Rider</h3>
+      <p>Draw a path and watch the rider go for a wild ride.</p>
+      <a href="https://linerider.com/" target="_blank">Play Now</a>
+    </div>
+
+    <div class="game-card">
       <h3>🧠 Brain It On!</h3>
       <p>Use physics & logic to solve puzzles. Great for thinking outside the box.</p>
       <a href="https://play.google.com/store/apps/details?id=com.orbital.brainiton&hl=en" target="_blank">Play Now</a>
     </div>
-
     <div class="game-card">
       <h3>🔤 Nitro Type</h3>
       <p>Improve your typing speed while racing others online!</p>
       <a href="https://www.nitrotype.com/" target="_blank">Play Now</a>
     </div>
-
     <div class="game-card">
       <h3>💡 Lumosity</h3>
       <p>Boost memory, attention, and flexibility through brain games.</p>
       <a href="https://www.lumosity.com/" target="_blank">Play Now</a>
     </div>
-
     <div class="game-card">
       <h3>🧩 2048</h3>
       <p>A simple number puzzle that requires planning and logic.</p>
       <a href="https://play2048.co/" target="_blank">Play Now</a>
     </div>
-
     <div class="game-card">
       <h3>👾 CodeCombat</h3>
       <p>Learn programming by playing a dungeon crawler game.</p>
       <a href="https://codecombat.com/" target="_blank">Play Now</a>
     </div>
-
     <div class="game-card">
       <h3>🧮 Math Playground</h3>
       <p>Games that improve problem solving, logic, and math skills.</p>
       <a href="https://www.mathplayground.com/" target="_blank">Play Now</a>
     </div>
-
     <div class="game-card">
       <h3>🧠 Elevate</h3>
       <p>Train your brain daily with games for memory, speed, and logic.</p>
       <a href="https://www.elevateapp.com/" target="_blank">Play Now</a>
     </div>
-
     <div class="game-card">
       <h3>🔍 Google Quick Draw</h3>
       <p>Train your creativity and speed by drawing and letting AI guess!</p>
@@ -193,14 +220,14 @@
 
   <footer>
     <p>© 2025 Shayan’s Smart World | Learn + Play with Purpose 🎮</p>
-      <div style="margin-top: 1rem;">
-    <a href="https://www.youtube.com/@Killer15252" target="_blank" style="margin: 0 10px;">
-      <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube" width="40" height="40">
-    </a>
-    <a href="https://discord.com/channels/@me" target="_blank" style="margin: 0 10px;">
-      <img src="https://cdn-icons-png.flaticon.com/512/2111/2111370.png" alt="Discord" width="40" height="40">
-    </a>
-  </div>
+    <div style="margin-top: 1rem;">
+      <a href="https://www.youtube.com/@Killer15252" target="_blank" style="margin: 0 10px;">
+        <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube" width="40" height="40">
+      </a>
+      <a href="https://discord.com/channels/@me" target="_blank" style="margin: 0 10px;">
+        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111370.png" alt="Discord" width="40" height="40">
+      </a>
+    </div>
   </footer>
 
   <script>
@@ -215,11 +242,7 @@
     const toggleBtn = document.getElementById("toggleMode");
     toggleBtn.addEventListener("click", () => {
       document.body.classList.toggle("light-mode");
-      if (document.body.classList.contains("light-mode")) {
-        localStorage.setItem("theme", "light");
-      } else {
-        localStorage.setItem("theme", "dark");
-      }
+      localStorage.setItem("theme", document.body.classList.contains("light-mode") ? "light" : "dark");
     });
 
     window.addEventListener("DOMContentLoaded", () => {
