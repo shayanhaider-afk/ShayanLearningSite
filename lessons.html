@@ -12,6 +12,36 @@
       transition: background 0.4s, color 0.4s;
     }
 
+    header {
+      text-align: center;
+      padding: 1rem;
+    }
+
+    #searchBar {
+      display: block;
+      margin: 1rem auto;
+      padding: 0.5rem;
+      width: 80%;
+      max-width: 500px;
+      border-radius: 8px;
+      border: 1px solid #999;
+    }
+
+    .progress-container {
+      width: 80%;
+      margin: 1rem auto;
+      background: #ddd;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .progress-bar {
+      height: 20px;
+      width: 0%;
+      background: linear-gradient(90deg, #00cfff, #0077ff);
+      transition: width 0.4s;
+    }
+
     section {
       padding: 2rem;
     }
@@ -23,6 +53,7 @@
       border-radius: 10px;
       background-color: #f5f5f5;
       transition: transform 0.3s ease;
+      position: relative;
     }
 
     .lesson:hover {
@@ -36,6 +67,35 @@
     .lesson p {
       font-size: 17px;
       line-height: 1.6;
+    }
+
+    .lesson-actions {
+      margin-top: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .like-btn {
+      cursor: pointer;
+      background: none;
+      border: none;
+      font-size: 18px;
+      transition: transform 0.2s;
+    }
+
+    .like-btn.liked {
+      color: red;
+      transform: scale(1.3);
+    }
+
+    .complete-btn {
+      padding: 0.3rem 0.7rem;
+      border: none;
+      background: #0077ff;
+      color: white;
+      border-radius: 6px;
+      cursor: pointer;
     }
 
     body.light-mode {
@@ -74,50 +134,68 @@
     </nav>
   </header>
 
-  <section>
+  <input type="text" id="searchBar" placeholder="🔍 Search lessons..." />
+
+  <div class="progress-container">
+    <div class="progress-bar" id="progressBar"></div>
+  </div>
+
+  <section id="lessonsList">
     <h2>Lessons That Make Your Mind Stronger</h2>
 
-    <div class="lesson">
-      <h3>🧭 Lesson 1: Control Your Mind Before It Controls You</h3>
-      <p>Your thoughts can either build you or break you. Learn how to observe your thoughts, not react to every emotion, and take control of your focus. Meditation and journaling help with this a lot.</p>
-    </div>
+    <!-- === START LESSONS === -->
+    <div class="lesson"><h3>🧭 Lesson 1: Control Your Mind Before It Controls You</h3><p>Your thoughts can either build you or break you. Learn to observe, not react blindly.</p><div class="lesson-actions"><button class="like-btn">❤️</button><button class="complete-btn">Mark Complete</button></div></div>
 
-    <div class="lesson">
-      <h3>💬 Lesson 2: What You Speak Becomes Your Reality</h3>
-      <p>Always say good about yourself, even when you don’t feel good. Your words create your energy. Say: “I’m learning,” “I’m growing,” “I will make it.” Watch how your life starts changing.</p>
-    </div>
+    <div class="lesson"><h3>💬 Lesson 2: Words Shape Your Reality</h3><p>What you speak, you become. Choose words that empower your journey.</p><div class="lesson-actions"><button class="like-btn">❤️</button><button class="complete-btn">Mark Complete</button></div></div>
 
-    <div class="lesson">
-      <h3>📵 Lesson 3: Your Brain Is Not Meant for 24/7 Scrolling</h3>
-      <p>If you scroll endlessly, your brain becomes weak and unfocused. Use social media in limits. Read, walk, write, build — these habits give peace and purpose. Master your screen, don’t let it master you.</p>
-    </div>
+    <div class="lesson"><h3>📵 Lesson 3: Master Screens, Don’t Be a Slave</h3><p>Too much scrolling kills focus. Use devices wisely, not endlessly.</p><div class="lesson-actions"><button class="like-btn">❤️</button><button class="complete-btn">Mark Complete</button></div></div>
 
-    <div class="lesson">
-      <h3>💪 Lesson 4: Discipline Beats Motivation</h3>
-      <p>Motivation fades. But if you build routines — even small — you become unshakable. Start with: “I’ll do 1 good thing daily even if I don’t feel like it.” Slowly, you become a machine of success.</p>
-    </div>
+    <div class="lesson"><h3>💪 Lesson 4: Discipline Beats Motivation</h3><p>Motivation fades. Routines build unstoppable strength.</p><div class="lesson-actions"><button class="like-btn">❤️</button><button class="complete-btn">Mark Complete</button></div></div>
 
-    <div class="lesson">
-      <h3>🕌 Lesson 5: Pray, Reflect, and Grow with Allah</h3>
-      <p>Don’t forget your connection to your Creator. Salaah is not just prayer — it's a mental reset. A true believer uses Islam to build patience, vision, and discipline. Inner peace comes from here.</p>
-    </div>
+    <div class="lesson"><h3>🕌 Lesson 5: Inner Peace Through Prayer</h3><p>Prayer resets the soul and brings clarity to life’s struggles.</p><div class="lesson-actions"><button class="like-btn">❤️</button><button class="complete-btn">Mark Complete</button></div></div>
 
-    <div class="lesson">
-      <h3>🌍 Lesson 6: Read, Travel, Ask Questions</h3>
-      <p>The best students are curious. Explore books, cultures, languages, and libraries. Ask “Why?” and “What if?” Stay hungry for learning — this mindset builds leaders, not followers.</p>
-    </div>
+    <div class="lesson"><h3>🌍 Lesson 6: Curiosity Creates Leaders</h3><p>Read, explore, and never stop asking questions.</p><div class="lesson-actions"><button class="like-btn">❤️</button><button class="complete-btn">Mark Complete</button></div></div>
+
+    <div class="lesson"><h3>🕒 Lesson 7: Time Is Life’s Currency</h3><p>Spend time wisely, not on things that drain you.</p><div class="lesson-actions"><button class="like-btn">❤️</button><button class="complete-btn">Mark Complete</button></div></div>
+
+    <div class="lesson"><h3>👨‍👩‍👧 Lesson 8: Parenting is Presence</h3><p>Children don’t need perfect parents. They need present ones.</p><div class="lesson-actions"><button class="like-btn">❤️</button><button class="complete-btn">Mark Complete</button></div></div>
+
+    <div class="lesson"><h3>📚 Lesson 9: Knowledge Without Action is Wasted</h3><p>Learning is powerful only if applied.</p><div class="lesson-actions"><button class="like-btn">❤️</button><button class="complete-btn">Mark Complete</button></div></div>
+
+    <div class="lesson"><h3>🧩 Lesson 10: Emotions Need Understanding, Not Suppression</h3><p>Listen to your emotions. They are signals, not enemies.</p><div class="lesson-actions"><button class="like-btn">❤️</button><button class="complete-btn">Mark Complete</button></div></div>
+
+    <div class="lesson"><h3>🤝 Lesson 11: Build Relationships, Not Followers</h3><p>Real success is in meaningful connections, not empty numbers.</p><div class="lesson-actions"><button class="like-btn">❤️</button><button class="complete-btn">Mark Complete</button></div></div>
+
+    <div class="lesson"><h3>🧘 Lesson 12: Rest is Productive</h3><p>Rest sharpens the brain. Burnout destroys it.</p><div class="lesson-actions"><button class="like-btn">❤️</button><button class="complete-btn">Mark Complete</button></div></div>
+
+    <div class="lesson"><h3>🎯 Lesson 13: Focus is the New Superpower</h3><p>Where attention goes, energy flows. Guard it carefully.</p><div class="lesson-actions"><button class="like-btn">❤️</button><button class="complete-btn">Mark Complete</button></div></div>
+
+    <div class="lesson"><h3>🧑‍🏫 Lesson 14: Teach What You Learn</h3><p>Sharing knowledge strengthens it inside you.</p><div class="lesson-actions"><button class="like-btn">❤️</button><button class="complete-btn">Mark Complete</button></div></div>
+
+    <div class="lesson"><h3>👂 Lesson 15: Listen More, Talk Less</h3><p>Listening builds wisdom, respect, and deep connections.</p><div class="lesson-actions"><button class="like-btn">❤️</button><button class="complete-btn">Mark Complete</button></div></div>
+
+    <div class="lesson"><h3>👶 Lesson 16: Parenting by Example</h3><p>Kids follow what you do, not what you say.</p><div class="lesson-actions"><button class="like-btn">❤️</button><button class="complete-btn">Mark Complete</button></div></div>
+
+    <div class="lesson"><h3>🛠️ Lesson 17: Small Habits Shape Big Futures</h3><p>It’s the little daily actions that build success.</p><div class="lesson-actions"><button class="like-btn">❤️</button><button class="complete-btn">Mark Complete</button></div></div>
+
+    <div class="lesson"><h3>💡 Lesson 18: Failures Teach More Than Wins</h3><p>Each failure is a stepping stone, not a dead end.</p><div class="lesson-actions"><button class="like-btn">❤️</button><button class="complete-btn">Mark Complete</button></div></div>
+
+    <div class="lesson"><h3>🔑 Lesson 19: Self-Awareness is Power</h3><p>Knowing yourself prevents manipulation and builds confidence.</p><div class="lesson-actions"><button class="like-btn">❤️</button><button class="complete-btn">Mark Complete</button></div></div>
+
+    <div class="lesson"><h3>🧾 Lesson 20: Gratitude Attracts Blessings</h3><p>Grateful people live happier, healthier, and more fulfilled lives.</p><div class="lesson-actions"><button class="like-btn">❤️</button><button class="complete-btn">Mark Complete</button></div></div>
+    <!-- === END LESSONS === -->
   </section>
 
   <footer>
     <p>© 2025 Shayan’s Smart World | Learn Like a Legend 🧠</p>
-      <div style="margin-top: 1rem;">
-    <a href="https://www.youtube.com/@Killer15252" target="_blank" style="margin: 0 10px;">
-      <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube" width="40" height="40">
-    </a>
-    <a href="https://discord.com/channels/@me" target="_blank" style="margin: 0 10px;">
-      <img src="https://cdn-icons-png.flaticon.com/512/2111/2111370.png" alt="Discord" width="40" height="40">
-    </a>
-  </div>
+    <div style="margin-top: 1rem;">
+      <a href="https://www.youtube.com/@Killer15252" target="_blank" style="margin: 0 10px;">
+        <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube" width="40" height="40">
+      </a>
+      <a href="https://discord.com/channels/@me" target="_blank" style="margin: 0 10px;">
+        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111370.png" alt="Discord" width="40" height="40">
+      </a>
+    </div>
   </footer>
 
   <script>
@@ -129,6 +207,7 @@
       });
     });
 
+    // Dark mode toggle
     const toggleBtn = document.getElementById("toggleMode");
     toggleBtn.addEventListener("click", () => {
       document.body.classList.toggle("light-mode");
@@ -143,6 +222,40 @@
       if (localStorage.getItem("theme") === "light") {
         document.body.classList.add("light-mode");
       }
+    });
+
+    // Like buttons
+    document.querySelectorAll(".like-btn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        btn.classList.toggle("liked");
+      });
+    });
+
+    // Mark complete + progress
+    const lessons = document.querySelectorAll(".lesson");
+    const progressBar = document.getElementById("progressBar");
+    let completed = 0;
+
+    document.querySelectorAll(".complete-btn").forEach((btn, index) => {
+      btn.addEventListener("click", () => {
+        if (!btn.classList.contains("done")) {
+          btn.classList.add("done");
+          btn.textContent = "✅ Completed";
+          completed++;
+          let percent = (completed / lessons.length) * 100;
+          progressBar.style.width = percent + "%";
+        }
+      });
+    });
+
+    // Search lessons
+    const searchBar = document.getElementById("searchBar");
+    searchBar.addEventListener("keyup", e => {
+      const term = e.target.value.toLowerCase();
+      document.querySelectorAll(".lesson").forEach(lesson => {
+        const text = lesson.textContent.toLowerCase();
+        lesson.style.display = text.includes(term) ? "block" : "none";
+      });
     });
   </script>
 </body>

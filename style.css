@@ -219,3 +219,170 @@ footer img {
 footer img:hover {
   transform: scale(1.2);
 }
+/* ===== APPEND-ONLY UPGRADE (keeps all your styles) ===== */
+
+/* Layout helpers */
+.container {
+  width: min(1100px, 92%);
+  margin: auto;
+}
+
+.row {
+  display: grid;
+  gap: 16px;
+}
+
+/* Card helpers (optional) */
+.card-soft {
+  background-color: #ffffff;
+  color: #111;
+  border: 1px solid #ddd;
+  border-radius: 14px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+  padding: 1rem;
+}
+
+.light-mode .card-soft { background-color: #f9f9f9; color: #111; }
+
+/* Search bar */
+.search {
+  margin: 1rem 0;
+  display: flex;
+  gap: 10px;
+}
+
+.search input[type="search"], 
+.search input[data-search] {
+  flex: 1;
+  padding: .7rem .9rem;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background: #1b1b1b;
+  color: #f1f1f1;
+  outline: none;
+}
+
+.light-mode .search input[type="search"],
+.light-mode .search input[data-search] {
+  background: #fff;
+  color: #1a1a1a;
+  border-color: #bbb;
+}
+
+/* Utility buttons */
+.btn {
+  display: inline-block;
+  padding: 10px 16px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: bold;
+  background: #ffcc00;
+  color: #003366;
+  border: none;
+  cursor: pointer;
+}
+
+.btn:hover { opacity: .9; }
+
+.light-mode .btn {
+  background: #003366;
+  color: #fff;
+}
+
+/* Tags / badges */
+.tag, .badge {
+  display: inline-block;
+  font-size: 12px;
+  line-height: 1;
+  padding: 6px 10px;
+  border-radius: 999px;
+  margin-right: 6px;
+  margin-top: 6px;
+  border: 1px solid #ccc;
+  background: #fff;
+  color: #111;
+}
+
+.light-mode .tag, .light-mode .badge {
+  background: #f5f5f5;
+  color: #111;
+}
+
+/* Like button */
+.like {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  user-select: none;
+  cursor: pointer;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid #ccc;
+  background: #fff;
+  color: #111;
+}
+
+.like:hover { transform: translateY(-1px); transition: .2s; }
+
+.light-mode .like { background: #f5f5f5; }
+
+/* Progress bar */
+.progress {
+  height: 8px;
+  background: #2a2a2a;
+  border-radius: 999px;
+  overflow: hidden;
+  margin-top: 10px;
+}
+
+.progress > span {
+  display: block;
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #2563eb, #14b8a6);
+  transition: width .3s ease;
+}
+
+.light-mode .progress { background: #e5e5e5; }
+
+/* Toast (small popup message) */
+.toast {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  background: #1e1e1e;
+  color: #f1f1f1;
+  border: 1px solid #333;
+  padding: 10px 14px;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.25);
+  opacity: 0;
+  transform: translateY(10px);
+  transition: .25s ease;
+  z-index: 1000;
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.light-mode .toast {
+  background: #ffffff;
+  color: #111;
+  border-color: #ddd;
+}
+
+/* Optional sticky header without changing your header defaults */
+.sticky-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+/* Accessibility helper */
+.sr-only {
+  position: absolute; width: 1px; height: 1px;
+  padding: 0; margin: -1px; overflow: hidden;
+  clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+}

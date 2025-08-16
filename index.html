@@ -12,56 +12,59 @@
       transition: background 0.4s, color 0.4s;
     }
 
+    /* ✅ Hero */
     .hero {
       text-align: center;
       padding: 3rem 1rem;
       background: linear-gradient(to right, #111, #1f1f1f);
       color: white;
     }
-
     .hero.light-mode {
       background: #e2e2e2;
       color: #111;
     }
-
     .hero h1 {
       font-size: 36px;
       margin-bottom: 10px;
     }
-
     .hero p {
       font-size: 20px;
       color: #ccc;
     }
-
     .hero.light-mode p {
       color: #222;
     }
 
+    /* ✅ Sections & Cards */
     section {
       padding: 2rem;
       text-align: center;
+      max-width: 1100px;
+      margin: auto;
     }
-
+    .cards-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
     .card {
       border: 1px solid #aaa;
-      border-radius: 10px;
-      padding: 1rem;
-      margin: 1rem;
+      border-radius: 14px;
+      padding: 1.5rem;
       background-color: #2a2a2a;
       color: white;
-      transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.2);
     }
-
     .card:hover {
-      transform: scale(1.03);
+      transform: translateY(-5px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.3);
     }
-
     body.light-mode {
       background-color: #fff;
       color: #111;
     }
-
     body.light-mode .card {
       background-color: #fff;
       color: #000;
@@ -71,20 +74,48 @@
       font-size: 28px;
       margin-bottom: 1rem;
     }
-
     h3 {
       color: #00cfff;
     }
-
     body.light-mode h3 {
       color: #0056b3;
     }
 
+    /* ✅ Links inside cards */
+    .card a {
+      display: inline-block;
+      margin-top: 0.8rem;
+      font-weight: bold;
+      color: #ffcc00;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .card a:hover {
+      color: #ff8800;
+    }
+
+    /* ✅ Footer */
     footer {
       text-align: center;
-      padding: 1rem;
+      padding: 1.5rem;
+      font-size: 0.9rem;
+      background: #202020;
+      color: #aaa;
+      margin-top: 2rem;
+    }
+    body.light-mode footer {
+      background: #e0e0e0;
+      color: #333;
+    }
+    footer img {
+      transition: transform 0.3s ease, filter 0.3s ease;
+    }
+    footer img:hover {
+      transform: scale(1.2);
+      filter: drop-shadow(0 0 6px #ffcc00);
     }
   </style>
+
   <audio id="hoverSound" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_384ea46939.mp3?filename=click-button-app-147358.mp3" preload="auto"></audio>
 </head>
 <body>
@@ -110,47 +141,49 @@
   <section>
     <h2>Explore the Platform</h2>
 
-    <div class="card">
-      <h3>🧠 Mental Lessons</h3>
-      <p>Build your mindset, focus, emotional strength, and purpose.</p>
-      <a href="lessons.html">Read Lessons</a>
-    </div>
+    <div class="cards-container">
+      <div class="card">
+        <h3>🧠 Mental Lessons</h3>
+        <p>Build your mindset, focus, emotional strength, and purpose.</p>
+        <a href="lessons.html">Read Lessons →</a>
+      </div>
 
-    <div class="card">
-      <h3>🏛️ Great Libraries</h3>
-      <p>Discover the most powerful knowledge centers on Earth.</p>
-      <a href="libraries.html">Explore Libraries</a>
-    </div>
+      <div class="card">
+        <h3>🏛️ Great Libraries</h3>
+        <p>Discover the most powerful knowledge centers on Earth.</p>
+        <a href="libraries.html">Explore Libraries →</a>
+      </div>
 
-    <div class="card">
-      <h3>📚 Life-Changing Books</h3>
-      <p>Books that shape your thinking, personality, and power of learning.</p>
-      <a href="books.html">View Books</a>
-    </div>
+      <div class="card">
+        <h3>📚 Life-Changing Books</h3>
+        <p>Books that shape your thinking, personality, and power of learning.</p>
+        <a href="books.html">View Books →</a>
+      </div>
 
-    <div class="card">
-      <h3>🎮 Smart Games</h3>
-      <p>Fun games that build skills like logic, strategy, memory, and creativity.</p>
-      <a href="games.html">Play & Learn</a>
-    </div>
+      <div class="card">
+        <h3>🎮 Smart Games</h3>
+        <p>Fun games that build skills like logic, strategy, memory, and creativity.</p>
+        <a href="games.html">Play & Learn →</a>
+      </div>
 
-    <div class="card">
-      <h3>👦 About Me</h3>
-      <p>Who is Shayan Haider? Get to know my story and why I built this.</p>
-      <a href="about.html">Read About Me</a>
+      <div class="card">
+        <h3>👦 About Me</h3>
+        <p>Who is Shayan Haider? Get to know my story and why I built this.</p>
+        <a href="about.html">Read About Me →</a>
+      </div>
     </div>
   </section>
 
   <footer>
-    <p>© 2025 Shayan’s Smart World | Built by a Dreamer ✨</p>
-      <div style="margin-top: 1rem;">
-    <a href="https://www.youtube.com/@Killer15252" target="_blank" style="margin: 0 10px;">
-      <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube" width="40" height="40">
-    </a>
-    <a href="https://discord.com/channels/@me" target="_blank" style="margin: 0 10px;">
-      <img src="https://cdn-icons-png.flaticon.com/512/2111/2111370.png" alt="Discord" width="40" height="40">
-    </a>
-  </div>
+    <p>© <span id="year"></span> Shayan’s Smart World | Built by a Dreamer ✨</p>
+    <div style="margin-top: 1rem;">
+      <a href="https://www.youtube.com/@Killer15252" target="_blank" style="margin: 0 10px;">
+        <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube" width="40" height="40">
+      </a>
+      <a href="https://discord.com/channels/@me" target="_blank" style="margin: 0 10px;">
+        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111370.png" alt="Discord" width="40" height="40">
+      </a>
+    </div>
   </footer>
 
   <script>
@@ -181,6 +214,8 @@
         document.body.classList.add("light-mode");
         heroSection.classList.add("light-mode");
       }
+      // auto year
+      document.getElementById("year").textContent = new Date().getFullYear();
     });
   </script>
 </body>
