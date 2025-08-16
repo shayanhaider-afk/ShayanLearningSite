@@ -14,14 +14,16 @@
       color: #f1f1f1;
     }
     body.light-mode {
-      background-color: #fff;
-      color: #222;
+      background-color: #fefefe;
+      color: #111;
     }
+
     header {
       text-align: center;
       padding: 2rem 1rem;
-      background-color: #003366;
+      background: linear-gradient(135deg, #003366, #0059b3);
       color: white;
+      border-bottom: 4px solid #ffcc00;
     }
     nav {
       margin-top: 1rem;
@@ -31,44 +33,63 @@
       margin: 0 1rem;
       text-decoration: none;
       font-weight: bold;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: #ffcc00;
     }
     body.light-mode nav a {
       color: #003366;
     }
+
+    /* Games grid */
     section {
       padding: 2rem;
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1.5rem;
+      gap: 1.8rem;
+      max-width: 1200px;
+      margin: auto;
     }
 
     /* Game card styling */
     .game-card {
       cursor: pointer;
-      border-radius: 10px;
-      padding: 1rem;
+      border-radius: 14px;
+      padding: 1.2rem;
       text-align: center;
-      transition: transform 0.3s ease, background 0.3s;
-      border: 1px solid #aaa;
-    }
-    body:not(.light-mode) .game-card {
-      background-color: #1f1f1f;
-      color: #f1f1f1;
-      border: 1px solid #555;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: 1px solid #444;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      background-color: #1e1e1e;
     }
     body.light-mode .game-card {
-      background-color: #f8f8f8;
-      color: #222;
+      background-color: #fdfdfd;
+      border: 1px solid #ccc;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
+    .game-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 18px rgba(255, 204, 0, 0.5);
+    }
+
+    .game-card img {
+      width: 70px;
+      height: 70px;
+      margin-bottom: 12px;
+    }
+
     .game-card h3 {
       margin-top: 0;
-      color: #003366;
-    }
-    body:not(.light-mode) .game-card h3 {
       color: #ffcc00;
+      font-size: 1.2rem;
+    }
+    body.light-mode .game-card h3 {
+      color: #003366;
     }
     .game-card p {
       margin: 10px 0;
+      font-size: 0.95rem;
     }
     .game-card a {
       display: inline-block;
@@ -77,13 +98,12 @@
       background-color: #003366;
       color: white;
       text-decoration: none;
-      border-radius: 5px;
+      border-radius: 6px;
+      font-weight: bold;
+      transition: background 0.3s;
     }
     .game-card a:hover {
-      background-color: #0056b3;
-    }
-    .game-card:hover {
-      transform: scale(1.03);
+      background-color: #0059b3;
     }
 
     footer {
@@ -92,6 +112,7 @@
       font-size: 0.9rem;
       background-color: #202020;
       color: #aaa;
+      margin-top: 2rem;
     }
     body.light-mode footer {
       background-color: #e0e0e0;
@@ -99,13 +120,14 @@
     }
     #toggleMode {
       margin-top: 1rem;
-      padding: 0.4rem 1rem;
+      padding: 0.5rem 1.2rem;
       font-size: 1rem;
       border-radius: 6px;
       border: none;
       background-color: #ffffff;
       color: #003366;
       cursor: pointer;
+      font-weight: bold;
     }
     body.light-mode #toggleMode {
       background-color: #003366;
@@ -130,91 +152,110 @@
   </header>
 
   <section>
+    <!-- Game Cards with Icons + Links -->
     <div class="game-card">
+      <img src="https://img.icons8.com/color/96/word.png" alt="Wordle">
       <h3>Wordle</h3>
       <p>Guess the 5-letter word before you run out of tries.</p>
       <a href="https://www.nytimes.com/games/wordle/index.html" target="_blank">Play Now</a>
     </div>
+
     <div class="game-card">
+      <img src="https://img.icons8.com/color/96/brain.png" alt="Memory Match">
       <h3>Memory Match</h3>
       <p>Test your short-term memory in this fun matching game.</p>
       <a href="https://www.memozor.com/memory-games/for-adults/online-and-free" target="_blank">Play Now</a>
     </div>
+
     <div class="game-card">
+      <img src="https://img.icons8.com/color/96/chessboard.png" alt="Chess">
       <h3>Chess</h3>
       <p>Challenge your mind with the game of kings.</p>
       <a href="https://www.chess.com/play/computer" target="_blank">Play Now</a>
     </div>
+
     <div class="game-card">
+      <img src="https://img.icons8.com/color/96/123.png" alt="Sudoku">
       <h3>Sudoku</h3>
-      <p>Fill the grid so every number from 1 to 9 appears once per row, column, and box.</p>
+      <p>Fill the grid so every number appears once per row, column, and box.</p>
       <a href="https://sudoku.com/" target="_blank">Play Now</a>
     </div>
+
     <div class="game-card">
+      <img src="https://img.icons8.com/color/96/rope.png" alt="Cut the Rope">
       <h3>Cut the Rope</h3>
       <p>Feed the little monster by cutting ropes in the right order.</p>
       <a href="https://cuttherope.ie/" target="_blank">Play Now</a>
     </div>
+
     <div class="game-card">
+      <img src="https://img.icons8.com/color/96/alchemy.png" alt="Little Alchemy 2">
       <h3>Little Alchemy 2</h3>
       <p>Combine elements to create new objects in this creative puzzle game.</p>
       <a href="https://littlealchemy2.com/" target="_blank">Play Now</a>
     </div>
+
     <div class="game-card">
+      <img src="https://img.icons8.com/color/96/globe.png" alt="GeoGuessr">
       <h3>GeoGuessr</h3>
       <p>Travel virtually and guess where you are in the world.</p>
       <a href="https://geoguessr-free.com/" target="_blank">Play Now</a>
     </div>
+
     <div class="game-card">
+      <img src="https://img.icons8.com/color/96/ball.png" alt="Slope">
       <h3>Slope</h3>
       <p>Guide a ball down a never-ending slope without falling off.</p>
       <a href="https://slope-game.github.io/" target="_blank">Play Now</a>
     </div>
+
     <div class="game-card">
+      <img src="https://img.icons8.com/color/96/pencil.png" alt="Line Rider">
       <h3>Line Rider</h3>
       <p>Draw a path and watch the rider go for a wild ride.</p>
       <a href="https://linerider.com/" target="_blank">Play Now</a>
     </div>
 
     <div class="game-card">
-      <h3>🧠 Brain It On!</h3>
-      <p>Use physics & logic to solve puzzles. Great for thinking outside the box.</p>
-      <a href="https://play.google.com/store/apps/details?id=com.orbital.brainiton&hl=en" target="_blank">Play Now</a>
-    </div>
-    <div class="game-card">
-      <h3>🔤 Nitro Type</h3>
-      <p>Improve your typing speed while racing others online!</p>
-      <a href="https://www.nitrotype.com/" target="_blank">Play Now</a>
-    </div>
-    <div class="game-card">
-      <h3>💡 Lumosity</h3>
-      <p>Boost memory, attention, and flexibility through brain games.</p>
-      <a href="https://www.lumosity.com/" target="_blank">Play Now</a>
-    </div>
-    <div class="game-card">
-      <h3>🧩 2048</h3>
+      <img src="https://img.icons8.com/color/96/puzzle.png" alt="2048">
+      <h3>2048</h3>
       <p>A simple number puzzle that requires planning and logic.</p>
       <a href="https://play2048.co/" target="_blank">Play Now</a>
     </div>
+
     <div class="game-card">
-      <h3>👾 CodeCombat</h3>
+      <img src="https://img.icons8.com/color/96/coding.png" alt="CodeCombat">
+      <h3>CodeCombat</h3>
       <p>Learn programming by playing a dungeon crawler game.</p>
       <a href="https://codecombat.com/" target="_blank">Play Now</a>
     </div>
+
     <div class="game-card">
-      <h3>🧮 Math Playground</h3>
+      <img src="https://img.icons8.com/color/96/math.png" alt="Math Playground">
+      <h3>Math Playground</h3>
       <p>Games that improve problem solving, logic, and math skills.</p>
       <a href="https://www.mathplayground.com/" target="_blank">Play Now</a>
     </div>
+
     <div class="game-card">
-      <h3>🧠 Elevate</h3>
-      <p>Train your brain daily with games for memory, speed, and logic.</p>
-      <a href="https://www.elevateapp.com/" target="_blank">Play Now</a>
+      <img src="https://img.icons8.com/color/96/quiz.png" alt="Trivia Quiz">
+      <h3>Trivia Quiz</h3>
+      <p>Test your general knowledge across many topics.</p>
+      <a href="https://www.triviaplaza.com/" target="_blank">Play Now</a>
     </div>
+
     <div class="game-card">
-      <h3>🔍 Google Quick Draw</h3>
-      <p>Train your creativity and speed by drawing and letting AI guess!</p>
-      <a href="https://quickdraw.withgoogle.com/" target="_blank">Play Now</a>
+      <img src="https://img.icons8.com/color/96/maze.png" alt="Maze">
+      <h3>Maze Challenge</h3>
+      <p>Escape tricky mazes and boost your problem-solving skills.</p>
+      <a href="https://mazegenerator.net/play" target="_blank">Play Now</a>
+    </div>
+
+    <div class="game-card">
+      <img src="https://img.icons8.com/color/96/brainstorm-skill.png" alt="Logic Grid">
+      <h3>Logic Grid</h3>
+      <p>Sharpen your brain with challenging logic puzzles.</p>
+      <a href="https://logic.puzzlebaron.com/" target="_blank">Play Now</a>
     </div>
   </section>
 
@@ -232,8 +273,8 @@
 
   <script>
     const hoverSound = document.getElementById("hoverSound");
-    document.querySelectorAll("a").forEach(link => {
-      link.addEventListener("mouseenter", () => {
+    document.querySelectorAll(".game-card").forEach(card => {
+      card.addEventListener("mouseenter", () => {
         hoverSound.currentTime = 0;
         hoverSound.play();
       });

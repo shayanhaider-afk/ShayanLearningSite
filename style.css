@@ -1,388 +1,967 @@
-/* ✅ Reset + Font */
+/* 🌟 Global Reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* 🌌 Body */
 body {
   font-family: "Times New Roman", serif;
-  font-size: 18px;
-  line-height: 1.7;
-  background-color: #121212;
-  color: #f1f1f1;
-  transition: background-color 0.4s, color 0.4s;
-  padding-bottom: 3rem;
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  color: #f5f5f5;
+  transition: background 0.6s, color 0.6s;
+  line-height: 1.8;
 }
 
-.light-mode {
-  background-color: #ffffff;
-  color: #1a1a1a;
+/* ☀️ Light Mode */
+body.light-mode {
+  background: linear-gradient(135deg, #fdfbfb, #ebedee);
+  color: #222;
 }
 
-/* ✅ Header */
+/* 🌐 Header */
 header {
+  background: rgba(0, 0, 0, 0.7);
+  padding: 1.2rem;
   text-align: center;
-  padding: 2rem 1rem;
-  background-color: #003366;
-  color: white;
+  border-bottom: 2px solid #00c6ff;
+  backdrop-filter: blur(10px);
 }
 
-header h1 {
-  font-size: 2.2rem;
-  margin-bottom: 0.5rem;
+body.light-mode header {
+  background: rgba(255, 255, 255, 0.85);
+  border-bottom: 2px solid #0072ff;
 }
 
-/* ✅ Navigation */
+/* 🏠 Navigation */
 nav {
   margin-top: 1rem;
 }
 
 nav a {
-  color: white;
-  margin: 0 1rem;
   text-decoration: none;
+  margin: 0 15px;
+  font-size: 1.1rem;
   font-weight: bold;
-  font-size: 1rem;
-  transition: color 0.3s;
+  color: #00c6ff;
+  transition: color 0.3s, transform 0.3s;
+}
+
+body.light-mode nav a {
+  color: #0072ff;
 }
 
 nav a:hover {
-  color: #ffcc00;
+  color: #ffdf00;
+  transform: scale(1.1);
+  text-shadow: 0 0 10px #ffdf00;
 }
 
-.light-mode nav a {
-  color: #ff6600; /* Bright orange - super visible on light blue */
+/* ✨ Headings */
+h1, h2, h3 {
+  text-align: center;
+  margin: 1.2rem 0;
+  background: linear-gradient(to right, #00c6ff, #0072ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 15px rgba(0, 198, 255, 0.7);
 }
 
-/* ✅ Section Layout */
+/* 📦 Sections */
 section {
   padding: 2rem;
-  max-width: 960px;
-  margin: auto;
-}
-
-/* ✅ Universal Card Style */
-.book, .library, .lesson, .game {
-  background-color: #ffffff;
-  color: #111;
-  border: 1px solid #ccc;
-  border-radius: 14px;
-  padding: 1.5rem;
-  margin-bottom: 2rem;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.light-mode .book,
-.light-mode .library,
-.light-mode .lesson,
-.light-mode .game {
-  background-color: #f9f9f9;
-  color: #111;
-}
-
-/* ✅ Headings */
-.book h3,
-.library h3,
-.lesson h3,
-.game h3 {
-  font-size: 1.6rem;
-  margin-bottom: 0.5rem;
-  color: #003366;
-}
-
-.light-mode .book h3,
-.light-mode .library h3,
-.light-mode .lesson h3,
-.light-mode .game h3 {
-  color: #003366;
-}
-
-/* ✅ Paragraph Text */
-.book p,
-.library p,
-.lesson p,
-.game p {
-  font-size: 1.1rem;
-  line-height: 1.6;
-  color: #111;
-  margin-top: 0.5rem;
-}
-
-.light-mode .book p,
-.light-mode .library p,
-.light-mode .lesson p,
-.light-mode .game p {
-  color: #111;
-}
-
-/* ✅ Links */
-.book a,
-.library a,
-.lesson a,
-.game a {
-  color: #0077cc;
-  font-weight: bold;
-  text-decoration: underline;
-}
-
-.light-mode .book a,
-.light-mode .library a,
-.light-mode .lesson a,
-.light-mode .game a {
-  color: #0044aa;
-}
-
-/* ✅ Hover Effect */
-.book:hover,
-.library:hover,
-.lesson:hover,
-.game:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
-}
-
-/* ✅ Quote Style */
-.quote {
-  font-style: italic;
-  text-align: center;
   margin: 2rem auto;
-  max-width: 800px;
-  opacity: 0.9;
-  color: #aaa;
+  max-width: 1000px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
-.light-mode .quote {
-  color: #555;
+body.light-mode section {
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
 }
 
-/* ✅ Toggle Button */
+section:hover {
+  transform: scale(1.02);
+  box-shadow: 0 10px 30px rgba(0, 198, 255, 0.6);
+}
+
+/* 📖 Paragraphs */
+p {
+  font-size: 18px;
+  margin-bottom: 1.2rem;
+  color: inherit;
+  text-align: justify;
+}
+
+/* 🎮 Cards for Lessons, Books, Games */
+.card {
+  background: rgba(255, 255, 255, 0.08);
+  padding: 1.5rem;
+  border-radius: 15px;
+  margin: 1rem 0;
+  transition: transform 0.3s, background 0.3s;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+}
+
+body.light-mode .card {
+  background: #ffffff;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  background: rgba(0, 198, 255, 0.2);
+}
+
+/* 🌙 Toggle Button */
 #toggleMode {
-  margin-top: 1rem;
-  padding: 0.5rem 1.2rem;
-  font-size: 1rem;
-  border-radius: 8px;
+  background: #00c6ff;
   border: none;
-  background-color: #ffcc00;
-  color: #003366;
+  padding: 10px 18px;
+  border-radius: 25px;
   cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.light-mode #toggleMode {
-  background-color: #003366;
-  color: #ffffff;
+  font-weight: bold;
+  font-size: 1rem;
+  color: #fff;
+  transition: background 0.4s, transform 0.3s;
 }
 
 #toggleMode:hover {
-  opacity: 0.9;
+  background: #0072ff;
+  transform: scale(1.1);
 }
 
-/* ✅ Footer */
-footer {
-  text-align: center;
-  padding: 2rem 1rem;
-  font-size: 0.9rem;
-  background-color: #202020;
-  color: #aaa;
+body.light-mode #toggleMode {
+  background: #0072ff;
+  color: #fff;
 }
 
-.light-mode footer {
-  background-color: #e0e0e0;
-  color: #333;
-}
-
-/* ✅ Responsive Design */
+/* 📱 Responsive */
 @media (max-width: 768px) {
   nav a {
     display: block;
-    margin: 0.5rem 0;
-  }
-
-  header h1 {
-    font-size: 1.5rem;
+    margin: 10px 0;
   }
 
   section {
     padding: 1rem;
   }
-
-  .book, .library, .lesson, .game {
-    padding: 1rem;
-  }
 }
+
+/* 👣 Footer */
+footer {
+  text-align: center;
+  padding: 1.5rem;
+  margin-top: 3rem;
+  background: rgba(0, 0, 0, 0.6);
+  font-size: 14px;
+  border-top: 2px solid #00c6ff;
+}
+
+body.light-mode footer {
+  background: rgba(255, 255, 255, 0.8);
+  border-top: 2px solid #0072ff;
+}
+
 footer img {
-  transition: transform 0.3s ease;
+  margin: 0 10px;
+  transition: transform 0.3s;
 }
 
 footer img:hover {
-  transform: scale(1.2);
+  transform: rotate(10deg) scale(1.2);
 }
-/* ===== APPEND-ONLY UPGRADE (keeps all your styles) ===== */
-
-/* Layout helpers */
-.container {
-  width: min(1100px, 92%);
-  margin: auto;
+/* =====  RESET & BASE ===== */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  min-height: 100vh;
+  font-family: "Times New Roman", serif;
+  font-size: 17px;
+  line-height: 1.75;
+  color: #e0eaff;
+  background: #0a0f1c;
+  transition: background .6s ease, color .4s ease;
 }
-
-.row {
-  display: grid;
-  gap: 16px;
-}
-
-/* Card helpers (optional) */
-.card-soft {
-  background-color: #ffffff;
-  color: #111;
-  border: 1px solid #ddd;
-  border-radius: 14px;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.12);
-  padding: 1rem;
-}
-
-.light-mode .card-soft { background-color: #f9f9f9; color: #111; }
-
-/* Search bar */
-.search {
-  margin: 1rem 0;
-  display: flex;
-  gap: 10px;
-}
-
-.search input[type="search"], 
-.search input[data-search] {
-  flex: 1;
-  padding: .7rem .9rem;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  background: #1b1b1b;
-  color: #f1f1f1;
-  outline: none;
-}
-
-.light-mode .search input[type="search"],
-.light-mode .search input[data-search] {
-  background: #fff;
+body.light-mode {
   color: #1a1a1a;
-  border-color: #bbb;
+  background: #f0f4fd;
 }
 
-/* Utility buttons */
-.btn {
-  display: inline-block;
-  padding: 10px 16px;
-  border-radius: 10px;
-  text-decoration: none;
+/* ===== HEADING STYLES ===== */
+h1, h2, h3 {
   font-weight: bold;
-  background: #ffcc00;
-  color: #003366;
-  border: none;
-  cursor: pointer;
+  text-align: center;
+  background: linear-gradient(90deg, #6a11cb, #2575fc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 0.6rem;
+}
+h1 { font-size: clamp(1.8rem, 4vw, 3rem); }
+h2 { font-size: clamp(1.4rem, 3vw, 2.4rem); }
+h3 { font-size: 1.2rem; color: #ffd84d; }
+
+/* ===== HEADER & NAV ===== */
+header {
+  background: linear-gradient(90deg, #6a11cb, #2575fc);
+  padding: 2rem 1rem;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+}
+nav a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+  padding: 0.4rem 0.8rem;
+  border-radius: 8px;
+  transition: background .3s, color .3s;
+}
+nav a:hover {
+  background: rgba(255, 216, 77, 0.3);
+  color: #000;
 }
 
-.btn:hover { opacity: .9; }
-
-.light-mode .btn {
-  background: #003366;
+/* ===== TOGGLE BUTTON ===== */
+#toggleMode {
+  margin-top: 1rem;
+  padding: 0.6rem 1.4rem;
+  background: #ffd84d;
+  color: #111;
+  border: none;
+  border-radius: 999px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 8px 25px rgba(255, 216, 77, 0.3);
+  transition: transform .2s ease;
+}
+#toggleMode:hover { transform: scale(1.05); }
+body.light-mode #toggleMode {
+  background: #2575fc;
   color: #fff;
 }
 
-/* Tags / badges */
-.tag, .badge {
+/* ===== SECTION CONTAINERS ===== */
+section {
+  width: min(1000px, 95%);
+  margin: 2rem auto;
+  padding: 1.8rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 14px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
+}
+body.light-mode section {
+  background: rgba(250, 250, 250, 0.8);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* ===== GLASS-STYLE CARDS ===== */
+.card, .book, .lesson, .library, .game {
+  background: rgba(255,255,255,0.05);
+  border-radius: 12px;
+  padding: 1.3rem;
+  margin: 1rem 0;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  transition: transform .2s, background .3s;
+}
+.card:hover, .book:hover, .lesson:hover, .library:hover, .game:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 35px rgba(255, 216, 77, 0.4);
+  background: rgba(255,255,255,0.15);
+}
+body.light-mode .card,
+body.light-mode .book,
+body.light-mode .lesson,
+body.light-mode .library,
+body.light-mode .game {
+  background: #fff;
+  color: #1a1a1a;
+}
+
+/* =================== READABILITY FIX =================== */
+.card p, .book p, .lesson p, .library p, .game p,
+section p {
+  color: inherit !important;
+  opacity: 1 !important;
+  font-size: 1.05rem;
+  text-align: justify;
+}
+
+/* ===== LINK BUTTONS ===== */
+a.btn, .btn {
   display: inline-block;
-  font-size: 12px;
-  line-height: 1;
-  padding: 6px 10px;
-  border-radius: 999px;
-  margin-right: 6px;
-  margin-top: 6px;
-  border: 1px solid #ccc;
-  background: #fff;
+  padding: 0.6rem 1rem;
+  background: linear-gradient(90deg, #ffd84d, #fff1b0);
   color: #111;
-}
-
-.light-mode .tag, .light-mode .badge {
-  background: #f5f5f5;
-  color: #111;
-}
-
-/* Like button */
-.like {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  user-select: none;
-  cursor: pointer;
-  padding: 6px 10px;
-  border-radius: 999px;
-  border: 1px solid #ccc;
-  background: #fff;
-  color: #111;
-}
-
-.like:hover { transform: translateY(-1px); transition: .2s; }
-
-.light-mode .like { background: #f5f5f5; }
-
-/* Progress bar */
-.progress {
-  height: 8px;
-  background: #2a2a2a;
-  border-radius: 999px;
-  overflow: hidden;
-  margin-top: 10px;
-}
-
-.progress > span {
-  display: block;
-  height: 100%;
-  width: 0%;
-  background: linear-gradient(90deg, #2563eb, #14b8a6);
-  transition: width .3s ease;
-}
-
-.light-mode .progress { background: #e5e5e5; }
-
-/* Toast (small popup message) */
-.toast {
-  position: fixed;
-  right: 16px;
-  bottom: 16px;
-  background: #1e1e1e;
-  color: #f1f1f1;
-  border: 1px solid #333;
-  padding: 10px 14px;
   border-radius: 10px;
-  box-shadow: 0 10px 30px rgba(0,0,0,.25);
+  text-decoration: none;
+  font-weight: bold;
+  box-shadow: 0 10px 30px rgba(255, 216, 77, 0.2);
+  transition: transform .2s, box-shadow .3s;
+}
+a.btn:hover, .btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 45px rgba(255, 216, 77, 0.4);
+}
+body.light-mode a.btn, body.light-mode .btn {
+  background: linear-gradient(90deg, #2575fc, #6a11cb);
+  color: #fff;
+}
+
+/* ===== GAMES GRID ===== */
+.games-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.game-card {
+  background: rgba(255,255,255,0.05);
+  padding: 1rem;
+  border-radius: 12px;
+  text-align: center;
+  transition: transform .2s, box-shadow .2s;
+}
+.game-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 30px rgba(255, 216, 77, 0.35);
+}
+.game-card h3 { color: #ffd84d; }
+.game-card p { color: inherit; }
+
+/* ===== FOOTER ===== */
+footer {
+  text-align: center;
+  padding: 1.5rem;
+  background: linear-gradient(90deg, #2575fc, #6a11cb);
+  color: #fff;
+  border-radius: 12px 12px 0 0;
+  box-shadow: 0 -8px 25px rgba(0, 0, 0, 0.3);
+}
+footer img { margin: 0 .6rem; transition: transform .3s; }
+footer img:hover { transform: scale(1.2) rotate(6deg); }
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:768px) {
+  nav a { padding: .3rem .6rem; font-size: .9rem; }
+  #toggleMode { padding: .5rem .9rem; font-size: .9rem; }
+  section { padding: 1.2rem; }
+  .games-grid { grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); }
+}
+
+/* ---------- END OF FILE ---------- */
+/* ===============================================
+   SHAYAN'S HEAVENLY THEME — REDUCED NEON HEADER
+   • Applies to all pages: Home, Lessons, Libraries, Books, Games, About, Contact
+   • Softened neon glow, ensured text readability
+   • Smooth shadows, glass cards, accessible contrast
+   =============================================== */
+
+/* RESET */
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+img,video,svg { max-width:100%; display:block; }
+
+/* VARIABLES */
+:root {
+  --violet:#6a11cb;
+  --sky-blue:#2575fc;
+  --gold:#ffd84d;
+  --bg-dark:#0f1220;
+  --bg-light:#f5f8fd;
+  --text-dark:#eaf4ff;
+  --text-light:#111;
+  --muted-dark:#b0c0e0;
+  --muted-light:#5a6a80;
+  --card-bg-dark:rgba(255,255,255,0.06);
+  --card-bg-light:#ffffff;
+  --radius:14px;
+  --shadow: 0 8px 25px rgba(0,0,0,0.4);
+  --hover-shadow: 0 16px 40px rgba(0,0,0,0.6);
+  --ring: 0 0 0 4px rgba(106,17,203,0.2);
+  --transition: 0.3s ease;
+}
+
+/* BODY BASE */
+body {
+  font-family: "Times New Roman", serif;
+  font-size:17px;
+  background: var(--bg-dark);
+  color: var(--text-dark);
+  line-height:1.75;
+  min-height:100vh;
+  transition: background 0.5s, color 0.5s;
+}
+body.light-mode {
+  background: var(--bg-light);
+  color: var(--text-light);
+}
+
+/* HEADER */
+header {
+  text-align:center;
+  padding:2rem 1rem;
+  background: linear-gradient(90deg, #7a2ebb, #3299f5);
+  border-radius:0 0 18px 18px;
+  box-shadow: var(--shadow);
+}
+body.light-mode header { background: rgba(255,255,255,0.85); }
+header h1 {
+  font-size:clamp(1.8rem,4vw,2.8rem);
+  text-shadow: 0 4px 12px rgba(0,20,60,0.5);
+}
+
+/* NAVIGATION */
+nav {
+  margin-top:1rem;
+  display:flex;
+  justify-content:center;
+  gap:0.6rem; flex-wrap:wrap;
+}
+nav a {
+  color: inherit;
+  text-decoration:none;
+  padding:0.4rem 0.8rem;
+  border-radius:10px;
+  font-weight:700;
+  transition: background var(--transition), color var(--transition);
+}
+nav a:hover {
+  background: rgba(255,216,77,0.2);
+}
+body.light-mode nav a:hover {
+  background: rgba(40,80,160,0.15);
+}
+
+/* TOGGLE BUTTON */
+#toggleMode {
+  margin-top:1rem;
+  padding:0.6rem 1.4rem;
+  border:none;
+  border-radius:999px;
+  background: var(--gold);
+  color:#222;
+  font-weight:800;
+  cursor:pointer;
+  box-shadow: 0 6px 18px rgba(255,216,77,0.3);
+  transition: transform var(--transition), background var(--transition);
+}
+#toggleMode:hover { transform: translateY(-3px) scale(1.03); }
+body.light-mode #toggleMode { background: #3299f5; color:#fff; }
+
+/* SECTION WRAPPER */
+section {
+  max-width:1000px;
+  margin:2rem auto;
+  padding:1.6rem;
+  background: rgba(255,255,255,0.05);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+body.light-mode section {
+  background: rgba(255,255,255,0.9);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+}
+
+/* SECTION HEADINGS */
+section h2 {
+  font-size:clamp(1.4rem,3vw,2.2rem);
+  color: var(--gold);
+}
+
+/* CARD STYLING */
+.card, .book, .library, .lesson, .game {
+  background: var(--card-bg-dark);
+  border-radius: var(--radius);
+  padding:1.2rem;
+  margin:1rem 0;
+  box-shadow: var(--shadow);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+.card:hover, .book:hover, .lesson:hover, .library:hover, .game:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--hover-shadow);
+}
+body.light-mode .card, body.light-mode .book, body.light-mode .lesson, body.light-mode .library, body.light-mode .game {
+  background: var(--card-bg-light);
+}
+
+/* ENSURE TEXT READABILITY */
+.card p, .book p, .lesson p, .library p, .game p, section p {
+  color: inherit !important;
+  opacity: 1 !important;
+  margin-bottom:1rem;
+}
+
+/* LINKS BUTTONS */
+a.btn {
+  display:inline-block;
+  padding:0.6rem 1rem;
+  border-radius:10px;
+  background: linear-gradient(90deg, #ffd84d, #fff1b0);
+  color:#111;
+  font-weight:700;
+  text-decoration:none;
+  box-shadow: 0 8px 30px rgba(255,216,77,0.2);
+}
+a.btn:hover { transform: translateY(-3px); }
+
+/* GAMES GRID */
+.games-grid {
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap:1rem;
+  margin-top:1rem;
+}
+.game-card {
+  background: var(--card-bg-dark);
+  padding:1rem;
+  border-radius:12px;
+  text-align:center;
+  box-shadow: var(--shadow);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+.game-card:hover { transform: translateY(-5px); box-shadow: var(--hover-shadow); }
+
+/* FOOTER */
+footer {
+  text-align:center;
+  padding:1.5rem;
+  background: #2575fc;
+  color:#fff;
+  box-shadow: 0 -6px 25px rgba(0,0,0,0.3);
+}
+footer img:hover { transform: scale(1.2); }
+
+/* RESPONSIVE */
+@media(max-width:768px) {
+  nav a { padding:0.3rem 0.6rem; }
+  section { padding:1.2rem; }
+}
+/* ====== Make library & lesson descriptions readable & expandable ======
+   Add to style.css (only changes descriptions)
+   Targets: elements with classes .library-description and .lesson-description
+   If your HTML uses different class names, replace those selectors accordingly.
+====================================================================== */
+
+/* basic readable typography */
+.library-description,
+.lesson-description {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 16px;             /* readable size for body text */
+  line-height: 1.6;            /* comfortable line spacing */
+  letter-spacing: 0.2px;
+  white-space: normal;         /* allow wrapping */
+  word-break: break-word;
+  color: var(--text-color, #111);      /* respects site variables; falls back if missing */
+  background: transparent;
+  margin: 0.45rem 0;
+  padding: 0.35rem 0;
+}
+
+/* limit initial height but allow expansion on hover/focus */
+.library-description,
+.lesson-description {
+  max-height: 4.8em;          /* show ~3 lines (adjust if you want more) */
+  overflow: hidden;
+  position: relative;
+  transition: max-height 280ms ease, padding 200ms ease;
+  -webkit-transition: max-height 280ms ease, padding 200ms ease;
+}
+
+/* show a subtle gradient fade at bottom to indicate more text */
+.library-description::after,
+.lesson-description::after {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1.1em;
+  background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
+  /* if your page uses dark mode, switch the fade automatically */
+  /* the fallback below ensures contrast in dark themes */
+  background-image: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%);
+  mix-blend-mode: normal;
+}
+
+/* when user hovers or focuses the container — reveal full text */
+.library-description:hover,
+.lesson-description:hover,
+.library-description:focus-within,
+.lesson-description:focus-within {
+  max-height: 1000px;        /* large enough to show full content */
+  overflow: auto;
+  padding-bottom: 0.6rem;
+}
+
+/* keyboard accessibility: allow focus if element is given tabindex in HTML */
+.library-description[tabindex],
+.lesson-description[tabindex] {
+  outline: none;
+}
+
+/* optional: add a small 'Read more' hint at the bottom-right (non-intrusive) */
+.library-description::before,
+.lesson-description::before {
+  content: "Read more";
+  position: absolute;
+  right: 0.6rem;
+  bottom: 0.18rem;
+  font-size: 0.78rem;
+  opacity: 0.85;
+  backdrop-filter: blur(2px);
+  color: var(--muted-text, #666);
+  pointer-events: none;
+  transition: opacity 180ms ease;
+}
+
+/* hide the hint when fully expanded */
+.library-description:hover::before,
+.lesson-description:hover::before,
+.library-description:focus-within::before,
+.lesson-description:focus-within::before {
   opacity: 0;
-  transform: translateY(10px);
-  transition: .25s ease;
-  z-index: 1000;
 }
 
-.toast.show {
-  opacity: 1;
-  transform: translateY(0);
+/* mobile-friendly tweak: show a bit more lines by default on small screens */
+@media (max-width: 600px) {
+  .library-description,
+  .lesson-description {
+    font-size: 15px;
+    max-height: 6.4em; /* ~4 lines on mobile by default */
+  }
+}
+/* ===== DARK MODE FIX for readability ===== */
+
+/* Dark mode lessons */
+body.dark-mode .lesson-description {
+  color: #f0f0f0;            /* soft white for readability */
+  background-color: #1e1e2f; /* deep indigo background */
+  border-radius: 6px;
+  padding: 0.5rem;
 }
 
-.light-mode .toast {
-  background: #ffffff;
-  color: #111;
-  border-color: #ddd;
+/* Dark mode libraries */
+body.dark-mode .library-description {
+  color: #e0ffe0;            /* light green for contrast */
+  background-color: #132d13; /* dark greenish background */
+  border-radius: 6px;
+  padding: 0.5rem;
 }
 
-/* Optional sticky header without changing your header defaults */
-.sticky-header {
-  position: sticky;
-  top: 0;
-  z-index: 100;
+/* Optional: give headings a stronger shade */
+body.dark-mode .lesson-title {
+  color: #ffd580; /* warm amber */
 }
 
-/* Accessibility helper */
-.sr-only {
-  position: absolute; width: 1px; height: 1px;
-  padding: 0; margin: -1px; overflow: hidden;
-  clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+body.dark-mode .library-title {
+  color: #80d4ff; /* sky blue */
+}
+/* ===== DARK MODE FIX for Lessons & Libraries (Improved Readability) ===== */
+
+/* Dark mode lessons */
+body.dark-mode .lesson-description {
+  color: #f5f5f7;            /* near-white for readability */
+  background-color: #252540; /* soft deep blue background */
+  border-radius: 8px;
+  padding: 0.75rem;
+  line-height: 1.6;
+}
+
+/* Dark mode libraries */
+body.dark-mode .library-description {
+  color: #e6ffe6;            /* light mint green for clarity */
+  background-color: #1a3321; /* softer forest green background */
+  border-radius: 8px;
+  padding: 0.75rem;
+  line-height: 1.6;
+}
+
+/* Headings - clearer accents */
+body.dark-mode .lesson-title {
+  color: #ffcc66; /* warm golden amber */
+  font-weight: 600;
+}
+
+body.dark-mode .library-title {
+  color: #66cfff; /* soft sky blue */
+  font-weight: 600;
+}
+
+/* Optional subtle shadow for text to pop on dark bg */
+body.dark-mode .lesson-description,
+body.dark-mode .library-description {
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+}
+/* ===== DARK MODE FIX for Libraries & Lessons ===== */
+
+/* Dark mode lessons */
+body.dark-mode .lesson-description {
+  color: #ffffff;            /* pure white text for max readability */
+  background-color: #2a2a4a; /* dark blue background */
+  border-radius: 8px;
+  padding: 0.75rem;
+  line-height: 1.6;
+}
+
+/* Dark mode libraries */
+body.dark-mode .library-description {
+  color: #f2fff2;            /* soft white-green for readability */
+  background-color: #1f3d2a; /* dark green background */
+  border-radius: 8px;
+  padding: 0.75rem;
+  line-height: 1.6;
+}
+
+/* Lesson headings in dark mode */
+body.dark-mode .lesson-title {
+  color: #ffdb70;  /* golden yellow */
+  font-weight: bold;
+}
+
+/* Library headings in dark mode */
+body.dark-mode .library-title {
+  color: #70d6ff;  /* bright sky blue */
+  font-weight: bold;
+}
+/* ============================= */
+/* LIGHT MODE (default)          */
+/* ============================= */
+
+/* Lessons (light mode) */
+.lesson-description {
+  color: #222222;            /* dark gray text */
+  background-color: #f9f9ff; /* very light blue background */
+  border-radius: 8px;
+  padding: 0.75rem;
+  line-height: 1.6;
+}
+
+.lesson-title {
+  color: #004080; /* navy blue for headings */
+  font-weight: bold;
+}
+
+/* Libraries (light mode) */
+.library-description {
+  color: #1a1a1a;            /* almost black text */
+  background-color: #f4fff4; /* pale green background */
+  border-radius: 8px;
+  padding: 0.75rem;
+  line-height: 1.6;
+}
+
+.library-title {
+  color: #006622; /* dark green heading */
+  font-weight: bold;
+}
+
+
+/* ============================= */
+/* DARK MODE                     */
+/* ============================= */
+
+/* Lessons (dark mode) */
+body.dark-mode .lesson-description {
+  color: #ffffff;            /* pure white text */
+  background-color: #2a2a4a; /* dark indigo-blue */
+  border-radius: 8px;
+  padding: 0.75rem;
+  line-height: 1.6;
+}
+
+body.dark-mode .lesson-title {
+  color: #ffdb70; /* golden yellow */
+  font-weight: bold;
+}
+
+/* Libraries (dark mode) */
+body.dark-mode .library-description {
+  color: #eaffea;            /* light greenish white */
+  background-color: #1f3d2a; /* dark forest green */
+  border-radius: 8px;
+  padding: 0.75rem;
+  line-height: 1.6;
+}
+
+body.dark-mode .library-title {
+  color: #70d6ff; /* bright sky blue */
+  font-weight: bold;
+}
+/* ============================= */
+/* Base Styles                   */
+/* ============================= */
+
+body {
+  font-family: "Times New Roman", serif;
+  margin: 0;
+  padding: 0;
+  background-color: #ffffff;
+  color: #222222;
+  line-height: 1.6;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+h1, h2, h3 {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+/* Container */
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+/* Links */
+a {
+  color: #004080;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+a:hover {
+  color: #0080ff;
+}
+
+/* ============================= */
+/* Dark Mode Base                */
+/* ============================= */
+
+body.dark-mode {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+/* ============================= */
+/* Toggle Button                 */
+/* ============================= */
+
+.toggle-btn {
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  background: #004080;
+  color: #ffffff;
+  border: none;
+  border-radius: 50px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.toggle-btn:hover {
+  background: #0080ff;
+}
+
+body.dark-mode .toggle-btn {
+  background: #ffdb70;
+  color: #222222;
+}
+
+body.dark-mode .toggle-btn:hover {
+  background: #ffc107;
+}
+
+/* ============================= */
+/* Lessons Section               */
+/* ============================= */
+
+.lesson-title {
+  color: #004080;
+  font-size: 1.4rem;
+  margin-top: 1rem;
+}
+
+.lesson-description {
+  color: #222222;
+  background-color: #f9f9ff;
+  border-radius: 8px;
+  padding: 0.75rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  transition: all 0.3s ease;
+}
+
+.lesson-description:hover {
+  box-shadow: 0 0 12px rgba(0, 64, 128, 0.4);
+  transform: scale(1.02);
+}
+
+/* Dark mode lessons */
+body.dark-mode .lesson-title {
+  color: #ffdb70;
+}
+
+body.dark-mode .lesson-description {
+  color: #ffffff;
+  background-color: #2a2a4a;
+}
+
+body.dark-mode .lesson-description:hover {
+  box-shadow: 0 0 15px rgba(255, 219, 112, 0.5);
+  transform: scale(1.02);
+}
+
+/* ============================= */
+/* Libraries Section             */
+/* ============================= */
+
+.library-title {
+  color: #006622;
+  font-size: 1.4rem;
+  margin-top: 1rem;
+}
+
+.library-description {
+  color: #1a1a1a;
+  background-color: #f4fff4;
+  border-radius: 8px;
+  padding: 0.75rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  transition: all 0.3s ease;
+}
+
+.library-description:hover {
+  box-shadow: 0 0 12px rgba(0, 102, 34, 0.4);
+  transform: scale(1.02);
+}
+
+/* Dark mode libraries */
+body.dark-mode .library-title {
+  color: #70d6ff;
+}
+
+body.dark-mode .library-description {
+  color: #eaffea;
+  background-color: #1f3d2a;
+}
+
+body.dark-mode .library-description:hover {
+  box-shadow: 0 0 15px rgba(112, 214, 255, 0.5);
+  transform: scale(1.02);
+}
+
+/* ============================= */
+/* Footer                        */
+/* ============================= */
+
+footer {
+  text-align: center;
+  padding: 1rem;
+  margin-top: 2rem;
+  font-size: 0.9rem;
+  background: #f0f0f0;
+  color: #444;
+}
+
+body.dark-mode footer {
+  background: #1a1a1a;
+  color: #bbb;
 }

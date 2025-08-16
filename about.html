@@ -4,27 +4,137 @@
   <meta charset="UTF-8" />
   <title>About Me | Shayan’s Smart World</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="style.css" />
   <link rel="icon" href="https://emoji.gg/assets/emoji/7505-boy.png" type="image/png" />
+  <link rel="stylesheet" href="style.css" />
   <style>
     body {
       font-family: "Times New Roman", serif;
+      margin: 0;
+      padding: 0;
+      transition: background 0.3s, color 0.3s;
     }
+
+    header {
+      text-align: center;
+      padding: 1.5rem;
+      background: linear-gradient(90deg, #222, #444);
+      color: white;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+
+    nav {
+      margin-top: 1rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: white;
+      margin: 0 12px;
+      font-size: 18px;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #00d4ff;
+    }
+
+    #toggleMode {
+      margin-top: 10px;
+      padding: 8px 15px;
+      border: none;
+      border-radius: 8px;
+      background: #00d4ff;
+      color: black;
+      cursor: pointer;
+      font-size: 15px;
+      transition: transform 0.2s, background 0.3s;
+    }
+
+    #toggleMode:hover {
+      transform: scale(1.05);
+      background: #00b0cc;
+    }
+
     section {
       padding: 2rem;
-      max-width: 700px;
+      max-width: 900px;
       margin: auto;
-    }
-    p {
-      font-size: 18px;
-      line-height: 1.7;
-    }
-    h1, h2 {
       text-align: center;
     }
+
+    .about-card {
+      background: rgba(255,255,255,0.05);
+      border-radius: 15px;
+      padding: 2rem;
+      margin-top: 2rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .about-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+    }
+
+    .about-card p {
+      font-size: 18px;
+      line-height: 1.8;
+      margin-bottom: 1rem;
+    }
+
+    .highlight {
+      color: #00d4ff;
+      font-weight: bold;
+    }
+
     footer {
       text-align: center;
-      padding: 1rem;
+      padding: 1.5rem;
+      background: #222;
+      color: white;
+      margin-top: 3rem;
+      font-size: 15px;
+    }
+
+    footer img {
+      transition: transform 0.3s;
+    }
+
+    footer img:hover {
+      transform: scale(1.2);
+    }
+
+    /* Light Mode */
+    .light-mode {
+      background: #fdfdfd;
+      color: #111;
+    }
+
+    .light-mode header {
+      background: linear-gradient(90deg, #00b0cc, #00d4ff);
+      color: black;
+    }
+
+    .light-mode nav a {
+      color: black;
+    }
+
+    .light-mode footer {
+      background: #eaeaea;
+      color: black;
+    }
+
+    .light-mode .about-card {
+      background: #ffffff;
+      color: black;
     }
   </style>
 </head>
@@ -44,36 +154,44 @@
   </header>
 
   <section>
-    <h2>Welcome!</h2>
-    <p>Hi, I’m <strong>Shayan Haider</strong> from Pakistan 🇵🇰. I’m just a passionate kid who loves to explore, learn, and share powerful knowledge that can change lives. I enjoy cooking 🍳, playing smart games 🎮, and reading books 📚 that make me wiser every day.</p>
-    <p>This platform is my small gift to the world — a place where fun and wisdom live together. Whether you're looking for deep lessons, world-famous libraries, books to transform your mindset, or games that build your brain — you're in the right place.</p>
-    <p>Keep growing. Stay curious. Believe in yourself!</p>
+    <div class="about-card">
+      <h2>🌍 Welcome to My World!</h2>
+      <p>Hi, I’m <span class="highlight">Shayan Haider</span> from Pakistan 🇵🇰. I’m just a passionate kid who loves to explore, learn, and share powerful knowledge that can change lives.</p>
+      <p>I enjoy <span class="highlight">cooking 🍳</span>, <span class="highlight">playing smart games 🎮</span>, and <span class="highlight">reading books 📚</span> that make me wiser every day.</p>
+      <p>This platform is my <span class="highlight">small gift to the world</span> — a place where fun and wisdom live together. Whether you're looking for deep lessons, world-famous libraries, books to transform your mindset, or games that build your brain — you're in the right place.</p>
+      <p><strong>✨ Keep growing. Stay curious. Believe in yourself! ✨</strong></p>
+    </div>
   </section>
 
   <footer>
     <p>© 2025 Shayan’s Smart World | Built with Heart 💙</p>
-      <div style="margin-top: 1rem;">
-    <a href="https://www.youtube.com/@Killer15252" target="_blank" style="margin: 0 10px;">
-      <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube" width="40" height="40">
-    </a>
-    <a href="https://discord.com/channels/@me" target="_blank" style="margin: 0 10px;">
-      <img src="https://cdn-icons-png.flaticon.com/512/2111/2111370.png" alt="Discord" width="40" height="40">
-    </a>
-  </div>
+    <div style="margin-top: 1rem;">
+      <a href="https://www.youtube.com/@Killer15252" target="_blank" style="margin: 0 10px;">
+        <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube" width="40" height="40">
+      </a>
+      <a href="https://discord.com/channels/@me" target="_blank" style="margin: 0 10px;">
+        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111370.png" alt="Discord" width="40" height="40">
+      </a>
+    </div>
   </footer>
 
   <script>
-    document.getElementById("toggleMode").addEventListener("click", () => {
+    const toggleBtn = document.getElementById("toggleMode");
+    toggleBtn.addEventListener("click", () => {
       document.body.classList.toggle("light-mode");
       if (document.body.classList.contains("light-mode")) {
         localStorage.setItem("theme", "light");
+        toggleBtn.textContent = "🌙 Dark Mode";
       } else {
         localStorage.setItem("theme", "dark");
+        toggleBtn.textContent = "🌞 Light Mode";
       }
     });
+
     window.addEventListener("DOMContentLoaded", () => {
       if (localStorage.getItem("theme") === "light") {
         document.body.classList.add("light-mode");
+        toggleBtn.textContent = "🌙 Dark Mode";
       }
     });
   </script>
