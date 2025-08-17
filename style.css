@@ -1,967 +1,498 @@
-/* 🌟 Global Reset */
+/* ============================= */
+/* 🌟 GLOBAL RESET & BASE STYLES  */
+/* ============================= */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* 🌌 Body */
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: "Times New Roman", serif;
-  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-  color: #f5f5f5;
-  transition: background 0.6s, color 0.6s;
-  line-height: 1.8;
+  font-size: 17px;
+  line-height: 1.7;
+  color: #e0eaff;
+  background: #0f1220;
+  transition: background 0.5s ease, color 0.5s ease;
+  min-height: 100vh;
 }
 
-/* ☀️ Light Mode */
 body.light-mode {
-  background: linear-gradient(135deg, #fdfbfb, #ebedee);
-  color: #222;
+  background: #f5f8fd;
+  color: #222222;
 }
 
-/* 🌐 Header */
+/* ============================= */
+/* 🌈 COLOR VARIABLES             */
+/* ============================= */
+:root {
+  --primary-gradient: linear-gradient(90deg, #6a11cb, #2575fc);
+  --secondary-gradient: linear-gradient(90deg, #ffd84d, #ff6b6b);
+  --gold: #ffd84d;
+  --violet: #6a11cb;
+  --sky-blue: #2575fc;
+  --bg-dark: #0f1220;
+  --bg-light: #f5f8fd;
+  --text-dark: #e0eaff;
+  --text-light: #222222;
+  --card-dark: rgba(255, 255, 255, 0.08);
+  --card-light: #ffffff;
+  --shadow: 0 8px 25px rgba(0,0,0,0.4);
+  --hover-shadow: 0 14px 35px rgba(0,0,0,0.6);
+  --radius: 14px;
+  --transition: 0.3s ease;
+}
+
+/* ============================= */
+/* 🏠 HEADER & NAVIGATION         */
+/* ============================= */
 header {
-  background: rgba(0, 0, 0, 0.7);
-  padding: 1.2rem;
   text-align: center;
-  border-bottom: 2px solid #00c6ff;
-  backdrop-filter: blur(10px);
+  padding: 2rem 1rem;
+  background: var(--primary-gradient);
+  border-radius: 0 0 18px 18px;
+  box-shadow: var(--shadow);
+  color: #fff;
 }
 
 body.light-mode header {
-  background: rgba(255, 255, 255, 0.85);
-  border-bottom: 2px solid #0072ff;
+  background: rgba(255,255,255,0.85);
+  color: #222;
 }
 
-/* 🏠 Navigation */
+header h1 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  text-shadow: 0 4px 12px rgba(0,0,0,0.4);
+}
+
 nav {
   margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.6rem;
 }
 
 nav a {
+  color: inherit;
   text-decoration: none;
-  margin: 0 15px;
-  font-size: 1.1rem;
-  font-weight: bold;
-  color: #00c6ff;
-  transition: color 0.3s, transform 0.3s;
-}
-
-body.light-mode nav a {
-  color: #0072ff;
+  padding: 0.6rem 1.2rem;
+  border-radius: 12px;
+  font-weight: 700;
+  transition: background var(--transition), color var(--transition), transform var(--transition);
+  background: rgba(255,255,255,0.1);
 }
 
 nav a:hover {
-  color: #ffdf00;
-  transform: scale(1.1);
-  text-shadow: 0 0 10px #ffdf00;
+  background: var(--secondary-gradient);
+  color: #fff;
+  transform: scale(1.05);
 }
 
-/* ✨ Headings */
-h1, h2, h3 {
-  text-align: center;
-  margin: 1.2rem 0;
-  background: linear-gradient(to right, #00c6ff, #0072ff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-shadow: 0 0 15px rgba(0, 198, 255, 0.7);
+/* ============================= */
+/* 🌙 DARK/LIGHT TOGGLE BUTTON     */
+/* ============================= */
+#toggleMode {
+  margin-top: 1rem;
+  padding: 0.7rem 1.5rem;
+  border: none;
+  border-radius: 999px;
+  background: var(--gold);
+  color: #222;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(255,216,77,0.3);
+  transition: transform var(--transition), background var(--transition);
 }
 
-/* 📦 Sections */
+#toggleMode:hover {
+  transform: scale(1.05);
+}
+
+body.light-mode #toggleMode {
+  background: var(--sky-blue);
+  color: #fff;
+}
+
+/* ============================= */
+/* ✨ SECTION STYLING              */
+/* ============================= */
 section {
-  padding: 2rem;
-  margin: 2rem auto;
   max-width: 1000px;
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 20px;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
-  transition: transform 0.3s, box-shadow 0.3s;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: var(--card-dark);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  transition: transform var(--transition), box-shadow var(--transition), background var(--transition);
 }
 
 body.light-mode section {
-  background: rgba(255, 255, 255, 0.9);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  background: var(--card-light);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
 }
 
 section:hover {
   transform: scale(1.02);
-  box-shadow: 0 10px 30px rgba(0, 198, 255, 0.6);
+  box-shadow: var(--hover-shadow);
 }
 
-/* 📖 Paragraphs */
-p {
-  font-size: 18px;
-  margin-bottom: 1.2rem;
-  color: inherit;
-  text-align: justify;
-}
-
-/* 🎮 Cards for Lessons, Books, Games */
-.card {
-  background: rgba(255, 255, 255, 0.08);
-  padding: 1.5rem;
-  border-radius: 15px;
-  margin: 1rem 0;
-  transition: transform 0.3s, background 0.3s;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
-}
-
-body.light-mode .card {
-  background: #ffffff;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-}
-
-.card:hover {
-  transform: translateY(-5px);
-  background: rgba(0, 198, 255, 0.2);
-}
-
-/* 🌙 Toggle Button */
-#toggleMode {
-  background: #00c6ff;
-  border: none;
-  padding: 10px 18px;
-  border-radius: 25px;
-  cursor: pointer;
-  font-weight: bold;
-  font-size: 1rem;
-  color: #fff;
-  transition: background 0.4s, transform 0.3s;
-}
-
-#toggleMode:hover {
-  background: #0072ff;
-  transform: scale(1.1);
-}
-
-body.light-mode #toggleMode {
-  background: #0072ff;
-  color: #fff;
-}
-
-/* 📱 Responsive */
-@media (max-width: 768px) {
-  nav a {
-    display: block;
-    margin: 10px 0;
-  }
-
-  section {
-    padding: 1rem;
-  }
-}
-
-/* 👣 Footer */
-footer {
-  text-align: center;
-  padding: 1.5rem;
-  margin-top: 3rem;
-  background: rgba(0, 0, 0, 0.6);
-  font-size: 14px;
-  border-top: 2px solid #00c6ff;
-}
-
-body.light-mode footer {
-  background: rgba(255, 255, 255, 0.8);
-  border-top: 2px solid #0072ff;
-}
-
-footer img {
-  margin: 0 10px;
-  transition: transform 0.3s;
-}
-
-footer img:hover {
-  transform: rotate(10deg) scale(1.2);
-}
-/* =====  RESET & BASE ===== */
-* { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body {
-  min-height: 100vh;
-  font-family: "Times New Roman", serif;
-  font-size: 17px;
-  line-height: 1.75;
-  color: #e0eaff;
-  background: #0a0f1c;
-  transition: background .6s ease, color .4s ease;
-}
-body.light-mode {
-  color: #1a1a1a;
-  background: #f0f4fd;
-}
-
-/* ===== HEADING STYLES ===== */
+/* ============================= */
+/* 🔹 HEADINGS                    */
+/* ============================= */
 h1, h2, h3 {
   font-weight: bold;
   text-align: center;
-  background: linear-gradient(90deg, #6a11cb, #2575fc);
+  background: linear-gradient(90deg, #ffd84d, #ff6b6b, #6a11cb, #2575fc);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  margin-bottom: 0.6rem;
-}
-h1 { font-size: clamp(1.8rem, 4vw, 3rem); }
-h2 { font-size: clamp(1.4rem, 3vw, 2.4rem); }
-h3 { font-size: 1.2rem; color: #ffd84d; }
-
-/* ===== HEADER & NAV ===== */
-header {
-  background: linear-gradient(90deg, #6a11cb, #2575fc);
-  padding: 2rem 1rem;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
-}
-nav a {
-  text-decoration: none;
-  color: #fff;
-  font-weight: bold;
-  padding: 0.4rem 0.8rem;
-  border-radius: 8px;
-  transition: background .3s, color .3s;
-}
-nav a:hover {
-  background: rgba(255, 216, 77, 0.3);
-  color: #000;
+  margin-bottom: 1rem;
 }
 
-/* ===== TOGGLE BUTTON ===== */
-#toggleMode {
-  margin-top: 1rem;
-  padding: 0.6rem 1.4rem;
-  background: #ffd84d;
-  color: #111;
-  border: none;
-  border-radius: 999px;
-  font-weight: bold;
-  cursor: pointer;
-  box-shadow: 0 8px 25px rgba(255, 216, 77, 0.3);
-  transition: transform .2s ease;
-}
-#toggleMode:hover { transform: scale(1.05); }
-body.light-mode #toggleMode {
-  background: #2575fc;
-  color: #fff;
+h2 {
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
 }
 
-/* ===== SECTION CONTAINERS ===== */
-section {
-  width: min(1000px, 95%);
-  margin: 2rem auto;
-  padding: 1.8rem;
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 14px;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
-}
-body.light-mode section {
-  background: rgba(250, 250, 250, 0.8);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-}
-
-/* ===== GLASS-STYLE CARDS ===== */
-.card, .book, .lesson, .library, .game {
-  background: rgba(255,255,255,0.05);
-  border-radius: 12px;
-  padding: 1.3rem;
+/* ============================= */
+/* 📦 CARDS (Lessons, Libraries, Books, Games) */
+/* ============================= */
+.card, .lesson, .library, .book, .game {
+  background: var(--card-dark);
+  border-radius: var(--radius);
+  padding: 1.5rem;
   margin: 1rem 0;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-  transition: transform .2s, background .3s;
+  box-shadow: var(--shadow);
+  color: #e0eaff;
+  transition: transform var(--transition), box-shadow var(--transition), background var(--transition), color var(--transition);
 }
-.card:hover, .book:hover, .lesson:hover, .library:hover, .game:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 14px 35px rgba(255, 216, 77, 0.4);
+
+.card:hover, .lesson:hover, .library:hover, .book:hover, .game:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--hover-shadow);
   background: rgba(255,255,255,0.15);
 }
+
 body.light-mode .card,
-body.light-mode .book,
 body.light-mode .lesson,
 body.light-mode .library,
+body.light-mode .book,
 body.light-mode .game {
-  background: #fff;
-  color: #1a1a1a;
+  background: var(--card-light);
+  color: #222;
 }
 
-/* =================== READABILITY FIX =================== */
-.card p, .book p, .lesson p, .library p, .game p,
-section p {
-  color: inherit !important;
-  opacity: 1 !important;
-  font-size: 1.05rem;
+/* ============================= */
+/* 📖 PARAGRAPHS & READABILITY     */
+/* ============================= */
+p, .lesson-description, .library-description {
+  font-size: 1.2rem;
+  margin-bottom: 1.2rem;
+  color: #222;
   text-align: justify;
 }
 
-/* ===== LINK BUTTONS ===== */
+.lesson-description, .library-description {
+  max-height: 6em;
+  overflow: hidden;
+  position: relative;
+}
+
+.lesson-description:hover, .library-description:hover {
+  max-height: 1000px;
+  overflow: auto;
+}
+
+body.light-mode p,
+body.light-mode .lesson-description,
+body.light-mode .library-description {
+  color: #222222; /* dark text for light mode */
+}
+
+
+.lesson-description, .library-description {
+  max-height: 6em;
+  overflow: hidden;
+  position: relative;
+}
+
+.lesson-description:hover, .library-description:hover {
+  max-height: 1000px;
+  overflow: auto;
+}
+
+/* ============================= */
+/* 🔹 LINKS & BUTTONS             */
+/* ============================= */
 a.btn, .btn {
   display: inline-block;
-  padding: 0.6rem 1rem;
-  background: linear-gradient(90deg, #ffd84d, #fff1b0);
+  padding: 0.7rem 1.2rem;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #ffd84d, #ff6b6b, #6a11cb);
   color: #111;
-  border-radius: 10px;
-  text-decoration: none;
   font-weight: bold;
-  box-shadow: 0 10px 30px rgba(255, 216, 77, 0.2);
-  transition: transform .2s, box-shadow .3s;
+  text-decoration: none;
+  box-shadow: 0 8px 30px rgba(255,216,77,0.3);
+  transition: transform var(--transition), box-shadow var(--transition), background var(--transition), color var(--transition);
 }
+
 a.btn:hover, .btn:hover {
   transform: translateY(-3px);
-  box-shadow: 0 12px 45px rgba(255, 216, 77, 0.4);
-}
-body.light-mode a.btn, body.light-mode .btn {
-  background: linear-gradient(90deg, #2575fc, #6a11cb);
+  box-shadow: 0 12px 45px rgba(255,216,77,0.5);
+  background: linear-gradient(135deg, #2575fc, #6a11cb, #ff6b6b);
   color: #fff;
 }
 
-/* ===== GAMES GRID ===== */
+/* ============================= */
+/* 🎮 GAMES GRID                  */
+/* ============================= */
 .games-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 1rem;
   margin-top: 1rem;
 }
+
 .game-card {
-  background: rgba(255,255,255,0.05);
+  background: var(--card-dark);
   padding: 1rem;
   border-radius: 12px;
   text-align: center;
-  transition: transform .2s, box-shadow .2s;
+  box-shadow: var(--shadow);
+  transition: transform var(--transition), box-shadow var(--transition), background var(--transition), color var(--transition);
 }
-.game-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 14px 30px rgba(255, 216, 77, 0.35);
-}
-.game-card h3 { color: #ffd84d; }
-.game-card p { color: inherit; }
 
-/* ===== FOOTER ===== */
+.game-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--hover-shadow);
+  background: rgba(255,255,255,0.15);
+}
+
+.game-card h3 {
+  color: #ffd84d;
+}
+
+.game-card p {
+  color: inherit;
+}
+
+/* ============================= */
+/* 👣 FOOTER                       */
+/* ============================= */
 footer {
   text-align: center;
   padding: 1.5rem;
-  background: linear-gradient(90deg, #2575fc, #6a11cb);
+  background: var(--primary-gradient);
   color: #fff;
   border-radius: 12px 12px 0 0;
-  box-shadow: 0 -8px 25px rgba(0, 0, 0, 0.3);
-}
-footer img { margin: 0 .6rem; transition: transform .3s; }
-footer img:hover { transform: scale(1.2) rotate(6deg); }
-
-/* ===== RESPONSIVE ===== */
-@media(max-width:768px) {
-  nav a { padding: .3rem .6rem; font-size: .9rem; }
-  #toggleMode { padding: .5rem .9rem; font-size: .9rem; }
-  section { padding: 1.2rem; }
-  .games-grid { grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); }
+  box-shadow: 0 -8px 25px rgba(0,0,0,0.3);
 }
 
-/* ---------- END OF FILE ---------- */
-/* ===============================================
-   SHAYAN'S HEAVENLY THEME — REDUCED NEON HEADER
-   • Applies to all pages: Home, Lessons, Libraries, Books, Games, About, Contact
-   • Softened neon glow, ensured text readability
-   • Smooth shadows, glass cards, accessible contrast
-   =============================================== */
-
-/* RESET */
-* { margin:0; padding:0; box-sizing:border-box; }
-html { scroll-behavior:smooth; }
-img,video,svg { max-width:100%; display:block; }
-
-/* VARIABLES */
-:root {
-  --violet:#6a11cb;
-  --sky-blue:#2575fc;
-  --gold:#ffd84d;
-  --bg-dark:#0f1220;
-  --bg-light:#f5f8fd;
-  --text-dark:#eaf4ff;
-  --text-light:#111;
-  --muted-dark:#b0c0e0;
-  --muted-light:#5a6a80;
-  --card-bg-dark:rgba(255,255,255,0.06);
-  --card-bg-light:#ffffff;
-  --radius:14px;
-  --shadow: 0 8px 25px rgba(0,0,0,0.4);
-  --hover-shadow: 0 16px 40px rgba(0,0,0,0.6);
-  --ring: 0 0 0 4px rgba(106,17,203,0.2);
-  --transition: 0.3s ease;
+footer img {
+  margin: 0 0.5rem;
+  transition: transform 0.3s;
 }
 
-/* BODY BASE */
-body {
-  font-family: "Times New Roman", serif;
-  font-size:17px;
-  background: var(--bg-dark);
-  color: var(--text-dark);
-  line-height:1.75;
-  min-height:100vh;
-  transition: background 0.5s, color 0.5s;
-}
-body.light-mode {
-  background: var(--bg-light);
-  color: var(--text-light);
+footer img:hover {
+  transform: scale(1.2) rotate(6deg);
 }
 
-/* HEADER */
-header {
-  text-align:center;
-  padding:2rem 1rem;
-  background: linear-gradient(90deg, #7a2ebb, #3299f5);
-  border-radius:0 0 18px 18px;
-  box-shadow: var(--shadow);
-}
-body.light-mode header { background: rgba(255,255,255,0.85); }
-header h1 {
-  font-size:clamp(1.8rem,4vw,2.8rem);
-  text-shadow: 0 4px 12px rgba(0,20,60,0.5);
-}
+/* ============================= */
+/* 📱 RESPONSIVE                   */
+/* ============================= */
+@media (max-width: 768px) {
+  nav a {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.95rem;
+  }
 
-/* NAVIGATION */
-nav {
-  margin-top:1rem;
-  display:flex;
-  justify-content:center;
-  gap:0.6rem; flex-wrap:wrap;
-}
-nav a {
-  color: inherit;
-  text-decoration:none;
-  padding:0.4rem 0.8rem;
-  border-radius:10px;
-  font-weight:700;
-  transition: background var(--transition), color var(--transition);
-}
-nav a:hover {
-  background: rgba(255,216,77,0.2);
-}
-body.light-mode nav a:hover {
-  background: rgba(40,80,160,0.15);
-}
+  #toggleMode {
+    padding: 0.5rem 1rem;
+    font-size: 0.95rem;
+  }
 
-/* TOGGLE BUTTON */
-#toggleMode {
-  margin-top:1rem;
-  padding:0.6rem 1.4rem;
-  border:none;
-  border-radius:999px;
-  background: var(--gold);
-  color:#222;
-  font-weight:800;
-  cursor:pointer;
-  box-shadow: 0 6px 18px rgba(255,216,77,0.3);
-  transition: transform var(--transition), background var(--transition);
-}
-#toggleMode:hover { transform: translateY(-3px) scale(1.03); }
-body.light-mode #toggleMode { background: #3299f5; color:#fff; }
+  section {
+    padding: 1.5rem;
+  }
 
-/* SECTION WRAPPER */
-section {
-  max-width:1000px;
-  margin:2rem auto;
-  padding:1.6rem;
-  background: rgba(255,255,255,0.05);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-}
-body.light-mode section {
-  background: rgba(255,255,255,0.9);
-  box-shadow: 0 8px 25px rgba(0,0,0,0.12);
-}
-
-/* SECTION HEADINGS */
-section h2 {
-  font-size:clamp(1.4rem,3vw,2.2rem);
-  color: var(--gold);
-}
-
-/* CARD STYLING */
-.card, .book, .library, .lesson, .game {
-  background: var(--card-bg-dark);
-  border-radius: var(--radius);
-  padding:1.2rem;
-  margin:1rem 0;
-  box-shadow: var(--shadow);
-  transition: transform var(--transition), box-shadow var(--transition);
-}
-.card:hover, .book:hover, .lesson:hover, .library:hover, .game:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--hover-shadow);
-}
-body.light-mode .card, body.light-mode .book, body.light-mode .lesson, body.light-mode .library, body.light-mode .game {
-  background: var(--card-bg-light);
-}
-
-/* ENSURE TEXT READABILITY */
-.card p, .book p, .lesson p, .library p, .game p, section p {
-  color: inherit !important;
-  opacity: 1 !important;
-  margin-bottom:1rem;
-}
-
-/* LINKS BUTTONS */
-a.btn {
-  display:inline-block;
-  padding:0.6rem 1rem;
-  border-radius:10px;
-  background: linear-gradient(90deg, #ffd84d, #fff1b0);
-  color:#111;
-  font-weight:700;
-  text-decoration:none;
-  box-shadow: 0 8px 30px rgba(255,216,77,0.2);
-}
-a.btn:hover { transform: translateY(-3px); }
-
-/* GAMES GRID */
-.games-grid {
-  display:grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap:1rem;
-  margin-top:1rem;
-}
-.game-card {
-  background: var(--card-bg-dark);
-  padding:1rem;
-  border-radius:12px;
-  text-align:center;
-  box-shadow: var(--shadow);
-  transition: transform var(--transition), box-shadow var(--transition);
-}
-.game-card:hover { transform: translateY(-5px); box-shadow: var(--hover-shadow); }
-
-/* FOOTER */
-footer {
-  text-align:center;
-  padding:1.5rem;
-  background: #2575fc;
-  color:#fff;
-  box-shadow: 0 -6px 25px rgba(0,0,0,0.3);
-}
-footer img:hover { transform: scale(1.2); }
-
-/* RESPONSIVE */
-@media(max-width:768px) {
-  nav a { padding:0.3rem 0.6rem; }
-  section { padding:1.2rem; }
-}
-/* ====== Make library & lesson descriptions readable & expandable ======
-   Add to style.css (only changes descriptions)
-   Targets: elements with classes .library-description and .lesson-description
-   If your HTML uses different class names, replace those selectors accordingly.
-====================================================================== */
-
-/* basic readable typography */
-.library-description,
-.lesson-description {
-  font-family: "Times New Roman", Times, serif;
-  font-size: 16px;             /* readable size for body text */
-  line-height: 1.6;            /* comfortable line spacing */
-  letter-spacing: 0.2px;
-  white-space: normal;         /* allow wrapping */
-  word-break: break-word;
-  color: var(--text-color, #111);      /* respects site variables; falls back if missing */
-  background: transparent;
-  margin: 0.45rem 0;
-  padding: 0.35rem 0;
-}
-
-/* limit initial height but allow expansion on hover/focus */
-.library-description,
-.lesson-description {
-  max-height: 4.8em;          /* show ~3 lines (adjust if you want more) */
-  overflow: hidden;
-  position: relative;
-  transition: max-height 280ms ease, padding 200ms ease;
-  -webkit-transition: max-height 280ms ease, padding 200ms ease;
-}
-
-/* show a subtle gradient fade at bottom to indicate more text */
-.library-description::after,
-.lesson-description::after {
-  content: "";
-  pointer-events: none;
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 1.1em;
-  background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
-  /* if your page uses dark mode, switch the fade automatically */
-  /* the fallback below ensures contrast in dark themes */
-  background-image: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%);
-  mix-blend-mode: normal;
-}
-
-/* when user hovers or focuses the container — reveal full text */
-.library-description:hover,
-.lesson-description:hover,
-.library-description:focus-within,
-.lesson-description:focus-within {
-  max-height: 1000px;        /* large enough to show full content */
-  overflow: auto;
-  padding-bottom: 0.6rem;
-}
-
-/* keyboard accessibility: allow focus if element is given tabindex in HTML */
-.library-description[tabindex],
-.lesson-description[tabindex] {
-  outline: none;
-}
-
-/* optional: add a small 'Read more' hint at the bottom-right (non-intrusive) */
-.library-description::before,
-.lesson-description::before {
-  content: "Read more";
-  position: absolute;
-  right: 0.6rem;
-  bottom: 0.18rem;
-  font-size: 0.78rem;
-  opacity: 0.85;
-  backdrop-filter: blur(2px);
-  color: var(--muted-text, #666);
-  pointer-events: none;
-  transition: opacity 180ms ease;
-}
-
-/* hide the hint when fully expanded */
-.library-description:hover::before,
-.lesson-description:hover::before,
-.library-description:focus-within::before,
-.lesson-description:focus-within::before {
-  opacity: 0;
-}
-
-/* mobile-friendly tweak: show a bit more lines by default on small screens */
-@media (max-width: 600px) {
-  .library-description,
-  .lesson-description {
-    font-size: 15px;
-    max-height: 6.4em; /* ~4 lines on mobile by default */
+  .games-grid {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
   }
 }
-/* ===== DARK MODE FIX for readability ===== */
-
-/* Dark mode lessons */
-body.dark-mode .lesson-description {
-  color: #f0f0f0;            /* soft white for readability */
-  background-color: #1e1e2f; /* deep indigo background */
-  border-radius: 6px;
-  padding: 0.5rem;
-}
-
-/* Dark mode libraries */
-body.dark-mode .library-description {
-  color: #e0ffe0;            /* light green for contrast */
-  background-color: #132d13; /* dark greenish background */
-  border-radius: 6px;
-  padding: 0.5rem;
-}
-
-/* Optional: give headings a stronger shade */
-body.dark-mode .lesson-title {
-  color: #ffd580; /* warm amber */
-}
-
-body.dark-mode .library-title {
-  color: #80d4ff; /* sky blue */
-}
-/* ===== DARK MODE FIX for Lessons & Libraries (Improved Readability) ===== */
-
-/* Dark mode lessons */
-body.dark-mode .lesson-description {
-  color: #f5f5f7;            /* near-white for readability */
-  background-color: #252540; /* soft deep blue background */
-  border-radius: 8px;
-  padding: 0.75rem;
-  line-height: 1.6;
-}
-
-/* Dark mode libraries */
-body.dark-mode .library-description {
-  color: #e6ffe6;            /* light mint green for clarity */
-  background-color: #1a3321; /* softer forest green background */
-  border-radius: 8px;
-  padding: 0.75rem;
-  line-height: 1.6;
-}
-
-/* Headings - clearer accents */
-body.dark-mode .lesson-title {
-  color: #ffcc66; /* warm golden amber */
-  font-weight: 600;
-}
-
-body.dark-mode .library-title {
-  color: #66cfff; /* soft sky blue */
-  font-weight: 600;
-}
-
-/* Optional subtle shadow for text to pop on dark bg */
-body.dark-mode .lesson-description,
-body.dark-mode .library-description {
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
-}
-/* ===== DARK MODE FIX for Libraries & Lessons ===== */
-
-/* Dark mode lessons */
-body.dark-mode .lesson-description {
-  color: #ffffff;            /* pure white text for max readability */
-  background-color: #2a2a4a; /* dark blue background */
-  border-radius: 8px;
-  padding: 0.75rem;
-  line-height: 1.6;
-}
-
-/* Dark mode libraries */
-body.dark-mode .library-description {
-  color: #f2fff2;            /* soft white-green for readability */
-  background-color: #1f3d2a; /* dark green background */
-  border-radius: 8px;
-  padding: 0.75rem;
-  line-height: 1.6;
-}
-
-/* Lesson headings in dark mode */
-body.dark-mode .lesson-title {
-  color: #ffdb70;  /* golden yellow */
-  font-weight: bold;
-}
-
-/* Library headings in dark mode */
-body.dark-mode .library-title {
-  color: #70d6ff;  /* bright sky blue */
-  font-weight: bold;
-}
 /* ============================= */
-/* LIGHT MODE (default)          */
-/* ============================= */
-
-/* Lessons (light mode) */
-.lesson-description {
-  color: #222222;            /* dark gray text */
-  background-color: #f9f9ff; /* very light blue background */
-  border-radius: 8px;
-  padding: 0.75rem;
-  line-height: 1.6;
-}
-
-.lesson-title {
-  color: #004080; /* navy blue for headings */
-  font-weight: bold;
-}
-
-/* Libraries (light mode) */
-.library-description {
-  color: #1a1a1a;            /* almost black text */
-  background-color: #f4fff4; /* pale green background */
-  border-radius: 8px;
-  padding: 0.75rem;
-  line-height: 1.6;
-}
-
-.library-title {
-  color: #006622; /* dark green heading */
-  font-weight: bold;
-}
-
-
-/* ============================= */
-/* DARK MODE                     */
-/* ============================= */
-
-/* Lessons (dark mode) */
-body.dark-mode .lesson-description {
-  color: #ffffff;            /* pure white text */
-  background-color: #2a2a4a; /* dark indigo-blue */
-  border-radius: 8px;
-  padding: 0.75rem;
-  line-height: 1.6;
-}
-
-body.dark-mode .lesson-title {
-  color: #ffdb70; /* golden yellow */
-  font-weight: bold;
-}
-
-/* Libraries (dark mode) */
-body.dark-mode .library-description {
-  color: #eaffea;            /* light greenish white */
-  background-color: #1f3d2a; /* dark forest green */
-  border-radius: 8px;
-  padding: 0.75rem;
-  line-height: 1.6;
-}
-
-body.dark-mode .library-title {
-  color: #70d6ff; /* bright sky blue */
-  font-weight: bold;
-}
-/* ============================= */
-/* Base Styles                   */
-/* ============================= */
-
-body {
-  font-family: "Times New Roman", serif;
-  margin: 0;
-  padding: 0;
-  background-color: #ffffff;
-  color: #222222;
-  line-height: 1.6;
-  transition: background-color 0.3s, color 0.3s;
-}
-
-h1, h2, h3 {
-  font-weight: bold;
-  margin-bottom: 0.5rem;
-}
-
-/* Container */
-.container {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 1rem;
-}
-
-/* Links */
-a {
-  color: #004080;
-  text-decoration: none;
-  transition: color 0.3s;
-}
-
-a:hover {
-  color: #0080ff;
-}
-
-/* ============================= */
-/* Dark Mode Base                */
+/* 🌙 DARK MODE — SUPER READABLE */
 /* ============================= */
 
 body.dark-mode {
-  background-color: #121212;
-  color: #e0e0e0;
+  background-color: #12131f; /* very dark background */
+  color: #f0f8ff;            /* bright soft white text globally */
+  font-family: "Times New Roman", serif;
+  line-height: 1.7;
+  transition: background 0.5s, color 0.5s;
 }
 
-/* ============================= */
-/* Toggle Button                 */
-/* ============================= */
-
-.toggle-btn {
-  position: fixed;
-  top: 15px;
-  right: 15px;
-  background: #004080;
+/* Header */
+body.dark-mode header {
+  background: linear-gradient(90deg, #1b1b35, #2c2c55);
   color: #ffffff;
-  border: none;
-  border-radius: 50px;
-  padding: 10px 20px;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-
-.toggle-btn:hover {
-  background: #0080ff;
-}
-
-body.dark-mode .toggle-btn {
-  background: #ffdb70;
-  color: #222222;
-}
-
-body.dark-mode .toggle-btn:hover {
-  background: #ffc107;
-}
-
-/* ============================= */
-/* Lessons Section               */
-/* ============================= */
-
-.lesson-title {
-  color: #004080;
-  font-size: 1.4rem;
-  margin-top: 1rem;
-}
-
-.lesson-description {
-  color: #222222;
-  background-color: #f9f9ff;
-  border-radius: 8px;
-  padding: 0.75rem;
-  line-height: 1.6;
-  margin-bottom: 1rem;
-  transition: all 0.3s ease;
-}
-
-.lesson-description:hover {
-  box-shadow: 0 0 12px rgba(0, 64, 128, 0.4);
-  transform: scale(1.02);
-}
-
-/* Dark mode lessons */
-body.dark-mode .lesson-title {
-  color: #ffdb70;
-}
-
-body.dark-mode .lesson-description {
-  color: #ffffff;
-  background-color: #2a2a4a;
-}
-
-body.dark-mode .lesson-description:hover {
-  box-shadow: 0 0 15px rgba(255, 219, 112, 0.5);
-  transform: scale(1.02);
-}
-
-/* ============================= */
-/* Libraries Section             */
-/* ============================= */
-
-.library-title {
-  color: #006622;
-  font-size: 1.4rem;
-  margin-top: 1rem;
-}
-
-.library-description {
-  color: #1a1a1a;
-  background-color: #f4fff4;
-  border-radius: 8px;
-  padding: 0.75rem;
-  line-height: 1.6;
-  margin-bottom: 1rem;
-  transition: all 0.3s ease;
-}
-
-.library-description:hover {
-  box-shadow: 0 0 12px rgba(0, 102, 34, 0.4);
-  transform: scale(1.02);
-}
-
-/* Dark mode libraries */
-body.dark-mode .library-title {
-  color: #70d6ff;
-}
-
-body.dark-mode .library-description {
-  color: #eaffea;
-  background-color: #1f3d2a;
-}
-
-body.dark-mode .library-description:hover {
-  box-shadow: 0 0 15px rgba(112, 214, 255, 0.5);
-  transform: scale(1.02);
-}
-
-/* ============================= */
-/* Footer                        */
-/* ============================= */
-
-footer {
+  box-shadow: 0 6px 20px rgba(0,0,0,0.7);
   text-align: center;
-  padding: 1rem;
-  margin-top: 2rem;
-  font-size: 0.9rem;
-  background: #f0f0f0;
-  color: #444;
 }
 
+body.dark-mode header h1 {
+  color: #ffd84d; /* golden heading */
+  text-shadow: 0 2px 6px rgba(0,0,0,0.7);
+}
+
+/* Navigation Links */
+body.dark-mode nav a {
+  color: #88c0f7; /* soft sky blue */
+  font-weight: bold;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.7);
+}
+body.dark-mode nav a:hover {
+  color: #ffdd70; /* golden hover */
+  text-shadow: 0 2px 5px rgba(0,0,0,0.8);
+}
+
+/* Toggle Button */
+body.dark-mode #toggleMode {
+  background: #ffdd70;
+  color: #111;
+  border-radius: 50px;
+  padding: 0.7rem 1.4rem;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(255,221,112,0.4);
+  transition: transform 0.3s, background 0.3s;
+}
+body.dark-mode #toggleMode:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 30px rgba(255,221,112,0.5);
+}
+
+/* Sections */
+body.dark-mode section {
+  background: rgba(35, 35, 60, 0.95);  /* dark semi-transparent section */
+  box-shadow: 0 8px 25px rgba(0,0,0,0.7);
+  border-radius: 16px;
+  padding: 2rem;
+  color: #f0f8ff;
+}
+
+/* Section Headings */
+body.dark-mode h2,
+body.dark-mode h3 {
+  color: #ffd84d; /* golden headings */
+  text-shadow: 0 1px 3px rgba(0,0,0,0.7);
+}
+
+/* Cards / Lessons / Libraries / Books */
+body.dark-mode .card,
+body.dark-mode .lesson,
+body.dark-mode .library,
+body.dark-mode .book,
+body.dark-mode .game {
+  background: rgba(40, 40, 70, 0.95); /* soft dark card */
+  color: #f0f8ff;                     /* readable text */
+  border-radius: 14px;
+  padding: 1.5rem;
+  margin: 1rem 0;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.7);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+body.dark-mode .card:hover,
+body.dark-mode .lesson:hover,
+body.dark-mode .library:hover,
+body.dark-mode .book:hover,
+body.dark-mode .game:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 14px 35px rgba(255,221,112,0.5);
+}
+
+/* Lesson & Library Descriptions */
+body.dark-mode .lesson-description,
+body.dark-mode .library-description {
+  color: #e6f2ff;               /* bright readable text */
+  background-color: rgba(50, 50, 90, 0.95);
+  border-radius: 10px;
+  padding: 1rem;
+  line-height: 1.7;
+  text-align: justify;
+  max-height: 6em;
+  overflow: hidden;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+body.dark-mode .lesson-description:hover,
+body.dark-mode .library-description:hover {
+  max-height: 1000px;
+  overflow: auto;
+  box-shadow: 0 0 15px rgba(255,221,112,0.5);
+  transform: scale(1.02);
+}
+
+/* Buttons */
+body.dark-mode .btn,
+body.dark-mode a.btn {
+  background: linear-gradient(90deg, #ffdd70, #ffd633);
+  color: #111;
+  font-weight: bold;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(255,221,112,0.3);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+body.dark-mode .btn:hover,
+body.dark-mode a.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 45px rgba(255,221,112,0.5);
+}
+
+/* Footer */
 body.dark-mode footer {
-  background: #1a1a1a;
-  color: #bbb;
+  background: #1c1c35;
+  color: #f0f8ff;
+  box-shadow: 0 -6px 25px rgba(0,0,0,0.7);
+  text-align: center;
+  padding: 1.5rem;
+  border-radius: 0 0 16px 16px;
+}
+
+body.dark-mode footer a {
+  color: #88c0f7;
+}
+body.dark-mode footer a:hover {
+  color: #ffdd70;
+}
+
+/* Optional subtle text-shadow for readability in dark mode */
+body.dark-mode p,
+body.dark-mode li,
+body.dark-mode span {
+  text-shadow: 0 1px 2px rgba(0,0,0,0.6);
+}
+
+/* Responsive */
+@media(max-width:768px) {
+  body.dark-mode section {
+    padding: 1.2rem;
+  }
+  body.dark-mode .card,
+  body.dark-mode .lesson,
+  body.dark-mode .library,
+  body.dark-mode .book,
+  body.dark-mode .game {
+    padding: 1rem;
+  }
+  body.dark-mode .lesson-description,
+  body.dark-mode .library-description {
+    font-size: 0.95rem;
+    max-height: 8em;
+  }
 }
