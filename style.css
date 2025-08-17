@@ -496,3 +496,21 @@ body.dark-mode span {
     max-height: 8em;
   }
 }
+/* Readable description for index.html */
+.index-description, .description, p {
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: #f0f8ff; /* bright for dark mode */
+  background: rgba(0,0,0,0.3);
+  padding: 0.7em 1em;
+  border-radius: 10px;
+  margin-bottom: 1.2em;
+  letter-spacing: 0.02em;
+}
+
+body.light-mode .index-description,
+body.light-mode .description,
+body.light-mode p {
+  color: #222;
+  background: rgba(255,255,255,0.8);
+}
