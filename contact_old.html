@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Contact | Shayan’s Smart World</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="https://emoji.gg/assets/emoji/6526-email.png" type="image/png" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      font-family: "Times New Roman", serif;
+      transition: background 0.4s, color 0.4s;
+    }
+
+    section {
+      padding: 2rem;
+      text-align: center;
+    }
+
+    form input, form textarea {
+      padding: 10px;
+      margin: 8px;
+      width: 90%;
+      max-width: 400px;
+      font-family: "Times New Roman", serif;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    form button {
+      background-color: #003366;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      padding: 10px 20px;
+      cursor: pointer;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
+    form button:hover {
+      background-color: #0056b3;
+    }
+
+    body.light-mode {
+      background-color: #fff;
+      color: #111;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.5rem 1rem;
+    }
+
+    footer img {
+      margin: 0 10px;
+      transition: transform 0.3s ease;
+    }
+
+    footer img:hover {
+      transform: scale(1.1);
+    }
+  </style>
+  <audio id="hoverSound" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_384ea46939.mp3?filename=click-button-app-147358.mp3" preload="auto"></audio>
+</head>
+<body>
+  <header>
+    <h1>📬 Contact Me</h1>
+    <button id="toggleMode">🌙 Toggle Mode</button>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="lessons.html">Lessons</a>
+      <a href="libraries.html">Libraries</a>
+      <a href="books.html">Books</a>
+      <a href="games.html">Smart Games</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <section>
+    <form action="https://formsubmit.co/shayanhaiderswips@gmail.com" method="POST">
+      <input type="text" name="name" required placeholder="Your Name"><br>
+      <input type="email" name="email" required placeholder="Your Email"><br>
+      <textarea name="message" required placeholder="Your Message" rows="5"></textarea><br>
+
+      <!-- Optional: Redirect after submission -->
+      <input type="hidden" name="_next" value="https://shayanhaider.com/thanks.html">
+      <input type="hidden" name="_captcha" value="false">
+
+      <button type="submit">Send Message</button>
+    </form>
+
+    <p style="margin-top: 1.2rem;">Or email directly: <strong>shayanhaiderswips@gmail.com</strong></p>
+  </section>
+
+  <footer>
+    <p>© 2025 Shayan’s Smart World | Reach out anytime 📩</p>
+    <div style="margin-top: 1rem;">
+      <a href="https://www.youtube.com/@Killer15252" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube" width="40" height="40">
+      </a>
+      <a href="https://discord.com/channels/@me" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111370.png" alt="Discord" width="40" height="40">
+      </a>
+    </div>
+  </footer>
+
+  <script>
+    const hoverSound = document.getElementById("hoverSound");
+    document.querySelectorAll("a").forEach(link => {
+      link.addEventListener("mouseenter", () => {
+        hoverSound.currentTime = 0;
+        hoverSound.play();
+      });
+    });
+
+    const toggleBtn = document.getElementById("toggleMode");
+    toggleBtn.addEventListener("click", () => {
+      document.body.classList.toggle("light-mode");
+      localStorage.setItem("theme", document.body.classList.contains("light-mode") ? "light" : "dark");
+    });
+
+    window.addEventListener("DOMContentLoaded", () => {
+      if (localStorage.getItem("theme") === "light") {
+        document.body.classList.add("light-mode");
+      }
+    });
+  </script>
+</body>
+</html>
