@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Books | Shayan’s Smart World</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="https://emoji.gg/assets/emoji/3983-bookmark.png" type="image/png" />
+  <style>
+    /* ====== your original styles (kept exactly) ====== */
+    body {
+      font-family: "Times New Roman", serif;
+    }
+    section {
+      padding: 2rem;
+      max-width: 800px;
+      margin: auto;
+    }
+    .book {
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      padding: 1rem;
+      margin-bottom: 1.5rem;
+      background-color: #f9f9f9;
+    }
+    .book h3 {
+      margin: 0.5rem 0;
+      color: #004080;
+    }
+    .book a {
+      text-decoration: underline;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+    }
+
+    /* ====== enhancements (only ADDING, not removing) ====== */
+    :root{
+      --card-bg-dark:#2a2a2a;
+      --card-border-dark:#333;
+      --card-shadow:0 8px 18px rgba(0,0,0,.18);
+      --chip-bg:#e9f2ff;
+      --chip-text:#004a99;
+    }
+
+    /* Wider, responsive grid for books */
+    section.enhanced-grid{
+      max-width: 1100px; /* wider than old 800px, looks premium */
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.2rem;
+    }
+    /* Make cards look modern without breaking your old .book class */
+    .book{
+      box-shadow: var(--card-shadow);
+      transition: transform .25s ease, box-shadow .25s ease, background-color .25s;
+    }
+    .book:hover{
+      transform: translateY(-6px);
+      box-shadow: 0 14px 28px rgba(0,0,0,.22);
+    }
+
+    /* Dark mode compatibility */
+    body:not(.light-mode) .book{
+      background-color: var(--card-bg-dark);
+      border-color: var(--card-border-dark);
+      color: #f1f1f1;
+    }
+    body:not(.light-mode) .book h3{
+      color:#a6d3ff;
+    }
+    body:not(.light-mode) .book a{
+      color:#7bb2ff;
+    }
+
+    /* Toolbar */
+    .books-toolbar{
+      grid-column: 1/-1;
+      display: grid;
+      grid-template-columns: 1fr 180px;
+      gap: .8rem;
+      margin-bottom: .6rem;
+      align-items: center;
+    }
+    .filters{
+      grid-column: 1/-1;
+      display: flex;
+      flex-wrap: wrap;
+      gap: .5rem .8rem;
+      align-items: center;
+      margin-bottom: .8rem;
+    }
+    .toolbar-input, .toolbar-select{
+      padding:.6rem .8rem;
+      border:1px solid #bbb;
+      border-radius:10px;
+      width:100%;
+    }
+    .toolbar-select{ width:100%; }
+
+    .chip{
+      display:inline-block;
+      padding:.18rem .55rem;
+      border-radius:999px;
+      font-size:.78rem;
+      background:var(--chip-bg);
+      color:var(--chip-text);
+      margin-top:.35rem;
+    }
+    body:not(.light-mode) .chip{
+      background:#143b6b;
+      color:#d9ebff;
+    }
+
+    /* Make each book a mini layout when it has meta */
+    .book .meta{
+      font-size:.9rem;
+      opacity:.85;
+      margin-top:.35rem;
+    }
+
+    /* Quotes to break the grid nicely */
+    blockquote.book-quote{
+      grid-column:1/-1;
+      font-style: italic;
+      text-align: center;
+      opacity:.85;
+      padding: .6rem 1rem;
+    }
+
+    /* Keep icons in footer hoverable */
+    footer img{ transition: transform .25s ease; }
+    footer img:hover{ transform: scale(1.12); }
+
+    @media (max-width:680px){
+      .books-toolbar{ grid-template-columns: 1fr; }
+    }
+    /* Books description styling */
+.book p {
+  color: var(--text-color);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* Light mode */
+body.light .book p {
+  color: #333; /* Dark text for white background */
+}
+
+/* Dark mode */
+body.dark .book p {
+  color: #ddd; /* Light gray text for dark background */
+}
+
+  </style>
+</head>
+<body>
+  <header>
+    <h1>📚 Must-Read Books</h1>
+    <button id="toggleMode">🌙 Toggle Mode</button>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="lessons.html">Lessons</a>
+      <a href="libraries.html">Libraries</a>
+      <a href="books.html">Books</a>
+      <a href="games.html">Smart Games</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <!-- ===== Toolbar (added) ===== -->
+  <section class="enhanced-grid" id="booksSection">
+    <div class="books-toolbar">
+      <input id="bookSearch" class="toolbar-input" type="text" placeholder="🔍 Search by title, author, topic..." />
+      <select id="sortSelect" class="toolbar-select" aria-label="Sort books">
+        <option value="az">Sort: Title A → Z</option>
+        <option value="za">Sort: Title Z → A</option>
+      </select>
+    </div>
+
+    <div class="filters" id="filters">
+      <label><input type="checkbox" name="cat" value="Mindset"> Mindset</label>
+      <label><input type="checkbox" name="cat" value="Productivity"> Productivity</label>
+      <label><input type="checkbox" name="cat" value="Psychology"> Psychology</label>
+      <label><input type="checkbox" name="cat" value="Finance"> Finance</label>
+      <label><input type="checkbox" name="cat" value="Stoicism"> Stoicism</label>
+      <label><input type="checkbox" name="cat" value="Spirituality"> Spirituality</label>
+      <label><input type="checkbox" name="cat" value="Biography"> Biography</label>
+      <label><input type="checkbox" name="cat" value="Leadership"> Leadership</label>
+      <label><input type="checkbox" name="cat" value="Creativity"> Creativity</label>
+      <button id="clearFilters" class="toolbar-select" style="cursor:pointer;">Clear Filters</button>
+    </div>
+
+    <!-- ===== Your original 5 books (unchanged) ===== -->
+    <div class="book" data-title="The 7 Habits of Highly Effective People" data-author="Stephen R. Covey" data-cat="Mindset Productivity Leadership">
+      <h3>💡 The 7 Habits of Highly Effective People</h3>
+      <p>Learn how to build personal strength and success through principles. <a href="https://www.pdfdrive.com/the-7-habits-of-highly-effective-people-e158137.html" target="_blank">Read PDF</a></p>
+      <div class="meta">Stephen R. Covey • <span class="chip">Mindset</span> <span class="chip">Leadership</span></div>
+    </div>
+
+    <div class="book" data-title="Think and Grow Rich" data-author="Napoleon Hill" data-cat="Finance Mindset">
+      <h3>🧠 Think and Grow Rich</h3>
+      <p>A classic that shows the power of thought and belief. <a href="https://www.pdfdrive.com/think-and-grow-rich-e33457031.html" target="_blank">Read PDF</a></p>
+      <div class="meta">Napoleon Hill • <span class="chip">Finance</span> <span class="chip">Mindset</span></div>
+    </div>
+
+    <div class="book" data-title="The Power of Now" data-author="Eckhart Tolle" data-cat="Spirituality Psychology">
+      <h3>🧘 The Power of Now</h3>
+      <p>Teaches how to live in the present and find peace. <a href="https://www.pdfdrive.com/the-power-of-now-e34400396.html" target="_blank">Read PDF</a></p>
+      <div class="meta">Eckhart Tolle • <span class="chip">Spirituality</span></div>
+    </div>
+
+    <div class="book" data-title="Reclaim Your Heart" data-author="Yasmin Mogahed" data-cat="Spirituality Mindset">
+      <h3>🕋 Reclaim Your Heart</h3>
+      <p>A Muslim’s guide to loving Allah and letting go of pain. <a href="https://www.pdfdrive.com/reclaim-your-heart-e18350572.html" target="_blank">Read PDF</a></p>
+      <div class="meta">Yasmin Mogahed • <span class="chip">Spirituality</span></div>
+    </div>
+
+    <div class="book" data-title="Atomic Habits" data-author="James Clear" data-cat="Productivity Mindset">
+      <h3>🌱 Atomic Habits</h3>
+      <p>Small changes lead to big results. Master habits step by step. <a href="https://www.pdfdrive.com/atomic-habits-e158731043.html" target="_blank">Read PDF</a></p>
+      <div class="meta">James Clear • <span class="chip">Productivity</span> <span class="chip">Mindset</span></div>
+    </div>
+
+    <blockquote class="book-quote">"Reading is a gym for the mind. Train daily, grow forever."</blockquote>
+
+    <!-- ===== Added premium selection (20+ more) ===== -->
+    <div class="book" data-title="The Power of Habit" data-author="Charles Duhigg" data-cat="Productivity Psychology">
+      <h3>The Power of Habit</h3>
+      <p>How habits work in the brain and how to redesign them for life and work.</p>
+      <div class="meta">Charles Duhigg • <span class="chip">Productivity</span></div>
+    </div>
+
+    <div class="book" data-title="Thinking, Fast and Slow" data-author="Daniel Kahneman" data-cat="Psychology">
+      <h3>Thinking, Fast and Slow</h3>
+      <p>The two thinking systems that drive our choices — biases, heuristics, and better decisions.</p>
+      <div class="meta">Daniel Kahneman • <span class="chip">Psychology</span></div>
+    </div>
+
+    <div class="book" data-title="Mindset" data-author="Carol Dweck" data-cat="Psychology Mindset">
+      <h3>Mindset</h3>
+      <p>Fixed vs growth mindset and how to build a learning life.</p>
+      <div class="meta">Carol S. Dweck • <span class="chip">Mindset</span></div>
+    </div>
+
+    <div class="book" data-title="Emotional Intelligence" data-author="Daniel Goleman" data-cat="Psychology Leadership">
+      <h3>Emotional Intelligence</h3>
+      <p>Why EQ matters more than IQ for relationships, leadership, and success.</p>
+      <div class="meta">Daniel Goleman • <span class="chip">Psychology</span> <span class="chip">Leadership</span></div>
+    </div>
+
+    <div class="book" data-title="Deep Work" data-author="Cal Newport" data-cat="Productivity">
+      <h3>Deep Work</h3>
+      <p>How to focus without distraction and produce at elite levels.</p>
+      <div class="meta">Cal Newport • <span class="chip">Productivity</span></div>
+    </div>
+
+    <div class="book" data-title="How to Win Friends and Influence People" data-author="Dale Carnegie" data-cat="Leadership Psychology">
+      <h3>How to Win Friends and Influence People</h3>
+      <p>Timeless principles to connect, influence, and lead with empathy.</p>
+      <div class="meta">Dale Carnegie • <span class="chip">Leadership</span></div>
+    </div>
+
+    <div class="book" data-title="Man's Search for Meaning" data-author="Viktor Frankl" data-cat="Psychology Spirituality">
+      <h3>Man’s Search for Meaning</h3>
+      <p>Finding purpose and dignity through suffering and service.</p>
+      <div class="meta">Viktor E. Frankl • <span class="chip">Psychology</span></div>
+    </div>
+
+    <div class="book" data-title="Grit" data-author="Angela Duckworth" data-cat="Mindset Psychology">
+      <h3>Grit</h3>
+      <p>Passion + perseverance = long-term success.</p>
+      <div class="meta">Angela Duckworth • <span class="chip">Mindset</span></div>
+    </div>
+
+    <div class="book" data-title="Sapiens" data-author="Yuval Noah Harari" data-cat="History Psychology">
+      <h3>Sapiens</h3>
+      <p>A fast tour of human history and how stories shaped civilizations.</p>
+      <div class="meta">Yuval Noah Harari</div>
+    </div>
+
+    <div class="book" data-title="Can't Hurt Me" data-author="David Goggins" data-cat="Biography Mindset">
+      <h3>Can’t Hurt Me</h3>
+      <p>Brutal self-honesty and discipline to smash limits.</p>
+      <div class="meta">David Goggins • <span class="chip">Biography</span></div>
+    </div>
+
+    <div class="book" data-title="The Alchemist" data-author="Paulo Coelho" data-cat="Spirituality Fiction">
+      <h3>The Alchemist</h3>
+      <p>A fable about destiny, faith, and following your Personal Legend.</p>
+      <div class="meta">Paulo Coelho</div>
+    </div>
+
+    <div class="book" data-title="Outliers" data-author="Malcolm Gladwell" data-cat="Psychology">
+      <h3>Outliers</h3>
+      <p>Why success loves timing, culture, and 10,000 hours.</p>
+      <div class="meta">Malcolm Gladwell</div>
+    </div>
+
+    <div class="book" data-title="Flow" data-author="Mihaly Csikszentmihalyi" data-cat="Psychology Productivity">
+      <h3>Flow</h3>
+      <p>Deep engagement = happiness and creative excellence.</p>
+      <div class="meta">Mihaly Csikszentmihalyi • <span class="chip">Psychology</span></div>
+    </div>
+
+    <div class="book" data-title="The Lean Startup" data-author="Eric Ries" data-cat="Business Productivity">
+      <h3>The Lean Startup</h3>
+      <p>Build—measure—learn: iterate your way to product-market fit.</p>
+      <div class="meta">Eric Ries • <span class="chip">Productivity</span></div>
+    </div>
+
+    <div class="book" data-title="Rich Dad Poor Dad" data-author="Robert Kiyosaki" data-cat="Finance">
+      <h3>Rich Dad Poor Dad</h3>
+      <p>Assets vs liabilities; think like an investor, not a consumer.</p>
+      <div class="meta">Robert T. Kiyosaki • <span class="chip">Finance</span></div>
+    </div>
+
+    <div class="book" data-title="The Courage to Be Disliked" data-author="Ichiro Kishimi; Fumitake Koga" data-cat="Psychology Mindset">
+      <h3>The Courage to Be Disliked</h3>
+      <p>Adlerian wisdom for freedom, relationships, and self-respect.</p>
+      <div class="meta">Kishimi & Koga • <span class="chip">Psychology</span></div>
+    </div>
+
+    <div class="book" data-title="Ikigai" data-author="Héctor García; Francesc Miralles" data-cat="Spirituality Mindset">
+      <h3>Ikigai</h3>
+      <p>Find the sweet spot of passion, mission, vocation, and profession.</p>
+      <div class="meta">García & Miralles • <span class="chip">Spirituality</span></div>
+    </div>
+
+    <div class="book" data-title="Meditations" data-author="Marcus Aurelius" data-cat="Stoicism Spirituality">
+      <h3>Meditations</h3>
+      <p>Stoic notes from a Roman emperor on character and calm.</p>
+      <div class="meta">Marcus Aurelius • <span class="chip">Stoicism</span></div>
+    </div>
+
+    <div class="book" data-title="The Art of War" data-author="Sun Tzu" data-cat="Strategy Leadership">
+      <h3>The Art of War</h3>
+      <p>Strategy and discipline for competition, business, and life.</p>
+      <div class="meta">Sun Tzu • <span class="chip">Leadership</span></div>
+    </div>
+
+    <div class="book" data-title="12 Rules for Life" data-author="Jordan B. Peterson" data-cat="Psychology Mindset">
+      <h3>12 Rules for Life</h3>
+      <p>Stand up straight, tell the truth, aim up. Order beats chaos.</p>
+      <div class="meta">Jordan B. Peterson • <span class="chip">Psychology</span></div>
+    </div>
+
+    <div class="book" data-title="Extreme Ownership" data-author="Jocko Willink; Leif Babin" data-cat="Leadership Mindset">
+      <h3>Extreme Ownership</h3>
+      <p>Leaders own everything in their world—no excuses.</p>
+      <div class="meta">Willink & Babin • <span class="chip">Leadership</span></div>
+    </div>
+
+    <div class="book" data-title="Start With Why" data-author="Simon Sinek" data-cat="Leadership Business">
+      <h3>Start With Why</h3>
+      <p>People don’t buy what you do; they buy why you do it.</p>
+      <div class="meta">Simon Sinek • <span class="chip">Leadership</span></div>
+    </div>
+
+    <div class="book" data-title="Show Your Work!" data-author="Austin Kleon" data-cat="Creativity Productivity">
+      <h3>Show Your Work!</h3>
+      <p>Share as you learn; build in public to create momentum.</p>
+      <div class="meta">Austin Kleon • <span class="chip">Creativity</span></div>
+    </div>
+
+    <div class="book" data-title="The War of Art" data-author="Steven Pressfield" data-cat="Creativity Mindset">
+      <h3>The War of Art</h3>
+      <p>Beat Resistance. Sit down. Do the work. Daily.</p>
+      <div class="meta">Steven Pressfield • <span class="chip">Creativity</span></div>
+    </div>
+
+    <div class="book" data-title="So Good They Can't Ignore You" data-author="Cal Newport" data-cat="Productivity Career">
+      <h3>So Good They Can’t Ignore You</h3>
+      <p>Skills first, passion second. Build rare and valuable abilities.</p>
+      <div class="meta">Cal Newport • <span class="chip">Career</span></div>
+    </div>
+
+    <div class="book" data-title="A Mind for Numbers" data-author="Barbara Oakley" data-cat="Learning Productivity">
+      <h3>A Mind for Numbers</h3>
+      <p>Math/science learning tactics: chunking, spaced repetition, focus.</p>
+      <div class="meta">Barbara Oakley • <span class="chip">Learning</span></div>
+    </div>
+
+    <div class="book" data-title="Quiet" data-author="Susan Cain" data-cat="Psychology">
+      <h3>Quiet</h3>
+      <p>The power of introverts in a world that can’t stop talking.</p>
+      <div class="meta">Susan Cain • <span class="chip">Psychology</span></div>
+    </div>
+
+    <div class="book" data-title="The Design of Everyday Things" data-author="Don Norman" data-cat="Design Psychology">
+      <h3>The Design of Everyday Things</h3>
+      <p>Good design makes use obvious and errors recoverable.</p>
+      <div class="meta">Don Norman • <span class="chip">Design</span></div>
+    </div>
+
+    <div class="book" data-title="The Millionaire Next Door" data-author="Thomas J. Stanley; William D. Danko" data-cat="Finance">
+      <h3>The Millionaire Next Door</h3>
+      <p>Wealth is built quietly via frugality and investing, not flexing.</p>
+      <div class="meta">Stanley & Danko • <span class="chip">Finance</span></div>
+    </div>
+
+    <div class="book" data-title="Influence" data-author="Robert Cialdini" data-cat="Psychology Marketing">
+      <h3>Influence</h3>
+      <p>Six principles of persuasion used everywhere.</p>
+      <div class="meta">Robert B. Cialdini • <span class="chip">Psychology</span></div>
+    </div>
+
+    <div class="book" data-title="The Richest Man in Babylon" data-author="George S. Clason" data-cat="Finance">
+      <h3>The Richest Man in Babylon</h3>
+      <p>Ancient parables teaching timeless money rules.</p>
+      <div class="meta">George S. Clason • <span class="chip">Finance</span></div>
+    </div>
+
+    <div class="book" data-title="Rework" data-author="Jason Fried; David Heinemeier Hansson" data-cat="Business Productivity">
+      <h3>Rework</h3>
+      <p>Do less, ship faster, say no to busywork.</p>
+      <div class="meta">Fried & DHH • <span class="chip">Business</span></div>
+    </div>
+
+    <div class="book" data-title="The One Thing" data-author="Gary Keller; Jay Papasan" data-cat="Productivity Mindset">
+      <h3>The One Thing</h3>
+      <p>What’s the ONE thing that makes everything else easier or unnecessary?</p>
+      <div class="meta">Keller & Papasan • <span class="chip">Productivity</span></div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Shayan’s Smart World | Powered by Wisdom 📘</p>
+      <div style="margin-top: 1rem;">
+    <a href="https://www.youtube.com/@Killer15252" target="_blank" style="margin: 0 10px;">
+      <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube" width="40" height="40">
+    </a>
+    <a href="https://discord.com/channels/@me" target="_blank" style="margin: 0 10px;">
+      <img src="https://cdn-icons-png.flaticon.com/512/2111/2111370.png" alt="Discord" width="40" height="40">
+    </a>
+  </div>
+  </footer>
+
+  <script>
+    /* your original dark/light toggle (kept) */
+    document.getElementById("toggleMode").addEventListener("click", () => {
+      document.body.classList.toggle("light-mode");
+      if (document.body.classList.contains("light-mode")) {
+        localStorage.setItem("theme", "light");
+      } else {
+        localStorage.setItem("theme", "dark");
+      }
+    });
+    window.addEventListener("DOMContentLoaded", () => {
+      if (localStorage.getItem("theme") === "light") {
+        document.body.classList.add("light-mode");
+      }
+    });
+
+    /* Enhancements: search, sort, filter — no removals, only additions */
+    const sectionEl = document.getElementById('booksSection');
+    const cards = Array.from(sectionEl.querySelectorAll('.book'));
+    const searchInput = document.getElementById('bookSearch');
+    const sortSelect  = document.getElementById('sortSelect');
+    const filterWrap  = document.getElementById('filters');
+    const clearBtn    = document.getElementById('clearFilters');
+
+    /* If someone kept the old 800px layout, ensure grid class is present */
+    if(!sectionEl.classList.contains('enhanced-grid')){
+      sectionEl.classList.add('enhanced-grid');
+    }
+
+    // Helper: normalize text
+    const norm = s => (s||'').toLowerCase().trim();
+
+    function activeCategories(){
+      const checked = Array.from(filterWrap.querySelectorAll('input[name="cat"]:checked')).map(i=>i.value);
+      return checked;
+    }
+
+    function applyFilters(){
+      const q = norm(searchInput.value);
+      const cats = activeCategories();
+
+      cards.forEach(card=>{
+        const title = norm(card.getAttribute('data-title') || card.querySelector('h3')?.textContent);
+        const author = norm(card.getAttribute('data-author') || '');
+        const catsIn = (card.getAttribute('data-cat') || '').toLowerCase();
+
+        const textMatches = !q || title.includes(q) || author.includes(q);
+        const catMatches  = cats.length===0 || cats.every(c=>catsIn.includes(c.toLowerCase()));
+
+        card.style.display = (textMatches && catMatches) ? '' : 'none';
+      });
+    }
+
+    function applySort(){
+      const mode = sortSelect.value; // az / za
+      const visible = cards.filter(c=>c.style.display!=='none');
+
+      visible.sort((a,b)=>{
+        const ta = norm(a.getAttribute('data-title') || a.querySelector('h3')?.textContent);
+        const tb = norm(b.getAttribute('data-title') || b.querySelector('h3')?.textContent);
+        if(mode==='az') return ta.localeCompare(tb);
+        return tb.localeCompare(ta);
+      });
+
+      // Re-append in new order
+      const quoteEls = Array.from(sectionEl.querySelectorAll('blockquote.book-quote'));
+      // Keep quotes pinned to grid edges by moving them to end and re-inserting after sorting
+      quoteEls.forEach(q=>q.remove());
+      visible.forEach(v=>sectionEl.appendChild(v));
+      quoteEls.forEach(q=>sectionEl.appendChild(q));
+    }
+
+    // Events
+    searchInput.addEventListener('input', ()=>{ applyFilters(); applySort(); });
+    sortSelect.addEventListener('change', ()=>{ applySort(); });
+
+    filterWrap.addEventListener('change', e=>{
+      if(e.target.name==='cat'){
+        applyFilters(); applySort();
+      }
+    });
+
+    clearBtn.addEventListener('click', ()=>{
+      filterWrap.querySelectorAll('input[name="cat"]').forEach(c=>c.checked=false);
+      searchInput.value='';
+      applyFilters(); applySort();
+    });
+
+    // Initial run
+    applyFilters(); applySort();
+  </script>
+</body>
+</html>

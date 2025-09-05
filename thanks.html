@@ -1,30 +1,137 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="utf-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title></title>
-	<link href='https://fonts.googleapis.com/css?family=Lato:300,400|Montserrat:700' rel='stylesheet' type='text/css'>
-	<style>
-		@import url(//cdnjs.cloudflare.com/ajax/libs/normalize/3.0.1/normalize.min.css);
-		@import url(//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css);
-	</style>
-	<link rel="stylesheet" href="https://2-22-4-dot-lead-pages.appspot.com/static/lp918/min/default_thank_you.css">
-	<script src="https://2-22-4-dot-lead-pages.appspot.com/static/lp918/min/jquery-1.9.1.min.js"></script>
-	<script src="https://2-22-4-dot-lead-pages.appspot.com/static/lp918/min/html5shiv.js"></script>
+  <meta charset="UTF-8" />
+  <title>Thank You | Shayan's Smart World</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="https://emoji.gg/assets/emoji/3983-bookmark.png" type="image/png" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: {"50":"#eff6ff","100":"#dbeafe","200":"#bfdbfe","300":"#93c5fd","400":"#60a5fa","500":"#3b82f6","600":"#2563eb","700":"#1d4ed8","800":"#1e40af","900":"#1e3a8a","950":"#172554"}
+          }
+        }
+      }
+    }
+  </script>
 </head>
-<body>
-	<header class="site-header" id="header">
-		<h1 class="site-header__title" data-lead-id="site-header-title">THANK YOU!</h1>
-	</header>
+<body class="bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 font-sans min-h-screen flex flex-col">
+  <audio id="hoverSound" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_384ea46939.mp3?filename=click-button-app-147358.mp3" preload="auto"></audio>
 
-	<div class="main-content">
-		<i class="fa fa-check main-content__checkmark" id="checkmark"></i>
-		<p class="main-content__body" data-lead-id="main-content-body">Thanks a bunch for filling that out. It means a lot to us, just like you do! We really appreciate you giving us a moment of your time today. Thanks for being you.</p>
-	</div>
+  <header class="bg-white dark:bg-gray-800 shadow-md">
+    <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+      <a href="index.html" class="text-2xl font-bold text-primary-600 dark:text-primary-400">📘 Shayan's Smart World</a>
+      <div class="hidden md:flex items-center space-x-6">
+        <a href="index.html" class="text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400">Home</a>
+        <a href="lessons.html" class="text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400">Lessons</a>
+        <a href="libraries.html" class="text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400">Libraries</a>
+        <a href="books.html" class="text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400">Books</a>
+        <a href="games.html" class="text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400">Smart Games</a>
+        <a href="about.html" class="text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400">About</a>
+        <a href="contact.html" class="text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400">Contact</a>
+      </div>
+      <button type="button" id="toggleMode" title="Toggle dark/light mode" class="p-2 rounded-md text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700">
+        <span class="sr-only">Toggle theme</span>
+        <svg id="moon-icon" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+        <svg id="sun-icon" class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M12 12a5 5 0 100-10 5 5 0 000 10z"></path></svg>
+      </button>
+      <button type="button" id="mobile-menu-button" title="Toggle mobile menu" class="md:hidden p-2 rounded-md text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700">
+        <span class="sr-only">Open menu</span>
+        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+      </button>
+    </nav>
+    <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 space-y-2">
+        <a href="index.html" class="block text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400">Home</a>
+        <a href="lessons.html" class="block text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400">Lessons</a>
+        <a href="libraries.html" class="block text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400">Libraries</a>
+        <a href="books.html" class="block text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400">Books</a>
+        <a href="games.html" class="block text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400">Smart Games</a>
+        <a href="about.html" class="block text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400">About</a>
+        <a href="contact.html" class="block text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400">Contact</a>
+    </div>
+  </header>
 
-	<footer class="site-footer" id="footer">
-		<p class="site-footer__fineprint" id="fineprint">ShayanWebsite ©2025 | All Rights Reserved</p>
-	</footer>
+  <main class="flex-grow flex items-center justify-center py-12 px-6">
+    <div class="text-center max-w-2xl mx-auto">
+      <!-- Success Animation -->
+      <div class="mb-8">
+        <div class="mx-auto w-24 h-24 bg-green-100 dark:bg-green-900 rounded-full flex items-center justify-center mb-6">
+          <svg class="w-12 h-12 text-green-600 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+          </svg>
+        </div>
+        
+        <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-white mb-4">
+          Thank You! 🎉
+        </h1>
+        
+        <p class="text-lg text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
+          Thanks a bunch for reaching out! Your message means a lot to us, just like you do. 
+          We really appreciate you taking a moment of your time today to connect with us.
+        </p>
+
+        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8 border border-gray-200 dark:border-gray-700 mb-8">
+          <h2 class="text-2xl font-bold text-gray-800 dark:text-white mb-4">What happens next?</h2>
+          <div class="space-y-4 text-left">
+            <div class="flex items-start space-x-3">
+              <div class="flex-shrink-0 w-6 h-6 bg-primary-100 dark:bg-primary-900 rounded-full flex items-center justify-center mt-0.5">
+                <span class="text-primary-600 dark:text-primary-400 text-sm font-bold">1</span>
+              </div>
+              <p class="text-gray-600 dark:text-gray-300">We'll review your message carefully within 24 hours</p>
+            </div>
+            <div class="flex items-start space-x-3">
+              <div class="flex-shrink-0 w-6 h-6 bg-primary-100 dark:bg-primary-900 rounded-full flex items-center justify-center mt-0.5">
+                <span class="text-primary-600 dark:text-primary-400 text-sm font-bold">2</span>
+              </div>
+              <p class="text-gray-600 dark:text-gray-300">You'll get a thoughtful response from our team</p>
+            </div>
+            <div class="flex items-start space-x-3">
+              <div class="flex-shrink-0 w-6 h-6 bg-primary-100 dark:bg-primary-900 rounded-full flex items-center justify-center mt-0.5">
+                <span class="text-primary-600 dark:text-primary-400 text-sm font-bold">3</span>
+              </div>
+              <p class="text-gray-600 dark:text-gray-300">Together we'll continue building something amazing!</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="index.html" class="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-lg text-white bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition duration-200">
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+            </svg>
+            Back to Home
+          </a>
+          <a href="lessons.html" class="inline-flex items-center justify-center px-6 py-3 border border-gray-300 dark:border-gray-600 text-base font-medium rounded-lg text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition duration-200">
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+            </svg>
+            Explore Lessons
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="bg-white dark:bg-gray-800 py-8">
+    <div class="container mx-auto px-6 text-center text-gray-600 dark:text-gray-400">
+      <p>© 2025 Shayan's Smart World | Thanks for being part of our journey! 🙏</p>
+      <div class="flex justify-center space-x-6 mt-4">
+        <a href="https://www.youtube.com/@Killer15252" target="_blank" rel="noopener" title="Visit our YouTube channel" class="hover:text-primary-600 dark:hover:text-primary-400">
+          <span class="sr-only">YouTube</span>
+          <svg class="h-8 w-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M19.812 5.418c.861.23 1.538.907 1.768 1.768C21.998 8.78 22 12 22 12s0 3.22-.42 4.814a2.506 2.506 0 0 1-1.768 1.768c-1.594.42-7.812.42-7.812.42s-6.218 0-7.812-.42a2.506 2.506 0 0 1-1.768-1.768C2 15.22 2 12 2 12s0-3.22.42-4.814a2.506 2.506 0 0 1 1.768-1.768C5.782 5 12 5 12 5s6.218 0 7.812.418ZM9.75 15.5V8.5l6.5 3.5-6.5 3.5Z" clip-rule="evenodd" /></svg>
+        </a>
+        <a href="https://discord.com/channels/@me" target="_blank" rel="noopener" title="Join our Discord community" class="hover:text-primary-600 dark:hover:text-primary-400">
+          <span class="sr-only">Discord</span>
+          <svg class="h-8 w-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.317 4.369a19.791 19.791 0 0 0-4.982-1.524c-.372.468-.718.96-1.02 1.482a17.456 17.456 0 0 0-6.632 0c-.302-.522-.648-1.014-1.02-1.482A19.783 19.783 0 0 0 3.683 4.37a1.643 1.643 0 0 0-.655 1.3c-.111 1.64-.24 3.948-.24 3.948s.129 2.307.24 3.947c0 .81.443 1.347.655 1.3a19.78 19.78 0 0 0 4.982 1.524c.372-.468.718-.96 1.02-1.482a17.456 17.456 0 0 0 6.632 0c.302.522.648 1.014 1.02 1.482a19.783 19.783 0 0 0 4.982-1.524c.212-.053.655-.49.655-1.3 0 0 .129-2.307.24-3.947s-.129-3.948-.24-3.948a1.406 1.406 0 0 0-.655-1.3Zm-9.713 9.85c-1.18 0-2.14-1.014-2.14-2.262s.96-2.262 2.14-2.262c1.18 0 2.14 1.014 2.14 2.262s-.96 2.262-2.14 2.262Zm6.804 0c-1.18 0-2.14-1.014-2.14-2.262s.96-2.262 2.14-2.262c1.18 0 2.14 1.014 2.14 2.262s-.96 2.262-2.14 2.262Z" /></svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
