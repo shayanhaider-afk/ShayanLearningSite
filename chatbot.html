@@ -2,171 +2,68 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Learning Chatbot | ShayanHaider</title>
-  <meta name="description" content="Educational chatbot for lessons and fun learning.">
-  
-  <style>
-    body {
-      font-family: "Times New Roman", serif;
-      background: #f4f4f4;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-    }
-
-    .chatbot {
-      width: 350px;
-      background: white;
-      border-radius: 15px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.2);
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .chat-header {
-      background: #222;
-      color: white;
-      padding: 15px;
-      text-align: center;
-    }
-
-    .chat-body {
-      padding: 10px;
-      height: 300px;
-      overflow-y: auto;
-      font-size: 14px;
-    }
-
-    .bot, .user {
-      margin: 8px 0;
-      padding: 8px 12px;
-      border-radius: 10px;
-      max-width: 80%;
-    }
-
-    .bot {
-      background: #e0e0e0;
-      align-self: flex-start;
-    }
-
-    .user {
-      background: #ff9800;
-      color: white;
-      align-self: flex-end;
-    }
-
-    .chat-input {
-      display: flex;
-      border-top: 1px solid #ccc;
-    }
-
-    .chat-input input {
-      flex: 1;
-      padding: 10px;
-      border: none;
-      outline: none;
-    }
-
-    .chat-input button {
-      padding: 10px;
-      background: #222;
-      color: white;
-      border: none;
-      cursor: pointer;
-    }
-  </style>
+  <title>AI Tutor | Shayan's Smart World</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body>
+<body class="bg-gray-100 dark:bg-gray-900 flex justify-center items-center h-screen">
 
-<div class="chatbot">
-  <div class="chat-header">
-    🤖 Learning Chatbot
+<div class="w-full max-w-md bg-white dark:bg-gray-800 rounded-xl shadow-lg flex flex-col">
+  
+  <!-- Header -->
+  <div class="p-4 border-b dark:border-gray-700 font-bold text-center">
+    🤖 AI Tutor
+    <p class="text-sm text-gray-500 dark:text-gray-400">
+      Ask me anything. Lessons, jokes, help.
+    </p>
   </div>
 
-  <div class="chat-body" id="chatBody">
-    <div class="bot">
-      Hello 👋<br>
-      I am your learning chatbot.<br><br>
-      📘 <b>Agenda today:</b><br>
-      1️⃣ Learn a short lesson<br>
-      2️⃣ Hear a joke<br><br>
-      Type <b>lesson</b> or <b>joke</b> 😊
+  <!-- Chat -->
+  <div id="chat" class="flex-1 p-4 overflow-y-auto space-y-3 text-sm">
+    <div class="bg-gray-200 dark:bg-gray-700 p-3 rounded-lg">
+      Hello 👋  
+      I’m your AI tutor.  
+      What do you want to learn today?
     </div>
   </div>
 
-  <div class="chat-input">
-    <input type="text" id="userInput" placeholder="Type here..." />
-    <button onclick="sendMessage()">Send</button>
+  <!-- Input -->
+  <div class="p-3 border-t dark:border-gray-700 flex gap-2">
+    <input id="input" type="text" placeholder="Ask anything..."
+      class="flex-1 px-3 py-2 rounded-lg border dark:bg-gray-900 dark:border-gray-600 outline-none">
+    <button onclick="sendMessage()"
+      class="px-4 py-2 bg-blue-600 text-white rounded-lg">
+      Send
+    </button>
   </div>
+
 </div>
 
 <script>
-  const chatBody = document.getElementById("chatBody");
-  const userInput = document.getElementById("userInput");
+function addMessage(text, isUser=false) {
+  const chat = document.getElementById("chat");
+  const div = document.createElement("div");
+  div.className = isUser
+    ? "bg-blue-600 text-white p-3 rounded-lg self-end"
+    : "bg-gray-200 dark:bg-gray-700 p-3 rounded-lg";
+  div.textContent = text;
+  chat.appendChild(div);
+  chat.scrollTop = chat.scrollHeight;
+}
 
-  function sendMessage() {
-    const message = userInput.value.toLowerCase().trim();
-    if (message === "") return;
+function sendMessage() {
+  const input = document.getElementById("input");
+  const text = input.value.trim();
+  if (!text) return;
 
-    addMessage(message, "user");
-    userInput.value = "";
+  addMessage(text, true);
+  input.value = "";
 
-    setTimeout(() => {
-      botReply(message);
-    }, 500);
-  }
-
-  function addMessage(text, sender) {
-    const msg = document.createElement("div");
-    msg.className = sender;
-    msg.innerText = text;
-    chatBody.appendChild(msg);
-    chatBody.scrollTop = chatBody.scrollHeight;
-  }
-
-  function botReply(message) {
-    let reply = "";
-
-    if (message.includes("lesson")) {
-      reply =
-        "📘 LESSON: Density\n\n" +
-        "Density tells us how heavy something is for its size.\n" +
-        "Formula:\n" +
-        "Density = Mass ÷ Volume\n\n" +
-        "Example:\n" +
-        "If mass = 10kg and volume = 2m³,\n" +
-        "Density = 5 kg/m³";
-    } 
-    else if (message.includes("joke")) {
-      reply =
-        "😂 Joke Time!\n\n" +
-        "Why did the math book look sad?\n" +
-        "Because it had too many problems!";
-    } 
-    else if (message.includes("hello") || message.includes("hi")) {
-      reply = "Hello! 😊 Type 'lesson' or 'joke' to begin.";
-    } 
-    else {
-      reply =
-        "🤔 I didn't understand that.\n\n" +
-        "Try typing:\n" +
-        "👉 lesson\n" +
-        "👉 joke";
-    }
-
-    addMessage(reply, "bot");
-  }
-
-  // Enter key support
-  userInput.addEventListener("keypress", function(e) {
-    if (e.key === "Enter") {
-      sendMessage();
-    }
-  });
+  // Fake AI response for now
+  setTimeout(() => {
+    addMessage("I am thinking 🤔 (AI API will answer here)");
+  }, 600);
+}
 </script>
 
 </body>
