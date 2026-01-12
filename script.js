@@ -190,3 +190,8 @@ if (document.getElementById('libraryList')) {
       });
     });
 }
+function getBotResponse(msg) {
+  const lower = msg.toLowerCase().trim();
+  const responses = { "hello": "Hey there!", "tell me a joke": "😂" };
+  ...responses
+}
