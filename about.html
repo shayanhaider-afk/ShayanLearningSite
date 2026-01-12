@@ -102,5 +102,78 @@
   </footer>
 
   <script src="script.js"></script>
+  <!-- Chatbot Floating Button -->
+<div id="chatbot-container" class="fixed bottom-6 right-6 z-50">
+  <button id="chatbot-toggle" class="bg-primary-600 hover:bg-primary-500 text-white rounded-full w-16 h-16 flex items-center justify-center shadow-lg">💬</button>
+  
+  <div id="chatbot-box" class="hidden flex-col w-80 h-96 bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden mt-2">
+    <div class="bg-primary-600 dark:bg-primary-400 text-white p-4 font-bold flex justify-between items-center">
+      Chatbot
+      <button id="chatbot-close" class="text-white text-lg font-bold">✕</button>
+    </div>
+    <div id="chatbot-messages" class="flex-1 p-4 overflow-y-auto text-gray-900 dark:text-gray-100"></div>
+    <div class="p-2 border-t border-gray-200 dark:border-gray-700 flex">
+      <input id="chatbot-input" type="text" placeholder="Ask me anything..." class="flex-1 p-2 rounded-l-md border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white focus:outline-none" />
+      <button id="chatbot-send" class="bg-primary-600 hover:bg-primary-500 text-white px-4 rounded-r-md">Send</button>
+    </div>
+  </div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const toggleBtn = document.getElementById("chatbot-toggle");
+  const chatbotBox = document.getElementById("chatbot-box");
+  const closeBtn = document.getElementById("chatbot-close");
+  const input = document.getElementById("chatbot-input");
+  const sendBtn = document.getElementById("chatbot-send");
+  const messages = document.getElementById("chatbot-messages");
+
+  toggleBtn.addEventListener("click", () => {
+    chatbotBox.classList.toggle("hidden");
+  });
+
+  closeBtn.addEventListener("click", () => {
+    chatbotBox.classList.add("hidden");
+  });
+
+  function getBotResponse(msg) {
+    const lower = msg.toLowerCase().trim();
+    if (!lower) return "Please type something!";
+    const responses = {
+      "hello": "Hey there! 👋",
+      "hi": "Hello! How can I help you?",
+      "how are you": "I'm just code, but I'm doing great! 😎",
+      "what is your name": "I'm your friendly site chatbot!",
+      "who built you": "Shayan built me for his Smart World platform!",
+      "tell me a joke": "Why did the computer go to the doctor? It caught a virus! 😂"
+    };
+    for (let key in responses) {
+      if (lower.includes(key)) return responses[key];
+    }
+    return "Hmm... I don't know that yet, but I'm learning! 🤖";
+  }
+
+  function addMessage(sender, text) {
+    const div = document.createElement("div");
+    div.className = sender === "user" ? "text-right mb-2" : "text-left mb-2";
+    div.innerHTML = `<span class="inline-block px-3 py-2 rounded-lg ${sender === "user" ? "bg-primary-600 text-white" : "bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-white"}">${text}</span>`;
+    messages.appendChild(div);
+    messages.scrollTop = messages.scrollHeight;
+  }
+
+  sendBtn.addEventListener("click", () => {
+    const msg = input.value;
+    if (!msg.trim()) return;
+    addMessage("user", msg);
+    const reply = getBotResponse(msg);
+    setTimeout(() => addMessage("bot", reply), 500);
+    input.value = "";
+  });
+
+  input.addEventListener("keypress", (e) => {
+    if (e.key === "Enter") sendBtn.click();
+  });
+});
+</script>
 </body>
 </html>
