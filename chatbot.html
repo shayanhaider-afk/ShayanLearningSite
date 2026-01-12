@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Learning Chatbot | ShayanHaider</title>
+  <meta name="description" content="Educational chatbot for lessons and fun learning.">
+  
+  <style>
+    body {
+      font-family: "Times New Roman", serif;
+      background: #f4f4f4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .chatbot {
+      width: 350px;
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .chat-header {
+      background: #222;
+      color: white;
+      padding: 15px;
+      text-align: center;
+    }
+
+    .chat-body {
+      padding: 10px;
+      height: 300px;
+      overflow-y: auto;
+      font-size: 14px;
+    }
+
+    .bot, .user {
+      margin: 8px 0;
+      padding: 8px 12px;
+      border-radius: 10px;
+      max-width: 80%;
+    }
+
+    .bot {
+      background: #e0e0e0;
+      align-self: flex-start;
+    }
+
+    .user {
+      background: #ff9800;
+      color: white;
+      align-self: flex-end;
+    }
+
+    .chat-input {
+      display: flex;
+      border-top: 1px solid #ccc;
+    }
+
+    .chat-input input {
+      flex: 1;
+      padding: 10px;
+      border: none;
+      outline: none;
+    }
+
+    .chat-input button {
+      padding: 10px;
+      background: #222;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="chatbot">
+  <div class="chat-header">
+    🤖 Learning Chatbot
+  </div>
+
+  <div class="chat-body" id="chatBody">
+    <div class="bot">
+      Hello 👋<br>
+      I am your learning chatbot.<br><br>
+      📘 <b>Agenda today:</b><br>
+      1️⃣ Learn a short lesson<br>
+      2️⃣ Hear a joke<br><br>
+      Type <b>lesson</b> or <b>joke</b> 😊
+    </div>
+  </div>
+
+  <div class="chat-input">
+    <input type="text" id="userInput" placeholder="Type here..." />
+    <button onclick="sendMessage()">Send</button>
+  </div>
+</div>
+
+<script>
+  const chatBody = document.getElementById("chatBody");
+  const userInput = document.getElementById("userInput");
+
+  function sendMessage() {
+    const message = userInput.value.toLowerCase().trim();
+    if (message === "") return;
+
+    addMessage(message, "user");
+    userInput.value = "";
+
+    setTimeout(() => {
+      botReply(message);
+    }, 500);
+  }
+
+  function addMessage(text, sender) {
+    const msg = document.createElement("div");
+    msg.className = sender;
+    msg.innerText = text;
+    chatBody.appendChild(msg);
+    chatBody.scrollTop = chatBody.scrollHeight;
+  }
+
+  function botReply(message) {
+    let reply = "";
+
+    if (message.includes("lesson")) {
+      reply =
+        "📘 LESSON: Density\n\n" +
+        "Density tells us how heavy something is for its size.\n" +
+        "Formula:\n" +
+        "Density = Mass ÷ Volume\n\n" +
+        "Example:\n" +
+        "If mass = 10kg and volume = 2m³,\n" +
+        "Density = 5 kg/m³";
+    } 
+    else if (message.includes("joke")) {
+      reply =
+        "😂 Joke Time!\n\n" +
+        "Why did the math book look sad?\n" +
+        "Because it had too many problems!";
+    } 
+    else if (message.includes("hello") || message.includes("hi")) {
+      reply = "Hello! 😊 Type 'lesson' or 'joke' to begin.";
+    } 
+    else {
+      reply =
+        "🤔 I didn't understand that.\n\n" +
+        "Try typing:\n" +
+        "👉 lesson\n" +
+        "👉 joke";
+    }
+
+    addMessage(reply, "bot");
+  }
+
+  // Enter key support
+  userInput.addEventListener("keypress", function(e) {
+    if (e.key === "Enter") {
+      sendMessage();
+    }
+  });
+</script>
+
+</body>
+</html>
