@@ -189,9 +189,4 @@ if (document.getElementById('libraryList')) {
         lib.style.display = text.includes(term) ? "grid" : "none";
       });
     });
-}
-function getBotResponse(msg) {
-  const lower = msg.toLowerCase().trim();
-  const responses = { "hello": "Hey there!", "tell me a joke": "😂" };
-  ...responses
-}
+  }
